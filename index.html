@@ -1,0 +1,1251 @@
+<!doctype html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Quimiverse | Tabla periódica 3D</title><style>
+:root{--bg:#edf4f7;--card:#fff;--ink:#20313d;--muted:#657783;--accent:#467f92;--line:#d5e2e7;--shadow:0 15px 40px #23404d18}*{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:radial-gradient(circle at 10% 0%,#dceff4,transparent 35%),var(--bg);color:var(--ink)}header{position:sticky;top:0;z-index:10;background:#ffffffdd;backdrop-filter:blur(15px);border-bottom:1px solid var(--line);padding:15px 4%;display:flex;align-items:center;justify-content:space-between;gap:20px}header h2{margin:0;color:#315e70}nav{display:flex;gap:16px;flex-wrap:wrap}nav a{color:var(--ink);text-decoration:none;font-size:14px;font-weight:700}.wrap{max-width:1500px;margin:auto;padding:30px 4%}.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:25px;align-items:center}.hero,.panel,.element-card,.modal-content{background:var(--card);border:1px solid var(--line);border-radius:25px;box-shadow:var(--shadow)}.hero{padding:35px}.tag{color:var(--accent);font-weight:800;letter-spacing:2px;font-size:12px}h1{font-size:clamp(32px,5vw,68px);line-height:1.02;margin:15px 0}h1 span{color:var(--accent)}p{line-height:1.65;color:var(--muted)}button,select,input{font:inherit;border:1px solid var(--line);border-radius:12px;padding:11px 13px;background:white;color:var(--ink)}button{cursor:pointer;font-weight:700}.primary{background:var(--accent);color:white;border:0}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.atom{height:270px;display:grid;place-items:center;position:relative;perspective:700px}.nucleus{width:82px;height:82px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,#f6d99b,#c88750);box-shadow:0 0 35px #d9a76b88;font-size:34px;z-index:2}.orbit{position:absolute;border:2px solid #75a6b4aa;border-radius:50%;transform:rotateX(65deg) rotateZ(20deg);animation:spin 10s linear infinite}.o1{width:190px;height:190px}.o2{width:245px;height:245px;transform:rotateX(65deg) rotateZ(110deg);animation-duration:14s}.electron{position:absolute;width:14px;height:14px;background:#477f96;border-radius:50%;box-shadow:0 0 15px #477f96}.e1{transform:translate(95px,-65px)}.e2{transform:translate(-115px,40px)}.e3{transform:translate(25px,115px)}@keyframes spin{to{transform:rotateX(65deg) rotateZ(380deg)}}.panel{padding:24px;margin-top:25px}.section-head{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}.filters{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}.table-wrap{overflow:auto;padding-bottom:8px}.periodic{display:grid;grid-template-columns:repeat(18,minmax(58px,1fr));gap:6px;min-width:1100px}.el{min-height:82px;padding:6px;border-radius:10px;border:1px solid #ffffffaa;color:#17303a;position:relative;transition:.2s;cursor:pointer}.el:hover{transform:translateY(-4px) scale(1.03);box-shadow:0 8px 20px #2d556622;z-index:2}.el .num{font-size:10px}.el .sym{font-size:25px;font-weight:900}.el .name{font-size:9px;white-space:nowrap;overflow:hidden}.s{background:#d6e9f3}.p{background:#e7ddf5}.d{background:#f7e4b9}.f{background:#d6eedf}.n{background:#e5e8eb}.a{background:#f6d6d5}.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--muted)}.dot{display:inline-block;width:12px;height:12px;border-radius:4px;margin-right:4px}.layout{display:grid;grid-template-columns:1fr 1fr;gap:20px}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}.stat{padding:18px;background:#f5f9fa;border-radius:16px}.stat b{font-size:22px;color:var(--accent)}.danger{display:flex;gap:8px;flex-wrap:wrap}.risk{padding:8px 10px;border-radius:20px;font-size:12px;font-weight:800;background:#f2e4d4}.risk.safe{background:#d9efdf}.modal{position:fixed;inset:0;background:#17303a99;display:none;place-items:center;padding:20px;z-index:20}.modal.show{display:grid}.modal-content{max-width:950px;width:100%;max-height:90vh;overflow:auto;padding:28px}.close{float:right}.bohr{height:330px;display:grid;place-items:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#102d3c,#264b5c);border-radius:20px;color:white}.bohr .shell{position:absolute;border:1px solid #8cc5d488;border-radius:50%;animation:spin 18s linear infinite}.shell:nth-child(1){width:100px;height:100px}.shell:nth-child(2){width:170px;height:170px}.shell:nth-child(3){width:240px;height:240px}.shell:nth-child(4){width:300px;height:300px}.bohr-core{width:62px;height:62px;border-radius:50%;background:#e5a65e;display:grid;place-items:center;z-index:2}.lab-result{padding:20px;border-radius:16px;background:#e7f3ed;margin-top:15px}.quiz-option{display:block;width:100%;text-align:left;margin:8px 0}.bar{height:12px;border-radius:20px;background:#dce8ed;overflow:hidden}.bar span{display:block;height:100%;background:var(--accent)}footer{text-align:center;padding:30px;color:var(--muted)}@media(max-width:800px){.hero,.layout{grid-template-columns:1fr}.hero{padding:25px}header{align-items:flex-start;flex-direction:column}.periodic{min-width:1000px}}
+</style>
+<style id="quimiverse-enhancements-css">
+  .extra-tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+  .extra-tools button{font-size:13px}
+  .tool-modal{position:fixed;inset:0;background:#17303acc;display:none;place-items:center;padding:20px;z-index:40}
+  .tool-modal.show{display:grid}
+  .tool-window{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:25px;box-shadow:var(--shadow);width:min(760px,100%);max-height:92vh;overflow:auto;padding:25px}
+  .tool-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .tool-head h2{margin:0}
+  .calc-display{width:100%;font-size:28px;text-align:right;padding:15px;background:#f3f7f8;border-radius:14px;margin:12px 0;border:1px solid var(--line)}
+  .calc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .calc-grid button{min-height:48px}
+  .calc-grid .calc-equals{background:var(--accent);color:white}
+  .calc-history{font-size:13px;color:var(--muted);margin-top:12px;max-height:120px;overflow:auto}
+  .element-photo{width:100%;max-height:260px;object-fit:contain;border-radius:16px;background:#f5f9fa;padding:10px}
+  .info-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+  .info-tabs button.active{background:var(--accent);color:white}
+  .learning-box{padding:16px;border-radius:16px;background:#f5f9fa;margin-top:14px}
+  body.dark-mode{--bg:#101b22;--card:#172832;--ink:#edf6f8;--muted:#afc1c9;--accent:#78b8cf;--line:#34515e;--shadow:0 15px 40px #0008}
+  body.dark-mode header{background:#172832dd}
+  body.dark-mode button,body.dark-mode select,body.dark-mode input{background:#213944;color:var(--ink);border-color:var(--line)}
+  body.dark-mode .calc-display,body.dark-mode .learning-box,body.dark-mode .stat{background:#213944}
+  @media(max-width:600px){.calc-grid{gap:5px}.calc-grid button{padding:8px 2px;font-size:13px}.tool-window{padding:16px}}
+</style>
+
+<style id="quimiverse-pro-css">
+.qv-pro-tools{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+.qv-pro-btn{border:0;border-radius:14px;padding:11px 15px;background:#edf2ff;color:#243b72;font-weight:800;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.qv-pro-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px #0001}
+.qv-pro-btn.dark{background:#20283a;color:#fff}
+.qv-pro-modal{position:fixed;inset:0;background:#0b1024aa;display:none;align-items:center;justify-content:center;padding:20px;z-index:9999}
+.qv-pro-modal.open{display:flex}
+.qv-pro-card{background:var(--card,#fff);color:var(--text,#182033);width:min(1050px,100%);max-height:90vh;overflow:auto;border-radius:24px;padding:24px;box-shadow:0 25px 80px #0004}
+.qv-pro-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.qv-pro-field{display:flex;flex-direction:column;gap:6px}
+.qv-pro-field input,.qv-pro-field select,.qv-pro-field textarea{border:1px solid #ccd4e5;border-radius:10px;padding:10px;background:transparent;color:inherit}
+.qv-pro-close{float:right;border:0;background:#eef1f8;border-radius:50%;width:34px;height:34px;cursor:pointer}
+.qv-pro-result{margin-top:14px;padding:14px;border-radius:14px;background:#f4f7ff;white-space:pre-wrap}
+.qv-orbitals{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:12px}
+.qv-orbital{border:1px solid #d5dcef;border-radius:12px;padding:10px;text-align:center}
+.qv-boxes{display:flex;justify-content:center;gap:4px;margin-top:7px;flex-wrap:wrap}
+.qv-box{border:1px solid #7c8db5;width:24px;height:28px;display:grid;place-items:center;border-radius:4px;font-size:12px}
+.qv-trend{height:18px;background:linear-gradient(90deg,#e9efff,#8ba9ff,#3658c9);border-radius:20px}
+.qv-quiz-option{display:block;width:100%;text-align:left;margin:8px 0;padding:12px;border:1px solid #ccd4e5;border-radius:12px;background:transparent;color:inherit;cursor:pointer}
+.qv-quiz-option:hover{background:#edf2ff;color:#182033}
+body.qv-enhanced .qv-pro-btn{letter-spacing:.1px}
+@media(prefers-reduced-motion:no-preference){.qv-pro-card{animation:qvPop .18s ease-out}@keyframes qvPop{from{transform:scale(.97);opacity:0}to{transform:scale(1);opacity:1}}}
+</style>
+
+<style id="qv-first-person-lab-css">
+.qv-firstlab-stage{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+.qv-firstlab-scene{position:relative;min-height:340px;border-radius:22px;overflow:hidden;background:linear-gradient(145deg,#17253b,#405a70 55%,#a7b7bb);padding:20px;color:#fff}
+.qv-firstlab-scene:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 75% 18%,#ffffff55,transparent 25%),linear-gradient(transparent 65%,#11182799);pointer-events:none}
+.qv-lab-shelf{position:absolute;top:35px;left:8%;right:8%;height:12px;background:#b9c5ca;border-radius:8px;box-shadow:0 55px 0 #b9c5ca}
+.qv-lab-bottle{position:absolute;bottom:58px;width:54px;height:92px;border-radius:10px 10px 18px 18px;background:#dce9f0cc;border:3px solid #fff8;display:flex;align-items:center;justify-content:center;color:#23334b;font-weight:900;font-size:11px}
+.qv-lab-bottle:before{content:"";position:absolute;top:-17px;width:25px;height:20px;background:#d4dde4;border-radius:4px 4px 0 0}
+.qv-lab-bottle.b1{left:13%}.qv-lab-bottle.b2{left:34%;height:120px;background:#f5d48dcc}.qv-lab-bottle.b3{left:57%;height:78px;background:#9ce1d5cc}.qv-lab-bottle.b4{left:77%;height:105px;background:#c2b3f0cc}
+.qv-lab-counter{position:absolute;bottom:0;left:0;right:0;height:58px;background:#26384a;box-shadow:0 -8px 25px #0004}
+.qv-lab-notebook{position:relative;z-index:2;background:#ffffffea;color:#243247;border-radius:15px;padding:14px;max-width:320px;margin-top:120px;box-shadow:0 12px 30px #0003}
+.qv-firstlab-panel{border:1px solid #d6deeb;border-radius:18px;padding:16px;background:var(--card,#fff)}
+.qv-firstlab-panel input,.qv-firstlab-panel select{width:100%;padding:10px;border-radius:10px;border:1px solid #cbd5e1;margin:5px 0 12px;background:transparent;color:inherit}
+.qv-firstlab-log{min-height:105px;background:#f3f6fb;color:#26334a;border-radius:12px;padding:12px;white-space:pre-wrap}
+.qv-firstlab-safety{background:#fff5d8;color:#674b10;border-radius:12px;padding:12px;margin-top:12px;font-size:13px}
+@media(max-width:760px){.qv-firstlab-stage{grid-template-columns:1fr}.qv-firstlab-scene{min-height:300px}}
+</style>
+
+<style id="qv-balance-3d-style">
+.qv-balance3d{margin:18px 0 8px;padding:18px;border-radius:18px;background:linear-gradient(145deg,#071923,#123747);color:#fff;perspective:900px;overflow:hidden}
+.qv-balance3d h3{margin:0 0 8px;text-align:center;color:#fff}
+.qv-balance-scene{height:250px;position:relative;display:flex;align-items:flex-end;justify-content:center;transform-style:preserve-3d}
+.qv-scale{position:relative;width:min(560px,92%);height:210px;transform-style:preserve-3d}
+.qv-pillar{position:absolute;left:50%;bottom:24px;width:24px;height:125px;transform:translateX(-50%) translateZ(15px);background:linear-gradient(90deg,#71808a,#d8e0e4,#65747e);border-radius:8px;box-shadow:0 8px 18px #0008}
+.qv-base{position:absolute;left:50%;bottom:10px;width:210px;height:28px;transform:translateX(-50%) translateZ(0) rotateX(8deg);background:linear-gradient(#8a9ba4,#40525c);border-radius:18px;box-shadow:0 10px 18px #0008}
+.qv-beam{position:absolute;left:50%;bottom:137px;width:460px;max-width:90%;height:15px;transform:translateX(-50%) rotateZ(0deg) translateZ(25px);transform-origin:50% 50%;background:linear-gradient(#dbe6ea,#71838c);border-radius:12px;box-shadow:0 5px 12px #0009;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.qv-pan{position:absolute;bottom:69px;width:145px;height:78px;transform-style:preserve-3d;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.qv-pan.left{left:4px}.qv-pan.right{right:4px}
+.qv-pan-bowl{position:absolute;inset:0;border:4px solid #aebdc4;border-top:0;border-radius:0 0 80px 80px;background:linear-gradient(180deg,#29434eaa,#07131baa);transform:rotateX(8deg);box-shadow:inset 0 -10px 20px #0008}
+.qv-pan-label{position:absolute;top:72px;width:100%;text-align:center;font-size:11px;opacity:.85}
+.qv-materials{position:absolute;top:5px;left:50%;transform:translateX(-50%);display:flex;gap:5px;justify-content:center;flex-wrap:wrap;width:120px;z-index:3}
+.qv-atom3d{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:10px;font-weight:800;color:#fff;background:radial-gradient(circle at 30% 25%,#fff8,#35a4c8 25%,#0c536e 70%);box-shadow:inset -4px -5px 8px #0007,0 4px 7px #0007;animation:qvFloat 1.8s ease-in-out infinite}
+.qv-atom3d:nth-child(2){animation-delay:.2s}.qv-atom3d:nth-child(3){animation-delay:.4s}.qv-atom3d:nth-child(4){animation-delay:.6s}
+.qv-balance-status{text-align:center;font-weight:800;margin-top:4px;min-height:24px}.qv-balance-status.ok{color:#75f0a4}.qv-balance-status.work{color:#ffd166}.qv-balance-status.bad{color:#ff8e8e}
+.qv-balance3d.correct .qv-beam{transform:translateX(-50%) rotateZ(0deg) translateZ(25px)}
+.qv-balance3d.correct .qv-pan.left,.qv-balance3d.correct .qv-pan.right{transform:translateY(0) rotateZ(0deg)}
+.qv-balance3d.correct{box-shadow:0 0 0 2px #51e58b55,0 0 35px #51e58b22 inset}
+.qv-balance3d.correct .qv-atom3d{animation:qvPulse .9s ease-in-out infinite}
+.qv-balance3d.working .qv-beam{animation:qvBeam 1.1s ease-in-out infinite}
+.qv-balance3d.working .qv-pan.left{animation:qvLeftPan 1.1s ease-in-out infinite}.qv-balance3d.working .qv-pan.right{animation:qvRightPan 1.1s ease-in-out infinite}
+@keyframes qvBeam{0%,100%{transform:translateX(-50%) rotateZ(-5deg) translateZ(25px)}50%{transform:translateX(-50%) rotateZ(5deg) translateZ(25px)}}
+@keyframes qvLeftPan{0%,100%{transform:translateY(8px)}50%{transform:translateY(-3px)}}
+@keyframes qvRightPan{0%,100%{transform:translateY(-3px)}50%{transform:translateY(8px)}}
+@keyframes qvFloat{0%,100%{transform:translateY(0) translateZ(8px)}50%{transform:translateY(-7px) translateZ(15px)}}
+@keyframes qvPulse{0%,100%{box-shadow:inset -4px -5px 8px #0007,0 4px 7px #0007}50%{box-shadow:inset -4px -5px 8px #0007,0 0 18px #75f0a4}}
+@media(max-width:600px){.qv-beam{width:340px}.qv-pan{width:105px}.qv-base{width:160px}.qv-scale{transform:scale(.86)}}
+</style>
+
+<style id="responsive-only-override">
+/* RESPONSIVE ONLY: no functionality/content changes */
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+img,svg,video,canvas{max-width:100%;height:auto}
+button,select,input,textarea{max-width:100%}
+.wrap{width:100%}
+.panel,.hero,.modal-content,.tool-window,.qv-pro-card{min-width:0}
+.table-wrap{-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+@media (max-width: 900px){
+  .wrap{padding-left:3%;padding-right:3%}
+  .hero{grid-template-columns:1fr}
+  .layout{grid-template-columns:1fr}
+  header{padding:12px 3%;gap:12px}
+  header>div,header>nav{max-width:100%}
+  nav{gap:8px}
+  .extra-tools{width:100%}
+  .extra-tools button{flex:1 1 auto}
+  .qv-firstlab-stage{grid-template-columns:1fr}
+}
+@media (max-width: 700px){
+  header{position:relative}
+  header h2{font-size:20px}
+  header>div{width:100%}
+  header nav{width:100%;justify-content:center}
+  nav a{padding:7px 5px;font-size:13px}
+  .wrap{padding:16px 3%}
+  .hero{padding:22px 16px;border-radius:18px}
+  h1{font-size:clamp(30px,10vw,48px)}
+  .atom{height:210px;transform:scale(.82)}
+  .panel{padding:16px;margin-top:16px;border-radius:18px}
+  .section-head{align-items:stretch}
+  .section-head input{width:100%}
+  .filters{align-items:stretch}
+  .filters button,.filters select{flex:1 1 140px}
+  .periodic{grid-template-columns:repeat(18,minmax(54px,1fr));min-width:1010px}
+  .el{min-height:74px}
+  .el .sym{font-size:21px}
+  .el .name{font-size:8px}
+  .cards{grid-template-columns:1fr}
+  .modal{padding:10px}
+  .modal-content,.tool-window,.qv-pro-card{padding:16px;border-radius:18px;max-height:94vh}
+  .qv-firstlab-scene{min-height:270px}
+  .qv-lab-notebook{max-width:78%;margin-top:105px}
+  .qv-balance3d{padding:12px}
+  .qv-balance-scene{height:210px}
+  .qv-scale{transform:scale(.8);transform-origin:center bottom}
+}
+@media (max-width: 420px){
+  .wrap{padding-left:10px;padding-right:10px}
+  header{padding:10px}
+  header h2{font-size:18px}
+  nav{gap:3px}
+  nav a{font-size:12px;padding:6px 4px}
+  .extra-tools{gap:5px}
+  .extra-tools button{font-size:12px;padding:9px 7px}
+  .hero{padding:18px 12px}
+  .actions button{width:100%}
+  .atom{height:180px;transform:scale(.68)}
+  .panel{padding:12px}
+  .filters button,.filters select{flex:1 1 100%}
+  .tool-window,.qv-pro-card{padding:12px}
+  .qv-pro-grid{grid-template-columns:1fr}
+  .qv-firstlab-scene{min-height:240px}
+  .qv-lab-bottle{transform:scale(.8);transform-origin:bottom center}
+  .qv-lab-notebook{font-size:12px;padding:10px;margin-top:85px}
+}
+@media (orientation:landscape) and (max-height:520px) and (max-width:900px){
+  .hero{padding-top:14px;padding-bottom:14px}
+  .atom{height:150px;transform:scale(.62)}
+  .modal-content,.tool-window,.qv-pro-card{max-height:88vh}
+}
+</style>
+
+</head><body><header><h2>⚛ QUIMIVERSE</h2><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><label for="language" style="font-size:13px;font-weight:700">🌐</label><select id="language" onchange="changeLanguage(this.value)" aria-label="Idioma">
+<option value="es">Español</option>
+<option value="en">Inglés</option>
+<option value="fr">Francés</option>
+<option value="de">Alemán</option>
+<option value="it">Italiano</option>
+<option value="pt">Portugués</option>
+<option value="ru">Ruso</option>
+<option value="zh">Chino</option>
+<option value="ja">Japonés</option>
+<option value="ko">Coreano</option>
+<option value="ar">Árabe</option>
+</select></div><nav><a href="#tabla">Tabla</a><a href="#comparador">Comparador</a><a href="#laboratorio">Laboratorio</a><a href="#logros">Logros</a></nav>
+<div class="extra-tools" aria-label="Herramientas adicionales">
+  <button onclick="openCalculator()">🧮 Calculadora</button>
+  <button onclick="openLearningMode()">📚 Aprendizaje</button>
+  <button onclick="toggleDarkMode()">🌙 Modo oscuro</button>
+  <button onclick="toggleFullscreen()">⛶ Pantalla completa</button>
+</div>
+</header><main class="wrap"><section class="hero"><div><div class="tag">LABORATORIO DIGITAL · INGENIERÍA QUÍMICA</div><h1>La materia, <span>elemento por elemento.</span></h1><p>Explora los 118 elementos, sus propiedades, estructura electrónica, riesgos y aplicaciones en una experiencia educativa interactiva.</p><div class="actions"><button class="primary" onclick="document.querySelector('#tabla').scrollIntoView()">Explorar tabla</button><button onclick="randomElement()">Elemento aleatorio ↗</button></div></div><div class="atom"><div class="orbit o1"></div><div class="orbit o2"></div><div class="nucleus">⚛</div><i class="electron e1"></i><i class="electron e2"></i><i class="electron e3"></i></div></section>
+<section class="panel" id="tabla"><div class="section-head"><div><h2>Tabla periódica interactiva</h2><p>Selecciona cualquier elemento para consultar su ficha.</p></div><input id="search" placeholder="Buscar nombre o símbolo..." oninput="renderTable()"></div><div class="filters"><button onclick="filterType('all')">Todos</button><button onclick="filterType('metal')">Metales</button><button onclick="filterType('nonmetal')">No metales</button><button onclick="filterType('noble')">Gases nobles</button><button onclick="filterType('radio')">Radiactivos</button></div><div class="legend"><span><i class="dot s"></i>Representativos</span><span><i class="dot d"></i>Transición</span><span><i class="dot f"></i>Lantánidos/actínidos</span><span><i class="dot p"></i>No metales</span></div><div class="table-wrap"><div id="periodic" class="periodic"></div></div></section>
+<section class="layout"><section class="panel" id="comparador"><h2>Comparador de elementos</h2><p>Elige dos elementos para comparar sus propiedades.</p><div class="filters"><select id="compareA"></select><select id="compareB"></select><button class="primary" onclick="compare()">Comparar</button></div><div id="comparison" class="cards"></div></section><section class="panel"><h2>Gráfica de propiedades</h2><p>Visualización relativa de masa atómica y electronegatividad.</p><label>Propiedad <select id="chartProp" onchange="drawChart()"><option value="mass">Masa atómica</option><option value="en">Electronegatividad</option><option value="radius">Radio atómico</option></select></label><div id="chart" style="margin-top:20px"></div></section></section>
+<section class="panel" id="laboratorio"><h2>🧪 Laboratorio virtual</h2><p>Selecciona una reacción educativa para conocer el compuesto formado.</p><div class="filters"><button onclick="reaction('Na','Cl')">Na + Cl</button><button onclick="reaction('H','O')">H + O</button><button onclick="reaction('Ca','O')">Ca + O</button><button onclick="reaction('C','O')">C + O</button></div><div id="labResult" class="lab-result">Selecciona una combinación para comenzar.</div></section>
+<section class="panel" id="logros"><h2>🏆 Sistema de logros y examen</h2><p>Identifica elementos y responde preguntas para desbloquear categorías.</p><div class="cards"><div class="stat"><b id="identified">0</b><br>Elementos identificados</div><div class="stat"><b id="compounds">0</b><br>Compuestos identificados</div><div class="stat"><b id="rank">Principiante</b><br>Nivel actual</div></div><div id="quiz" style="margin-top:20px"></div><button class="primary" onclick="startQuiz()">Iniciar examen</button></section></main><footer>Quimiverse · Proyecto educativo de química · Verifica los datos con fuentes científicas antes de usarlos en laboratorio.</footer>
+
+<div class="tool-modal" id="calculatorModal" aria-hidden="true">
+  <div class="tool-window">
+    <div class="tool-head"><h2>🧮 Calculadora científica</h2><button onclick="closeTool('calculatorModal')">✕</button></div>
+    <input id="calcDisplay" class="calc-display" value="0" aria-label="Pantalla de calculadora" readonly>
+    <div class="calc-grid">
+      <button onclick="calcClear()">AC</button><button onclick="calcBack()">⌫</button><button onclick="calcInsert('(')">(</button><button onclick="calcInsert(')')">)</button><button onclick="calcInsert('/')">÷</button>
+      <button onclick="calcInsert('sin(')">sin</button><button onclick="calcInsert('cos(')">cos</button><button onclick="calcInsert('tan(')">tan</button><button onclick="calcInsert('sqrt(')">√</button><button onclick="calcInsert('*')">×</button>
+      <button onclick="calcInsert('7')">7</button><button onclick="calcInsert('8')">8</button><button onclick="calcInsert('9')">9</button><button onclick="calcInsert('^')">xʸ</button><button onclick="calcInsert('-')">−</button>
+      <button onclick="calcInsert('4')">4</button><button onclick="calcInsert('5')">5</button><button onclick="calcInsert('6')">6</button><button onclick="calcInsert('log(')">log</button><button onclick="calcInsert('+')">+</button>
+      <button onclick="calcInsert('1')">1</button><button onclick="calcInsert('2')">2</button><button onclick="calcInsert('3')">3</button><button onclick="calcInsert('ln(')">ln</button><button class="calc-equals" onclick="calcEvaluate()">=</button>
+      <button onclick="calcInsert('0')">0</button><button onclick="calcInsert('.')">.</button><button onclick="calcInsert('pi')">π</button><button onclick="calcInsert('e')">e</button><button onclick="calcClear()">C</button>
+    </div>
+    <div class="filters" style="margin-top:14px">
+      <button onclick="openMolarCalculator()">⚗️ Masa molar</button>
+      <button onclick="openUnitConverter()">📏 Conversor</button>
+    </div>
+    <div id="calcHistory" class="calc-history">Historial vacío.</div>
+  </div>
+</div>
+
+<div class="tool-modal" id="molarModal" aria-hidden="true">
+  <div class="tool-window">
+    <div class="tool-head"><h2>⚗️ Calculadora de masa molar</h2><button onclick="closeTool('molarModal')">✕</button></div>
+    <p>Escribe una fórmula sencilla, por ejemplo H2SO4, NaCl o CaCO3.</p>
+    <input id="formulaInput" placeholder="H2SO4" style="width:100%">
+    <button class="primary" style="margin-top:10px" onclick="calculateMolarMass()">Calcular</button>
+    <div id="molarResult" class="learning-box">Resultado pendiente.</div>
+  </div>
+</div>
+
+<div class="tool-modal" id="unitModal" aria-hidden="true">
+  <div class="tool-window">
+    <div class="tool-head"><h2>📏 Conversor de unidades</h2><button onclick="closeTool('unitModal')">✕</button></div>
+    <div class="filters">
+      <input id="unitValue" type="number" placeholder="Valor">
+      <select id="unitFrom"><option value="g">g</option><option value="kg">kg</option><option value="mg">mg</option><option value="L">L</option><option value="mL">mL</option><option value="C">°C</option><option value="K">K</option><option value="atm">atm</option><option value="Pa">Pa</option></select>
+      <span>→</span>
+      <select id="unitTo"><option value="kg">kg</option><option value="g">g</option><option value="mg">mg</option><option value="L">L</option><option value="mL">mL</option><option value="C">°C</option><option value="K">K</option><option value="atm">atm</option><option value="Pa">Pa</option></select>
+    </div>
+    <button class="primary" onclick="convertUnits()">Convertir</button>
+    <div id="unitResult" class="learning-box">Resultado pendiente.</div>
+  </div>
+</div>
+
+<div class="tool-modal" id="learningModal" aria-hidden="true">
+  <div class="tool-window">
+    <div class="tool-head"><h2>📚 Modo aprendizaje</h2><button onclick="closeTool('learningModal')">✕</button></div>
+    <p>Repasa conceptos básicos de química y consulta las tendencias periódicas.</p>
+    <div class="learning-box">
+      <h3>Configuración electrónica</h3>
+      <p>La configuración electrónica describe cómo se distribuyen los electrones en niveles y orbitales. En la ficha de cada elemento se muestran los niveles electrónicos disponibles.</p>
+      <p><strong>Reglas:</strong> Aufbau, principio de exclusión de Pauli y regla de Hund.</p>
+    </div>
+    <div class="learning-box">
+      <h3>Tendencias periódicas</h3>
+      <p>En general, el radio atómico aumenta hacia abajo y hacia la izquierda; la electronegatividad y la energía de ionización tienden a aumentar hacia arriba y hacia la derecha, con excepciones.</p>
+    </div>
+    <div class="learning-box">
+      <h3>Repaso rápido</h3>
+      <p id="learningQuestion">¿Cuál es el número atómico del oxígeno?</p>
+      <button onclick="checkLearning(8)">8</button>
+      <button onclick="checkLearning(16)">16</button>
+      <button onclick="checkLearning(6)">6</button>
+      <p id="learningFeedback"></p>
+    </div>
+  </div>
+</div>
+
+<div class="qv-pro-tools" aria-label="Herramientas avanzadas de Quimiverse">
+  <button class="qv-pro-btn" onclick="qvOpen('qvDataModal')">🧬 Datos reales</button>
+  <button class="qv-pro-btn" onclick="qvOpen('qvChemModal')">⚗️ Calculadora química</button>
+  <button class="qv-pro-btn" onclick="qvOpen('qvOrbitalModal')">🔬 Orbitales</button>
+  <button class="qv-pro-btn" onclick="qvOpen('qvExamModal');qvStartExam()">🎓 Exámenes</button>
+  <button class="qv-pro-btn" onclick="qvOpen('qvTrendModal');qvDrawTrend()">📈 Tendencias</button>
+  <button class="qv-pro-btn" onclick="qvOpen('qvBalanceModal')">⚖️ Balanceador</button>
+  <button class="qv-pro-btn" onclick="qvOpen('qvLabModal')">🧪 Laboratorio Pro</button>
+</div>
+
+<div class="qv-pro-modal" id="qvDataModal"><div class="qv-pro-card">
+<button class="qv-pro-close" onclick="qvClose('qvDataModal')">✕</button><h2>🧬 Datos verificados de los elementos</h2>
+<p>Consulta el número atómico, símbolo, masa atómica aproximada y configuración electrónica generada mediante el orden de llenado. Para uso profesional, confirma los valores con una fuente especializada.</p>
+<div class="qv-pro-grid"><div class="qv-pro-field"><label>Elemento</label><select id="qvElementSelect" onchange="qvShowData()"></select></div><div class="qv-pro-field"><label>Búsqueda por nombre o símbolo</label><input id="qvDataSearch" oninput="qvFilterData()" placeholder="Ej. oxígeno, Fe"></div></div>
+<div id="qvDataResult" class="qv-pro-result"></div></div></div>
+
+<div class="qv-pro-modal" id="qvChemModal"><div class="qv-pro-card">
+<button class="qv-pro-close" onclick="qvClose('qvChemModal')">✕</button><h2>⚗️ Calculadora química avanzada</h2>
+<div class="qv-pro-grid">
+<div class="qv-pro-field"><label>Masa (g)</label><input id="qvMass" type="number" step="any"></div><div class="qv-pro-field"><label>Moles (mol)</label><input id="qvMoles" type="number" step="any"></div><div class="qv-pro-field"><label>Volumen (L)</label><input id="qvVolume" type="number" step="any"></div><div class="qv-pro-field"><label>Concentración (mol/L)</label><input id="qvConc" type="number" step="any"></div><div class="qv-pro-field"><label>Temperatura (K)</label><input id="qvTemp" type="number" step="any" value="298.15"></div><div class="qv-pro-field"><label>Presión (atm)</label><input id="qvPressure" type="number" step="any" value="1"></div></div>
+<div class="qv-pro-tools"><button class="qv-pro-btn" onclick="qvCalcMoles()">g → mol</button><button class="qv-pro-btn" onclick="qvCalcMolarity()">Molaridad</button><button class="qv-pro-btn" onclick="qvCalcIdealGas()">Gas ideal</button><button class="qv-pro-btn" onclick="qvCalcDensity()">Densidad</button></div>
+<div class="qv-pro-field"><label>Fórmula química para masa molar</label><input id="qvFormula" placeholder="H2SO4"><button class="qv-pro-btn" onclick="qvCalcFormula()">Calcular masa molar</button></div><div id="qvChemResult" class="qv-pro-result"></div>
+</div></div>
+
+<div class="qv-pro-modal" id="qvOrbitalModal"><div class="qv-pro-card">
+<button class="qv-pro-close" onclick="qvClose('qvOrbitalModal')">✕</button><h2>🔬 Configuración electrónica y orbitales</h2>
+<div class="qv-pro-field"><label>Elemento</label><select id="qvOrbitalSelect" onchange="qvShowOrbitals()"></select></div><div id="qvOrbitalResult" class="qv-pro-result"></div>
+</div></div>
+
+<div class="qv-pro-modal" id="qvExamModal"><div class="qv-pro-card">
+<button class="qv-pro-close" onclick="qvClose('qvExamModal')">✕</button><h2>🎓 Modo aprendizaje y examen</h2><div id="qvExamProgress"></div><div id="qvExamQuestion" class="qv-pro-result"></div><div id="qvExamOptions"></div><div id="qvExamFeedback"></div><button class="qv-pro-btn" onclick="qvStartExam()">Nuevo examen</button>
+</div></div>
+
+<div class="qv-pro-modal" id="qvTrendModal"><div class="qv-pro-card">
+<button class="qv-pro-close" onclick="qvClose('qvTrendModal')">✕</button><h2>📈 Tendencias periódicas</h2><div class="qv-pro-field"><label>Propiedad</label><select id="qvTrendSelect" onchange="qvDrawTrend()"><option>Radio atómico</option><option>Energía de ionización</option><option>Electronegatividad</option></select></div><div id="qvTrendResult" class="qv-pro-result"></div><div class="qv-trend"></div><p>En términos generales, el radio atómico aumenta hacia abajo y hacia la izquierda; la energía de ionización y la electronegatividad tienden a aumentar hacia arriba y hacia la derecha. Existen excepciones.</p>
+</div></div>
+
+<div class="qv-pro-modal" id="qvBalanceModal"><div class="qv-pro-card">
+<button class="qv-pro-close" onclick="qvClose('qvBalanceModal')">✕</button><h2>⚖️ Balanceador de ecuaciones</h2><p>Escribe reactivos y productos separados por <b>→</b> o <b>=</b>. Ejemplo: H2 + O2 → H2O</p><div class="qv-pro-field"><label>Ecuación</label><input id="qvEquation" placeholder="H2 + O2 → H2O"></div><button class="qv-pro-btn" onclick="qvBalance()">Balancear</button><div id="qvBalanceResult" class="qv-pro-result"></div>
+<div id="qvBalance3D" class="qv-balance3d" aria-live="polite">
+  <h3>⚖️ Balanza 3D del balanceo</h3>
+  <div class="qv-balance-scene"><div class="qv-scale">
+    <div class="qv-pillar"></div><div class="qv-base"></div><div id="qvBalanceBeam" class="qv-beam"></div>
+    <div id="qvBalanceLeft" class="qv-pan left"><div class="qv-pan-bowl"></div><div id="qvBalanceLeftAtoms" class="qv-materials"></div><div class="qv-pan-label">Reactivos</div></div>
+    <div id="qvBalanceRight" class="qv-pan right"><div class="qv-pan-bowl"></div><div id="qvBalanceRightAtoms" class="qv-materials"></div><div class="qv-pan-label">Productos</div></div>
+  </div></div>
+  <div id="qvBalanceStatus" class="qv-balance-status">Introduce una ecuación y pulsa «Balancear».</div>
+</div>
+</div></div>
+
+<div class="qv-pro-modal" id="qvLabModal"><div class="qv-pro-card">
+<button class="qv-pro-close" onclick="qvClose('qvLabModal')">✕</button><h2>🧪 Laboratorio virtual</h2><p>Simulaciones educativas para practicar conceptos básicos.</p><div class="qv-pro-grid">
+<button class="qv-pro-btn" onclick="qvLab('acid')">pH ácido</button><button class="qv-pro-btn" onclick="qvLab('base')">pH básico</button><button class="qv-pro-btn" onclick="qvLab('titration')">Titulación</button><button class="qv-pro-btn" onclick="qvLab('gas')">Gas ideal</button><button class="qv-pro-btn" onclick="qvLab('solubility')">Solubilidad</button><button class="qv-pro-btn" onclick="qvLab('flame')">Prueba de flama</button></div><div id="qvLabResult" class="qv-pro-result">Selecciona una simulación.</div>
+</div></div>
+<div class="modal" id="modal"><div class="modal-content"><button class="close" onclick="closeModal()">✕</button><div id="details"></div></div></div><script>
+const names=`H Hidrógeno|He Helio|Li Litio|Be Berilio|B Boro|C Carbono|N Nitrógeno|O Oxígeno|F Flúor|Ne Neón|Na Sodio|Mg Magnesio|Al Aluminio|Si Silicio|P Fósforo|S Azufre|Cl Cloro|Ar Argón|K Potasio|Ca Calcio|Sc Escandio|Ti Titanio|V Vanadio|Cr Cromo|Mn Manganeso|Fe Hierro|Co Cobalto|Ni Níquel|Cu Cobre|Zn Zinc|Ga Galio|Ge Germanio|As Arsénico|Se Selenio|Br Bromo|Kr Criptón|Rb Rubidio|Sr Estroncio|Y Itrio|Zr Circonio|Nb Niobio|Mo Molibdeno|Tc Tecnecio|Ru Rutenio|Rh Rodio|Pd Paladio|Ag Plata|Cd Cadmio|In Indio|Sn Estaño|Sb Antimonio|Te Telurio|I Yodo|Xe Xenón|Cs Cesio|Ba Bario|La Lantano|Ce Cerio|Pr Praseodimio|Nd Neodimio|Pm Prometio|Sm Samario|Eu Europio|Gd Gadolinio|Tb Terbio|Dy Disprosio|Ho Holmio|Er Erbio|Tm Tulio|Yb Iterbio|Lu Lutecio|Hf Hafnio|Ta Tantalio|W Wolframio|Re Renio|Os Osmio|Ir Iridio|Pt Platino|Au Oro|Hg Mercurio|Tl Talio|Pb Plomo|Bi Bismuto|Po Polonio|At Astato|Rn Radón|Fr Francio|Ra Radio|Ac Actinio|Th Torio|Pa Protactinio|U Uranio|Np Neptunio|Pu Plutonio|Am Americio|Cm Curio|Bk Berkelio|Cf Californio|Es Einsteinio|Fm Fermio|Md Mendelevio|No Nobelio|Lr Lawrencio|Rf Rutherfordio|Db Dubnio|Sg Seaborgio|Bh Bohrio|Hs Hassio|Mt Meitnerio|Ds Darmstadtio|Rg Roentgenio|Cn Copernicio|Nh Nihonio|Fl Flerovio|Mc Moscovio|Lv Livermorio|Ts Tenesino|Og Oganesón`.split('|');
+const symbols=names.map(x=>x.split(' ')[0]), elements=names.map((x,i)=>{let [symbol,...rest]=x.split(' ');let name=rest.join(' ');let group=([2,10,18,36,54,86,118].includes(i+1)?18:((i%18)+1));let period=Math.floor(i/18)+1;let type=i>=57&&i<=71?'f':i>=89&&i<=103?'f':i%18>=2&&i%18<=11?'d':i%2?'p':'s';let mass=+(i*2.02+1.008).toFixed(3);let en=+(0.7+(i%40)*.055).toFixed(2);let radius=+(25+(i%60)*2.1).toFixed(1);let radio=[43,61,84,85,86,87,88,...Array.from({length:28},(_,k)=>90+k)].includes(i+1);return {z:i+1,symbol,name,group,period,type,mass,en,radius,radio,category:type==='d'?'metal':radio?'radio':group===18?'noble':type==='p'?'nonmetal':'metal'};});
+let activeFilter='all',identified=0,compounds=0,quizIndex=0;const reactions={NaCl:['Na + Cl₂ → 2NaCl','Cloruro de sodio: compuesto iónico formado por sodio y cloro.'],HO:['2H₂ + O₂ → 2H₂O','Agua: compuesto molecular formado por hidrógeno y oxígeno.'],CaO:['2Ca + O₂ → 2CaO','Óxido de calcio: compuesto iónico.'],CO:['C + O₂ → CO₂','Dióxido de carbono: compuesto molecular.']};
+function filterType(x){activeFilter=x;renderTable()}function renderTable(){let q=(document.getElementById('search').value||'').toLowerCase();let box=document.getElementById('periodic');box.innerHTML='';elements.forEach((e,i)=>{if(activeFilter!=='all'&&e.category!==activeFilter)return;if(q&&!(`${e.name} ${e.symbol}`.toLowerCase().includes(q)))return;let d=document.createElement('button');d.className='el '+e.type;d.style.gridColumn=((i%18)+1);d.style.gridRow=(Math.floor(i/18)+1);d.innerHTML=`<div class="num">${e.z}</div><div class="sym">${e.symbol}</div><div class="name">${e.name}</div>`;d.onclick=()=>openElement(e);box.appendChild(d)})}
+function openElement(e){let shells=[];let n=e.z;[2,8,18,32,32,18,8].forEach(cap=>{if(n>0){shells.push(Math.min(n,cap));n-=cap}});document.getElementById('details').innerHTML=`<h2>${e.z}. ${e.name} (${e.symbol})</h2><div class="layout"><div><div class="bohr"><div class="shell"></div><div class="shell"></div><div class="shell"></div><div class="shell"></div><div class="bohr-core">${e.z}</div></div><p style="text-align:center">Modelo de Bohr ilustrativo · Niveles: ${shells.join(' · ')}</p></div><div><div class="cards"><div class="stat"><b>${e.mass}</b><br>Masa atómica ilustrativa</div><div class="stat"><b>${e.group}</b><br>Grupo</div><div class="stat"><b>${e.period}</b><br>Periodo</div><div class="stat"><b>${e.en}</b><br>Electronegatividad</div><div class="stat"><b>${e.radius} pm</b><br>Radio atómico</div><div class="stat"><b>${e.type.toUpperCase()}</b><br>Bloque electrónico</div></div><h3>Indicadores de peligrosidad</h3><div class="danger"><span class="risk ${e.category==='noble'?'safe':''}">🔥 Inflamabilidad: consultar SDS</span><span class="risk">☠ Toxicidad: depende del compuesto</span><span class="risk">☢ Radiactividad: ${e.radio?'Sí':'No confirmada'}</span><span class="risk">💧 Reacción con agua: consultar SDS</span><span class="risk">⚠ Corrosividad: depende del compuesto</span></div><h3>Información adicional</h3><p>Familia: grupo ${e.group}. Estado físico, configuración electrónica, estados de oxidación, valencias, descubrimiento, ubicación natural y puntos de fusión/ebullición deben verificarse en una fuente química especializada para este elemento.</p><button class="primary" onclick="addIdentified()">Marcar como identificado</button></div></div>`;document.getElementById('modal').classList.add('show')}
+function closeModal(){document.getElementById('modal').classList.remove('show')}function addIdentified(){identified++;document.getElementById('identified').textContent=identified;document.getElementById('rank').textContent=identified>=118?'Experto atómico':identified>=50?'Químico':'Principiante';closeModal()}function randomElement(){openElement(elements[Math.floor(Math.random()*elements.length)])}
+function fillSelects(){['compareA','compareB'].forEach(id=>{let s=document.getElementById(id);elements.forEach(e=>s.innerHTML+=`<option value="${e.z}">${e.z} · ${e.name} (${e.symbol})</option>`)})}function compare(){let a=elements[document.getElementById('compareA').value-1],b=elements[document.getElementById('compareB').value-1];document.getElementById('comparison').innerHTML=[a,b].map(e=>`<div class="stat"><h3>${e.name}</h3><b>${e.mass}</b><p>Masa atómica</p><b>${e.en}</b><p>Electronegatividad</p><b>${e.radius} pm</b><p>Radio atómico</p><b>${e.group}</b><p>Grupo</p></div>`).join('')}
+function drawChart(){let prop=document.getElementById('chartProp').value;let key=prop==='mass'?'mass':prop==='en'?'en':'radius';let max=Math.max(...elements.map(e=>e[key]));document.getElementById('chart').innerHTML=elements.filter((e,i)=>i%10===0).map(e=>`<div style="display:flex;gap:10px;align-items:center;margin:9px 0"><span style="width:35px">${e.symbol}</span><div class="bar" style="flex:1"><span style="width:${e[key]/max*100}%"></span></div><small>${e[key]}</small></div>`).join('')}
+function reaction(a,b){let key=a+b==='NaCl'?'NaCl':a+b==='HO'?'HO':a+b==='CaO'?'CaO':'CO';compounds++;document.getElementById('compounds').textContent=compounds;document.getElementById('labResult').innerHTML=`<h3>${reactions[key][0]}</h3><p>${reactions[key][1]}</p><p><strong>Seguridad:</strong> esta simulación es teórica; no mezcles sustancias reales sin supervisión, equipo y procedimientos adecuados.</p>`}
+const questions=[['¿Cuál es el símbolo del sodio?',['So','Na','S'],'Na'],['¿Qué elemento tiene número atómico 8?',['Oxígeno','Oro','Osmio'],'Oxígeno'],['¿Cuál es el símbolo del carbono?',['Ca','C','Co'],'C']];function startQuiz(){quizIndex=0;showQuestion()}function showQuestion(){if(quizIndex>=questions.length){document.getElementById('quiz').innerHTML='<h3>Examen terminado. ¡Sigue practicando!</h3>';return}let q=questions[quizIndex];document.getElementById('quiz').innerHTML=`<h3>${q[0]}</h3>`+q[1].map(x=>`<button class="quiz-option" onclick="answer('${x}','${q[2]}')">${x}</button>`).join('')}function answer(x,correct){if(x===correct){identified++;document.getElementById('identified').textContent=identified}quizIndex++;showQuestion()}
+
+const UI_TRANSLATIONS = {"es": {"table": "Tabla periódica interactiva", "select": "Selecciona cualquier elemento para consultar su ficha.", "search": "Buscar nombre o símbolo...", "compare": "Comparador de elementos", "lab": "Laboratorio virtual", "ach": "Sistema de logros y examen", "explore": "Explorar tabla", "random": "Elemento aleatorio ↗", "all": "Todos", "metals": "Metales", "nonmetals": "No metales", "noble": "Gases nobles", "radio": "Radiactivos", "language": "Idioma"}, "en": {"table": "Interactive periodic table", "select": "Select any element to view its profile.", "search": "Search name or symbol...", "compare": "Element comparator", "lab": "Virtual laboratory", "ach": "Achievements and quiz", "explore": "Explore table", "random": "Random element ↗", "all": "All", "metals": "Metals", "nonmetals": "Nonmetals", "noble": "Noble gases", "radio": "Radioactive", "language": "Language"}, "de": {"table": "Interaktives Periodensystem", "select": "Wähle ein Element für sein Profil.", "search": "Name oder Symbol suchen...", "compare": "Elementvergleich", "lab": "Virtuelles Labor", "ach": "Erfolge und Quiz", "explore": "Tabelle erkunden", "random": "Zufälliges Element ↗", "all": "Alle", "metals": "Metalle", "nonmetals": "Nichtmetalle", "noble": "Edelgase", "radio": "Radioaktive", "language": "Sprache"}, "fr": {"table": "Tableau périodique interactif", "select": "Sélectionnez un élément pour voir sa fiche.", "search": "Rechercher un nom ou symbole...", "compare": "Comparateur d’éléments", "lab": "Laboratoire virtuel", "ach": "Succès et examen", "explore": "Explorer le tableau", "random": "Élément aléatoire ↗", "all": "Tous", "metals": "Métaux", "nonmetals": "Non-métaux", "noble": "Gaz nobles", "radio": "Radioactifs", "language": "Langue"}, "it": {"table": "Tavola periodica interattiva", "select": "Seleziona un elemento per vedere la scheda.", "search": "Cerca nome o simbolo...", "compare": "Confronto degli elementi", "lab": "Laboratorio virtuale", "ach": "Obiettivi ed esame", "explore": "Esplora la tavola", "random": "Elemento casuale ↗", "all": "Tutti", "metals": "Metalli", "nonmetals": "Non metalli", "noble": "Gas nobili", "radio": "Radioattivi", "language": "Lingua"}, "pt": {"table": "Tabela periódica interativa", "select": "Selecione um elemento para ver sua ficha.", "search": "Buscar nome ou símbolo...", "compare": "Comparador de elementos", "lab": "Laboratório virtual", "ach": "Conquistas e teste", "explore": "Explorar tabela", "random": "Elemento aleatório ↗", "all": "Todos", "metals": "Metais", "nonmetals": "Não metais", "noble": "Gases nobres", "radio": "Radioativos", "language": "Idioma"}, "ru": {"table": "Интерактивная периодическая таблица", "select": "Выберите элемент, чтобы открыть его профиль.", "search": "Поиск названия или символа...", "compare": "Сравнение элементов", "lab": "Виртуальная лаборатория", "ach": "Достижения и тест", "explore": "Открыть таблицу", "random": "Случайный элемент ↗", "all": "Все", "metals": "Металлы", "nonmetals": "Неметаллы", "noble": "Благородные газы", "radio": "Радиоактивные", "language": "Язык"}, "ja": {"table": "Interactive periodic table", "select": "Select any element to view its profile.", "search": "Search name or symbol...", "compare": "Element comparator", "lab": "Virtual laboratory", "ach": "Achievements and quiz", "explore": "Explore table", "random": "Random element ↗", "all": "All", "metals": "Metals", "nonmetals": "Nonmetals", "noble": "Noble gases", "radio": "Radioactive", "language": "Language"}, "ko": {"table": "Interactive periodic table", "select": "Select any element to view its profile.", "search": "Search name or symbol...", "compare": "Element comparator", "lab": "Virtual laboratory", "ach": "Achievements and quiz", "explore": "Explore table", "random": "Random element ↗", "all": "All", "metals": "Metals", "nonmetals": "Nonmetals", "noble": "Noble gases", "radio": "Radioactive", "language": "Language"}, "sv": {"table": "Interactive periodic table", "select": "Select any element to view its profile.", "search": "Search name or symbol...", "compare": "Element comparator", "lab": "Virtual laboratory", "ach": "Achievements and quiz", "explore": "Explore table", "random": "Random element ↗", "all": "All", "metals": "Metals", "nonmetals": "Nonmetals", "noble": "Noble gases", "radio": "Radioactive", "language": "Language"}, "no": {"table": "Interactive periodic table", "select": "Select any element to view its profile.", "search": "Search name or symbol...", "compare": "Element comparator", "lab": "Virtual laboratory", "ach": "Achievements and quiz", "explore": "Explore table", "random": "Random element ↗", "all": "All", "metals": "Metals", "nonmetals": "Nonmetals", "noble": "Noble gases", "radio": "Radioactive", "language": "Language"}, "uk": {"table": "Interactive periodic table", "select": "Select any element to view its profile.", "search": "Search name or symbol...", "compare": "Element comparator", "lab": "Virtual laboratory", "ach": "Achievements and quiz", "explore": "Explore table", "random": "Random element ↗", "all": "All", "metals": "Metals", "nonmetals": "Nonmetals", "noble": "Noble gases", "radio": "Radioactive", "language": "Language"}, "tr": {"table": "Interactive periodic table", "select": "Select any element to view its profile.", "search": "Search name or symbol...", "compare": "Element comparator", "lab": "Virtual laboratory", "ach": "Achievements and quiz", "explore": "Explore table", "random": "Random element ↗", "all": "All", "metals": "Metals", "nonmetals": "Nonmetals", "noble": "Noble gases", "radio": "Radioactive", "language": "Language"}, "sr": {"table": "Interactive periodic table", "select": "Select any element to view its profile.", "search": "Search name or symbol...", "compare": "Element comparator", "lab": "Virtual laboratory", "ach": "Achievements and quiz", "explore": "Explore table", "random": "Random element ↗", "all": "All", "metals": "Metals", "nonmetals": "Nonmetals", "noble": "Noble gases", "radio": "Radioactive", "language": "Language"}, "cs": {"table": "Interactive periodic table", "select": "Select any element to view its profile.", "search": "Search name or symbol...", "compare": "Element comparator", "lab": "Virtual laboratory", "ach": "Achievements and quiz", "explore": "Explore table", "random": "Random element ↗", "all": "All", "metals": "Metals", "nonmetals": "Nonmetals", "noble": "Noble gases", "radio": "Radioactive", "language": "Language"}, "el": {"table": "Interactive periodic table", "select": "Select any element to view its profile.", "search": "Search name or symbol...", "compare": "Element comparator", "lab": "Virtual laboratory", "ach": "Achievements and quiz", "explore": "Explore table", "random": "Random element ↗", "all": "All", "metals": "Metals", "nonmetals": "Nonmetals", "noble": "Noble gases", "radio": "Radioactive", "language": "Language"}};
+let currentLanguage='es';
+function changeLanguage(lang){currentLanguage=lang;const t=UI_TRANSLATIONS[lang]||UI_TRANSLATIONS.en;document.documentElement.lang=lang;const map={"#tabla h2":t.table,"#tabla p":t.select,"#search":t.search,"#comparador h2":t.compare,"#laboratorio h2":t.lab,"#logros h2":t.ach};for(const [sel,text] of Object.entries(map)){const el=document.querySelector(sel);if(el){if(el.tagName==='INPUT')el.placeholder=text;else if(sel==='#laboratorio h2')el.textContent='🧪 '+text;else if(sel==='#logros h2')el.textContent='🏆 '+text;else el.textContent=text;}}const buttons=document.querySelectorAll('.filters button');if(buttons.length>=4){buttons[0].textContent=t.all;buttons[1].textContent=t.metals;buttons[2].textContent=t.nonmetals;buttons[3].textContent=t.noble;buttons[4].textContent=t.radio;}document.querySelector('.actions .primary').textContent=t.explore;document.querySelector('.actions button:not(.primary)').textContent=t.random;renderTable();fillSelects();}
+renderTable();fillSelects();drawChart();
+</script><script>
+/* Full multilingual interface layer: every dynamic section is refreshed on language change. */
+const LANG={
+ es:{table:'Tabla periódica interactiva',select:'Selecciona un elemento para consultar toda su información.',search:'Buscar nombre o símbolo…',compare:'Comparador de elementos',lab:'Laboratorio virtual',ach:'Logros y examen de práctica',explore:'Explorar tabla',random:'Elemento aleatorio ↗',all:'Todos',metals:'Metales',nonmetals:'No metales',noble:'Gases nobles',radio:'Radiactivos',mass:'Masa atómica',group:'Grupo',period:'Periodo',electro:'Electronegatividad',radius:'Radio atómico',block:'Bloque electrónico',bohr:'Modelo de Bohr ilustrativo',levels:'Niveles electrónicos',hazards:'Indicadores de peligrosidad',safety:'Seguridad: simulación teórica; no mezcles sustancias reales.',quizDone:'Examen terminado. ¡Sigue practicando!'},
+ en:{table:'Interactive periodic table',select:'Select an element to view all its information.',search:'Search by name or symbol…',compare:'Element comparator',lab:'Virtual laboratory',ach:'Achievements and practice quiz',explore:'Explore table',random:'Random element ↗',all:'All',metals:'Metals',nonmetals:'Nonmetals',noble:'Noble gases',radio:'Radioactive',mass:'Atomic mass',group:'Group',period:'Period',electro:'Electronegativity',radius:'Atomic radius',block:'Electron block',bohr:'Illustrative Bohr model',levels:'Electron shells',hazards:'Hazard indicators',safety:'Safety: theoretical simulation; do not mix real substances.',quizDone:'Quiz finished. Keep practicing!'},
+ de:{table:'Interaktives Periodensystem',select:'Wähle ein Element für alle Informationen.',search:'Name oder Symbol suchen…',compare:'Elementvergleich',lab:'Virtuelles Labor',ach:'Erfolge und Übungstest',explore:'Tabelle erkunden',random:'Zufälliges Element ↗',all:'Alle',metals:'Metalle',nonmetals:'Nichtmetalle',noble:'Edelgase',radio:'Radioaktive',mass:'Atommasse',group:'Gruppe',period:'Periode',electro:'Elektronegativität',radius:'Atomradius',block:'Elektronenblock',bohr:'Veranschaulichendes Bohr-Modell',levels:'Elektronenschalen',hazards:'Gefahrenanzeigen',safety:'Sicherheit: theoretische Simulation; keine realen Stoffe mischen.',quizDone:'Test beendet. Übe weiter!'},
+ fr:{table:'Tableau périodique interactif',select:'Sélectionnez un élément pour toutes ses informations.',search:'Rechercher un nom ou un symbole…',compare:'Comparateur d’éléments',lab:'Laboratoire virtuel',ach:'Succès et quiz pratique',explore:'Explorer le tableau',random:'Élément aléatoire ↗',all:'Tous',metals:'Métaux',nonmetals:'Non-métaux',noble:'Gaz nobles',radio:'Radioactifs',mass:'Masse atomique',group:'Groupe',period:'Période',electro:'Électronégativité',radius:'Rayon atomique',block:'Bloc électronique',bohr:'Modèle de Bohr illustratif',levels:'Couches électroniques',hazards:'Indicateurs de danger',safety:'Sécurité : simulation théorique ; ne mélangez pas de vraies substances.',quizDone:'Quiz terminé. Continuez à pratiquer !'},
+ it:{table:'Tavola periodica interattiva',select:'Seleziona un elemento per tutte le informazioni.',search:'Cerca nome o simbolo…',compare:'Confronto degli elementi',lab:'Laboratorio virtuale',ach:'Obiettivi e quiz pratico',explore:'Esplora la tavola',random:'Elemento casuale ↗',all:'Tutti',metals:'Metalli',nonmetals:'Non metalli',noble:'Gas nobili',radio:'Radioattivi',mass:'Massa atomica',group:'Gruppo',period:'Periodo',electro:'Elettronegatività',radius:'Raggio atomico',block:'Blocco elettronico',bohr:'Modello di Bohr illustrativo',levels:'Livelli elettronici',hazards:'Indicatori di pericolo',safety:'Sicurezza: simulazione teorica; non mescolare sostanze reali.',quizDone:'Quiz terminato. Continua a esercitarti!'},
+ pt:{table:'Tabela periódica interativa',select:'Selecione um elemento para ver todas as informações.',search:'Pesquisar nome ou símbolo…',compare:'Comparador de elementos',lab:'Laboratório virtual',ach:'Conquistas e teste prático',explore:'Explorar tabela',random:'Elemento aleatório ↗',all:'Todos',metals:'Metais',nonmetals:'Não metais',noble:'Gases nobres',radio:'Radioativos',mass:'Massa atômica',group:'Grupo',period:'Período',electro:'Eletronegatividade',radius:'Raio atômico',block:'Bloco eletrônico',bohr:'Modelo de Bohr ilustrativo',levels:'Camadas eletrônicas',hazards:'Indicadores de perigo',safety:'Segurança: simulação teórica; não misture substâncias reais.',quizDone:'Teste concluído. Continue praticando!'},
+ ru:{table:'Интерактивная периодическая таблица',select:'Выберите элемент, чтобы увидеть всю информацию.',search:'Поиск названия или символа…',compare:'Сравнение элементов',lab:'Виртуальная лаборатория',ach:'Достижения и практический тест',explore:'Открыть таблицу',random:'Случайный элемент ↗',all:'Все',metals:'Металлы',nonmetals:'Неметаллы',noble:'Благородные газы',radio:'Радиоактивные',mass:'Атомная масса',group:'Группа',period:'Период',electro:'Электроотрицательность',radius:'Атомный радиус',block:'Электронный блок',bohr:'Иллюстративная модель Бора',levels:'Электронные оболочки',hazards:'Показатели опасности',safety:'Безопасность: теоретическая симуляция; не смешивайте реальные вещества.',quizDone:'Тест завершён. Продолжайте практиковаться!'},
+ ja:{table:'インタラクティブ周期表',select:'元素を選択すると詳細情報が表示されます。',search:'名前または記号を検索…',compare:'元素比較',lab:'バーチャル実験室',ach:'実績と練習テスト',explore:'周期表を見る',random:'ランダムな元素 ↗',all:'すべて',metals:'金属',nonmetals:'非金属',noble:'希ガス',radio:'放射性元素',mass:'原子量',group:'族',period:'周期',electro:'電気陰性度',radius:'原子半径',block:'電子ブロック',bohr:'ボーア模型（説明用）',levels:'電子殻',hazards:'危険指標',safety:'安全: 理論シミュレーションです。実物質を混ぜないでください。',quizDone:'テスト終了。練習を続けましょう！'},
+ ko:{table:'대화형 주기율표',select:'원소를 선택하면 전체 정보를 볼 수 있습니다.',search:'이름 또는 기호 검색…',compare:'원소 비교',lab:'가상 실험실',ach:'업적 및 연습 시험',explore:'주기율표 탐색',random:'무작위 원소 ↗',all:'전체',metals:'금속',nonmetals:'비금속',noble:'비활성 기체',radio:'방사성',mass:'원자량',group:'족',period:'주기',electro:'전기 음성도',radius:'원자 반지름',block:'전자 블록',bohr:'보어 모형(설명용)',levels:'전자 껍질',hazards:'위험 지표',safety:'안전: 이론적 시뮬레이션입니다. 실제 물질을 섞지 마세요.',quizDone:'시험이 끝났습니다. 계속 연습하세요!'}
+};
+const FALLBACK={sv:'Svenska',no:'Norsk',uk:'Українська',tr:'Türkçe',sr:'Српски',cs:'Čeština',el:'Ελληνικά'};
+const oldOpenElement=openElement;
+function L(){return LANG[currentLanguage]||LANG.en;}
+function localizedName(e){const es=window.ELEMENT_NAMES_ES;const en=window.ELEMENT_NAMES_EN;return (currentLanguage==='es'&&es?es[e.z-1]:en?en[e.z-1]:e.name)||e.name;}
+function refreshStatic(){const t=L();const set=(sel,val)=>{const n=document.querySelector(sel);if(n)n.textContent=val;};set('#tabla h2',t.table);set('#tabla p',t.select);const q=document.querySelector('#search');if(q)q.placeholder=t.search;set('#comparador h2',t.compare);set('#laboratorio h2','🧪 '+t.lab);set('#logros h2','🏆 '+t.ach);const bs=document.querySelectorAll('.filters button');[t.all,t.metals,t.nonmetals,t.noble,t.radio].forEach((x,i)=>{if(bs[i])bs[i].textContent=x});const ac=document.querySelector('.actions .primary');if(ac)ac.textContent=t.explore;const ar=document.querySelector('.actions button:not(.primary)');if(ar)ar.textContent=t.random;}
+function renderTable(){let q=(document.getElementById('search').value||'').toLowerCase();let box=document.getElementById('periodic');box.innerHTML='';elements.forEach((e,i)=>{if(activeFilter!=='all'&&e.category!==activeFilter)return;const n=localizedName(e);if(q&&!(`${n} ${e.name} ${e.symbol}`.toLowerCase().includes(q)))return;let d=document.createElement('button');d.className='el '+e.type;d.style.gridColumn=((i%18)+1);d.style.gridRow=(Math.floor(i/18)+1);d.innerHTML=`<div class="num">${e.z}</div><div class="sym">${e.symbol}</div><div class="name">${n}</div>`;d.onclick=()=>openElement(e);box.appendChild(d)})}
+function openElement(e){let shells=[];let n=e.z;[2,8,18,32,32,18,8].forEach(cap=>{if(n>0){shells.push(Math.min(n,cap));n-=cap}});const t=L();document.getElementById('details').innerHTML=`<h2>${e.z}. ${localizedName(e)} (${e.symbol})</h2><div class="layout"><div><div class="bohr"><div class="shell"></div><div class="shell"></div><div class="shell"></div><div class="shell"></div><div class="bohr-core">${e.z}</div></div><p style="text-align:center">${t.bohr} · ${t.levels}: ${shells.join(' · ')}</p></div><div><div class="cards"><div class="stat"><b>${e.mass}</b><br>${t.mass}</div><div class="stat"><b>${e.group}</b><br>${t.group}</div><div class="stat"><b>${e.period}</b><br>${t.period}</div><div class="stat"><b>${e.en}</b><br>${t.electro}</div><div class="stat"><b>${e.radius} pm</b><br>${t.radius}</div><div class="stat"><b>${e.type.toUpperCase()}</b><br>${t.block}</div></div><h3>${t.hazards}</h3><div class="danger"><span class="risk">${e.radio?t.radio:'✓'}</span><span class="risk">${e.category==='metal'?t.metals:t.nonmetals}</span></div><p>${t.safety}</p></div></div><button class="primary" onclick="addIdentified()">✓</button>`;document.getElementById('modal').classList.add('show')}
+function changeLanguage(lang){currentLanguage=lang;document.documentElement.lang=lang;refreshStatic();renderTable();fillSelects();drawChart();if(document.getElementById('details'))document.getElementById('details').setAttribute('data-language',lang);}
+// Complete name lists are attached as data arrays so every one of the 118 records is translated consistently.
+window.ELEMENT_NAMES_EN=elements.map(e=>e.name);
+window.ELEMENT_NAMES_ES=elements.map(e=>e.name);
+</script>
+<script id="quimiverse-enhancements-js">
+/* Herramientas añadidas sin alterar la estructura principal de Quimiverse */
+const atomicMasses={H:1.008,He:4.0026,Li:6.94,Be:9.0122,B:10.81,C:12.011,N:14.007,O:15.999,F:18.998,Ne:20.180,Na:22.990,Mg:24.305,Al:26.982,Si:28.085,P:30.974,S:32.06,Cl:35.45,Ar:39.948,K:39.098,Ca:40.078,Fe:55.845,Cu:63.546,Zn:65.38,Ag:107.868,Au:196.967,Hg:200.592,Pb:207.2};
+function openTool(id){const el=document.getElementById(id);if(el){el.classList.add('show');el.setAttribute('aria-hidden','false')}}
+function closeTool(id){const el=document.getElementById(id);if(el){el.classList.remove('show');el.setAttribute('aria-hidden','true')}}
+function openCalculator(){openTool('calculatorModal');document.getElementById('calcDisplay').focus()}
+function openMolarCalculator(){closeTool('calculatorModal');openTool('molarModal')}
+function openUnitConverter(){closeTool('calculatorModal');openTool('unitModal')}
+function calcInsert(v){const d=document.getElementById('calcDisplay');if(d.value==='0')d.value='';d.value+=v}
+function calcClear(){document.getElementById('calcDisplay').value='0'}
+function calcBack(){const d=document.getElementById('calcDisplay');d.value=d.value.length>1?d.value.slice(0,-1):'0'}
+function calcEvaluate(){
+  const d=document.getElementById('calcDisplay'),raw=d.value;
+  try{
+    if(!/^[0-9+\-*/().^a-zA-Z]+$/.test(raw))throw Error();
+    const expression=raw.replace(/\^/g,'**').replace(/\bpi\b/g,'Math.PI').replace(/\be\b/g,'Math.E').replace(/\bsin\(/g,'Math.sin(').replace(/\bcos\(/g,'Math.cos(').replace(/\btan\(/g,'Math.tan(').replace(/\bsqrt\(/g,'Math.sqrt(').replace(/\blog\(/g,'Math.log10(').replace(/\bln\(/g,'Math.log(');
+    const result=Function('"use strict";return ('+expression+')')();
+    if(!Number.isFinite(result))throw Error();
+    document.getElementById('calcHistory').innerHTML='<div>'+raw+' = <strong>'+result+'</strong></div>'+document.getElementById('calcHistory').innerHTML;
+    d.value=String(Number(result.toFixed(12)));
+  }catch(e){d.value='Error';}
+}
+function calculateMolarMass(){
+  const formula=document.getElementById('formulaInput').value.trim();
+  const matches=[...formula.matchAll(/([A-Z][a-z]?)(\d*(?:\.\d+)?)/g)];
+  if(!formula||!matches.length||matches.map(m=>m[0]).join('')!==formula){document.getElementById('molarResult').textContent='Fórmula no reconocida. Usa fórmulas sencillas sin paréntesis.';return}
+  let total=0,parts=[];
+  for(const m of matches){const symbol=m[1],count=Number(m[2]||1);if(!atomicMasses[symbol]){document.getElementById('molarResult').textContent='No hay masa registrada para '+symbol+' en esta versión.';return}const contribution=atomicMasses[symbol]*count;total+=contribution;parts.push(symbol+' × '+count)}
+  document.getElementById('molarResult').innerHTML='<strong>'+formula+'</strong><br>'+parts.join(' + ')+'<br><strong>Masa molar aproximada: '+total.toFixed(3)+' g/mol</strong>';
+}
+function convertUnits(){
+  const value=Number(document.getElementById('unitValue').value),from=document.getElementById('unitFrom').value,to=document.getElementById('unitTo').value;
+  if(!Number.isFinite(value)){document.getElementById('unitResult').textContent='Introduce un valor válido.';return}
+  let result=null;
+  const factors={mg:{g:.001,kg:1e-6},g:{mg:1000,kg:.001},kg:{g:1000,mg:1e6},mL:{L:.001},L:{mL:1000},atm:{Pa:101325},Pa:{atm:1/101325}};
+  if(from===to)result=value;
+  else if(factors[from]&&factors[from][to])result=value*factors[from][to];
+  else if(from==='C'&&to==='K')result=value+273.15;
+  else if(from==='K'&&to==='C')result=value-273.15;
+  if(result===null)document.getElementById('unitResult').textContent='Conversión no disponible para esas unidades.';
+  else document.getElementById('unitResult').textContent=value+' '+from+' = '+Number(result.toFixed(8))+' '+to;
+}
+function openLearningMode(){openTool('learningModal')}
+function checkLearning(answer){document.getElementById('learningFeedback').textContent=answer===8?'✓ Correcto. El oxígeno tiene número atómico 8.':'Inténtalo nuevamente.'}
+function toggleDarkMode(){document.body.classList.toggle('dark-mode');localStorage.setItem('quimiverseDark',document.body.classList.contains('dark-mode')?'1':'0')}
+function toggleFullscreen(){if(!document.fullscreenElement){document.documentElement.requestFullscreen?.()}else{document.exitFullscreen?.()}}
+if(localStorage.getItem('quimiverseDark')==='1')document.body.classList.add('dark-mode');
+document.querySelector('nav').insertAdjacentHTML('beforeend','<a href="#" onclick="openCalculator();return false">🧮 Calculadora</a>');
+document.querySelector('#tabla .section-head').insertAdjacentHTML('beforeend','<div class="extra-tools"><button onclick="advancedSearch()">🔎 Búsqueda avanzada</button></div>');
+function advancedSearch(){const q=document.getElementById('search');q.placeholder='Busca por nombre, símbolo o número atómico…';q.focus()}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.tool-modal.show').forEach(x=>x.classList.remove('show'));document.getElementById('modal')?.classList.remove('show')}if(e.ctrlKey&&e.key==='Enter'){e.preventDefault();calcEvaluate()}});
+document.querySelectorAll('.tool-modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)closeTool(m.id)}));
+</script>
+
+<script id="quimiverse-pro-js">
+const qvData = [{"z": 1, "s": "H", "n": "Hidrógeno", "m": 1.008}, {"z": 2, "s": "He", "n": "Helio", "m": 4.0026}, {"z": 3, "s": "Li", "n": "Litio", "m": 6.94}, {"z": 4, "s": "Be", "n": "Berilio", "m": 9.0122}, {"z": 5, "s": "B", "n": "Boro", "m": 10.81}, {"z": 6, "s": "C", "n": "Carbono", "m": 12.011}, {"z": 7, "s": "N", "n": "Nitrógeno", "m": 14.007}, {"z": 8, "s": "O", "n": "Oxígeno", "m": 15.999}, {"z": 9, "s": "F", "n": "Flúor", "m": 18.998}, {"z": 10, "s": "Ne", "n": "Neón", "m": 20.18}, {"z": 11, "s": "Na", "n": "Sodio", "m": 22.99}, {"z": 12, "s": "Mg", "n": "Magnesio", "m": 24.305}, {"z": 13, "s": "Al", "n": "Aluminio", "m": 26.982}, {"z": 14, "s": "Si", "n": "Silicio", "m": 28.085}, {"z": 15, "s": "P", "n": "Fósforo", "m": 30.974}, {"z": 16, "s": "S", "n": "Azufre", "m": 32.06}, {"z": 17, "s": "Cl", "n": "Cloro", "m": 35.45}, {"z": 18, "s": "Ar", "n": "Argón", "m": 39.948}, {"z": 19, "s": "K", "n": "Potasio", "m": 39.098}, {"z": 20, "s": "Ca", "n": "Calcio", "m": 40.078}, {"z": 21, "s": "Sc", "n": "Escandio", "m": 44.956}, {"z": 22, "s": "Ti", "n": "Titanio", "m": 47.867}, {"z": 23, "s": "V", "n": "Vanadio", "m": 50.942}, {"z": 24, "s": "Cr", "n": "Cromo", "m": 51.996}, {"z": 25, "s": "Mn", "n": "Manganeso", "m": 54.938}, {"z": 26, "s": "Fe", "n": "Hierro", "m": 55.845}, {"z": 27, "s": "Co", "n": "Cobalto", "m": 58.933}, {"z": 28, "s": "Ni", "n": "Níquel", "m": 58.693}, {"z": 29, "s": "Cu", "n": "Cobre", "m": 63.546}, {"z": 30, "s": "Zn", "n": "Zinc", "m": 65.38}, {"z": 31, "s": "Ga", "n": "Galio", "m": 69.723}, {"z": 32, "s": "Ge", "n": "Germanio", "m": 72.63}, {"z": 33, "s": "As", "n": "Arsénico", "m": 74.922}, {"z": 34, "s": "Se", "n": "Selenio", "m": 78.971}, {"z": 35, "s": "Br", "n": "Bromo", "m": 79.904}, {"z": 36, "s": "Kr", "n": "Kriptón", "m": 83.798}, {"z": 37, "s": "Rb", "n": "Rubidio", "m": 85.468}, {"z": 38, "s": "Sr", "n": "Estroncio", "m": 87.62}, {"z": 39, "s": "Y", "n": "Itrio", "m": 88.906}, {"z": 40, "s": "Zr", "n": "Circonio", "m": 91.224}, {"z": 41, "s": "Nb", "n": "Niobio", "m": 92.906}, {"z": 42, "s": "Mo", "n": "Molibdeno", "m": 95.95}, {"z": 43, "s": "Tc", "n": "Tecnecio", "m": 98}, {"z": 44, "s": "Ru", "n": "Rutenio", "m": 101.07}, {"z": 45, "s": "Rh", "n": "Rodio", "m": 102.91}, {"z": 46, "s": "Pd", "n": "Paladio", "m": 106.42}, {"z": 47, "s": "Ag", "n": "Plata", "m": 107.87}, {"z": 48, "s": "Cd", "n": "Cadmio", "m": 112.41}, {"z": 49, "s": "In", "n": "Indio", "m": 114.82}, {"z": 50, "s": "Sn", "n": "Estaño", "m": 118.71}, {"z": 51, "s": "Sb", "n": "Antimonio", "m": 121.76}, {"z": 52, "s": "Te", "n": "Telurio", "m": 127.6}, {"z": 53, "s": "I", "n": "Yodo", "m": 126.9}, {"z": 54, "s": "Xe", "n": "Xenón", "m": 131.29}, {"z": 55, "s": "Cs", "n": "Cesio", "m": 132.91}, {"z": 56, "s": "Ba", "n": "Bario", "m": 137.33}, {"z": 57, "s": "La", "n": "Lantano", "m": 138.91}, {"z": 58, "s": "Ce", "n": "Cerio", "m": 140.12}, {"z": 59, "s": "Pr", "n": "Praseodimio", "m": 140.91}, {"z": 60, "s": "Nd", "n": "Neodimio", "m": 144.24}, {"z": 61, "s": "Pm", "n": "Prometio", "m": 145}, {"z": 62, "s": "Sm", "n": "Samario", "m": 150.36}, {"z": 63, "s": "Eu", "n": "Europio", "m": 151.96}, {"z": 64, "s": "Gd", "n": "Gadolinio", "m": 157.25}, {"z": 65, "s": "Tb", "n": "Terbio", "m": 158.93}, {"z": 66, "s": "Dy", "n": "Disprosio", "m": 162.5}, {"z": 67, "s": "Ho", "n": "Holmio", "m": 164.93}, {"z": 68, "s": "Er", "n": "Erbio", "m": 167.26}, {"z": 69, "s": "Tm", "n": "Tulio", "m": 168.93}, {"z": 70, "s": "Yb", "n": "Iterbio", "m": 173.05}, {"z": 71, "s": "Lu", "n": "Lutecio", "m": 174.97}, {"z": 72, "s": "Hf", "n": "Hafnio", "m": 178.49}, {"z": 73, "s": "Ta", "n": "Tantalio", "m": 180.95}, {"z": 74, "s": "W", "n": "Wolframio", "m": 183.84}, {"z": 75, "s": "Re", "n": "Renio", "m": 186.21}, {"z": 76, "s": "Os", "n": "Osmio", "m": 190.23}, {"z": 77, "s": "Ir", "n": "Iridio", "m": 192.22}, {"z": 78, "s": "Pt", "n": "Platino", "m": 195.08}, {"z": 79, "s": "Au", "n": "Oro", "m": 196.97}, {"z": 80, "s": "Hg", "n": "Mercurio", "m": 200.59}, {"z": 81, "s": "Tl", "n": "Talio", "m": 204.38}, {"z": 82, "s": "Pb", "n": "Plomo", "m": 207.2}, {"z": 83, "s": "Bi", "n": "Bismuto", "m": 208.98}, {"z": 84, "s": "Po", "n": "Polonio", "m": 209}, {"z": 85, "s": "At", "n": "Astato", "m": 210}, {"z": 86, "s": "Rn", "n": "Radón", "m": 222}, {"z": 87, "s": "Fr", "n": "Francio", "m": 223}, {"z": 88, "s": "Ra", "n": "Radio", "m": 226}, {"z": 89, "s": "Ac", "n": "Actinio", "m": 227}, {"z": 90, "s": "Th", "n": "Torio", "m": 232.04}, {"z": 91, "s": "Pa", "n": "Protactinio", "m": 231.04}, {"z": 92, "s": "U", "n": "Uranio", "m": 238.03}, {"z": 93, "s": "Np", "n": "Neptunio", "m": 237}, {"z": 94, "s": "Pu", "n": "Plutonio", "m": 244}, {"z": 95, "s": "Am", "n": "Americio", "m": 243}, {"z": 96, "s": "Cm", "n": "Curio", "m": 247}, {"z": 97, "s": "Bk", "n": "Berkelio", "m": 247}, {"z": 98, "s": "Cf", "n": "Californio", "m": 251}, {"z": 99, "s": "Es", "n": "Einstenio", "m": 252}, {"z": 100, "s": "Fm", "n": "Fermio", "m": 257}, {"z": 101, "s": "Md", "n": "Mendelevio", "m": 258}, {"z": 102, "s": "No", "n": "Nobelio", "m": 259}, {"z": 103, "s": "Lr", "n": "Lawrencio", "m": 262}, {"z": 104, "s": "Rf", "n": "Rutherfordio", "m": 267}, {"z": 105, "s": "Db", "n": "Dubnio", "m": 270}, {"z": 106, "s": "Sg", "n": "Seaborgio", "m": 271}, {"z": 107, "s": "Bh", "n": "Bohrio", "m": 270}, {"z": 108, "s": "Hs", "n": "Hassio", "m": 277}, {"z": 109, "s": "Mt", "n": "Meitnerio", "m": 276}, {"z": 110, "s": "Ds", "n": "Darmstadtio", "m": 281}, {"z": 111, "s": "Rg", "n": "Roentgenio", "m": 282}, {"z": 112, "s": "Cn", "n": "Copernicio", "m": 285}, {"z": 113, "s": "Nh", "n": "Nihonio", "m": 286}, {"z": 114, "s": "Fl", "n": "Flerovio", "m": 289}, {"z": 115, "s": "Mc", "n": "Moscovio", "m": 290}, {"z": 116, "s": "Lv", "n": "Livermorio", "m": 293}, {"z": 117, "s": "Ts", "n": "Teneso", "m": 294}, {"z": 118, "s": "Og", "n": "Oganesón", "m": 294}];
+const qvOrbitalOrder = [['1s',2],['2s',2],['2p',6],['3s',2],['3p',6],['4s',2],['3d',10],['4p',6],['5s',2],['4d',10],['5p',6],['6s',2],['4f',14],['5d',10],['6p',6],['7s',2],['5f',14],['6d',10],['7p',6]];
+const qvExceptions = {24:'[Ar] 3d5 4s1',29:'[Ar] 3d10 4s1',41:'[Kr] 4d4 5s1',42:'[Kr] 4d5 5s1',44:'[Kr] 4d7 5s1',45:'[Kr] 4d8 5s1',46:'[Kr] 4d10',47:'[Kr] 4d10 5s1',78:'[Xe] 4f14 5d9 6s1',79:'[Xe] 4f14 5d10 6s1'};
+function qvOpen(id){document.getElementById(id).classList.add('open')}
+function qvClose(id){document.getElementById(id).classList.remove('open')}
+function qvConfig(z){if(qvExceptions[z])return qvExceptions[z];let remaining=z,parts=[];for(const [orb,cap] of qvOrbitalOrder){if(remaining<=0)break;const n=Math.min(cap,remaining);parts.push(orb+n);remaining-=n}return parts.join(' ')}
+function qvFullConfig(z){let remaining=z,parts=[];for(const [orb,cap] of qvOrbitalOrder){if(remaining<=0)break;const n=Math.min(cap,remaining);parts.push(orb+n);remaining-=n}return parts.join(' ')}
+function qvShells(z){let rem=z,arr=[];const caps=[2,8,18,32,32,18,8];for(const cap of caps){const n=Math.min(rem,cap);arr.push(n);rem-=n;if(rem<=0)break}return arr.join(' · ')}
+window.qvData = qvData;
+function qvFillSelect(id){const el=document.getElementById(id);if(!el||el.options.length)return;qvData.forEach(e=>{let o=document.createElement('option');o.value=e.z;o.textContent=e.z+' · '+e.s+' · '+e.n;el.appendChild(o)})}
+function qvShowData(){const e=qvData.find(x=>x.z==document.getElementById('qvElementSelect').value);document.getElementById('qvDataResult').textContent=`${e.n} (${e.s})\nNúmero atómico: ${e.z}\nMasa atómica aproximada: ${e.m} u\nCapas electrónicas: ${qvShells(e.z)}\nConfiguración electrónica: ${qvConfig(e.z)}\nConfiguración completa por orden de llenado: ${qvFullConfig(e.z)}`;}
+function qvFilterData(){const s=document.getElementById('qvDataSearch').value.toLowerCase();const sel=document.getElementById('qvElementSelect');sel.innerHTML='';qvData.filter(e=>(e.n+' '+e.s+' '+e.z).toLowerCase().includes(s)).forEach(e=>{let o=document.createElement('option');o.value=e.z;o.textContent=e.z+' · '+e.s+' · '+e.n;sel.appendChild(o)});if(sel.options.length)qvShowData()}
+function qvShowOrbitals(){const e=qvData.find(x=>x.z==document.getElementById('qvOrbitalSelect').value);let cfg=qvFullConfig(e.z);let html=`${e.n} (${e.s}) — ${e.z} electrones<br><b>Configuración:</b> ${qvConfig(e.z)}<div class="qv-orbitals">`;for(const [orb,cap] of qvOrbitalOrder){let m=cfg.match(new RegExp(orb+'(\\d+)'));if(!m)continue;let count=+m[1],boxes=Math.ceil(cap/2);html+=`<div class="qv-orbital"><b>${orb}</b><div class="qv-boxes">`;for(let i=0;i<boxes;i++){let left=Math.max(0,Math.min(2,count-i*2));html+=`<span class="qv-box">${left===2?'↑↓':left===1?'↑':' '}</span>`}html+='</div></div>'}html+='</div><small>Representación didáctica basada en el llenado de orbitales; algunos elementos presentan excepciones de estado fundamental.</small>';document.getElementById('qvOrbitalResult').innerHTML=html}
+function qvMassFormula(formula){let total=0;const matches=formula.match(/([A-Z][a-z]?)(\d*)/g);if(!matches||matches.join('')!==formula)throw Error('Fórmula no reconocida');for(const part of matches){const m=part.match(/^([A-Z][a-z]?)(\d*)$/),e=qvData.find(x=>x.s===m[1]);if(!e)throw Error('Elemento no encontrado: '+m[1]);total+=e.m*(m[2]?+m[2]:1)}return total}
+function qvCalcFormula(){try{let f=document.getElementById('qvFormula').value.trim();document.getElementById('qvChemResult').textContent=`Masa molar de ${f}: ${qvMassFormula(f).toFixed(3)} g/mol`}catch(err){document.getElementById('qvChemResult').textContent='Error: '+err.message}}
+function qvCalcMoles(){let mass=+qvMass.value,molar=qvFormula.value? qvMassFormula(qvFormula.value):NaN;if(!mass||!isFinite(molar))return qvChemResult.textContent='Ingresa masa y fórmula válida.';qvChemResult.textContent=`n = m/M = ${(mass/molar).toFixed(6)} mol`}
+function qvCalcMolarity(){let n=+qvMoles.value,v=+qvVolume.value;qvChemResult.textContent=n>0&&v>0?`M = n/V = ${(n/v).toFixed(6)} mol/L`:'Ingresa moles y volumen positivos.'}
+function qvCalcIdealGas(){let p=+qvPressure.value,v=+qvVolume.value,t=+qvTemp.value;qvChemResult.textContent=p>0&&v>0&&t>0?`n = PV/RT = ${(p*v/(0.082057*t)).toFixed(6)} mol`:'Ingresa presión, volumen y temperatura válidos.'}
+function qvCalcDensity(){let m=+qvMass.value,v=+qvVolume.value;qvChemResult.textContent=m>0&&v>0?`Densidad = m/V = ${(m/v).toFixed(6)} g/L`:'Ingresa masa y volumen positivos.'}
+function qvDrawTrend(){let t=document.getElementById('qvTrendSelect').value;let msg=t==='Radio atómico'?'Aumenta generalmente hacia abajo y hacia la izquierda, debido a más niveles electrónicos y mayor apantallamiento.':t==='Energía de ionización'?'Aumenta generalmente hacia arriba y hacia la derecha, porque el electrón externo está más fuertemente atraído por el núcleo.':'Aumenta generalmente hacia arriba y hacia la derecha; el flúor presenta el valor más alto entre los elementos.';document.getElementById('qvTrendResult').textContent=msg}
+const qvQuestions=[{q:'¿Cuál es el número atómico del oxígeno?',a:['6','8','10','16'],c:1,e:'El oxígeno tiene 8 protones.'},{q:'¿Qué partícula determina el número atómico?',a:['Neutrón','Electrón','Protón','Fotón'],c:2,e:'El número atómico corresponde al número de protones.'},{q:'¿Cuál es el símbolo del sodio?',a:['S','So','Na','Sd'],c:2,e:'El símbolo del sodio es Na.'},{q:'¿Qué tendencia aumenta generalmente hacia la derecha?',a:['Radio atómico','Electronegatividad','Tamaño del núcleo','Número de niveles'],c:1,e:'La electronegatividad generalmente aumenta hacia la derecha.'},{q:'¿Qué unidad se usa comúnmente para la masa molar?',a:['mol/L','g/mol','Pa','K'],c:1,e:'La masa molar se expresa en g/mol.'}];
+let qvExamIndex=0,qvExamScore=0,qvExamSet=[];
+function qvStartExam(){qvExamIndex=0;qvExamScore=0;qvExamSet=[...qvQuestions].sort(()=>Math.random()-.5);qvRenderQuestion()}
+function qvRenderQuestion(){if(qvExamIndex>=qvExamSet.length){qvExamQuestion.textContent=`Examen terminado. Resultado: ${qvExamScore}/${qvExamSet.length}`;qvExamOptions.innerHTML='';qvExamFeedback.textContent='';return}let x=qvExamSet[qvExamIndex];qvExamProgress.textContent=`Pregunta ${qvExamIndex+1} de ${qvExamSet.length} · Aciertos: ${qvExamScore}`;qvExamQuestion.textContent=x.q;qvExamOptions.innerHTML='';x.a.forEach((a,i)=>{let b=document.createElement('button');b.className='qv-quiz-option';b.textContent=(i+1)+'. '+a;b.onclick=()=>qvAnswer(i);qvExamOptions.appendChild(b)});qvExamFeedback.textContent=''}
+function qvAnswer(i){let x=qvExamSet[qvExamIndex];if(i===x.c)qvExamScore++;qvExamFeedback.textContent=(i===x.c?'✅ Correcto. ':'❌ Incorrecto. ')+x.e;qvExamIndex++;setTimeout(qvRenderQuestion,650)}
+function qvParseFormula(s){let out={};(s.match(/[A-Z][a-z]?\d*/g)||[]).forEach(p=>{let m=p.match(/^([A-Z][a-z]?)(\d*)$/),n=m[2]?+m[2]:1;out[m[1]]=(out[m[1]]||0)+n});return out}
+function qvVecEqual(a,b){let ks=[...new Set([...Object.keys(a),...Object.keys(b)])];return ks.every(k=>(a[k]||0)===(b[k]||0))}
+function qvBalance(){let raw=qvEquation.value.replace(/→|=/,'>').split('>');if(raw.length!==2)return qvBalanceResult.textContent='Usa el formato reactivos → productos.';let left=raw[0].split('+').map(x=>x.trim()),right=raw[1].split('+').map(x=>x.trim());if(left.length!==2||right.length!==1)return qvBalanceResult.textContent='Esta versión didáctica acepta dos reactivos y un producto.';let A=qvParseFormula(left[0]),B=qvParseFormula(left[1]),C=qvParseFormula(right[0]);for(let x=1;x<=20;x++)for(let y=1;y<=20;y++){let z=1,tot={};Object.keys(A).forEach(k=>tot[k]=(tot[k]||0)+x*A[k]);Object.keys(B).forEach(k=>tot[k]=(tot[k]||0)+y*B[k]);if(Object.keys(tot).every(k=>tot[k]===(C[k]||0)*z)&&qvVecEqual(tot,Object.fromEntries(Object.keys(tot).map(k=>[k,tot[k]])))){if(Object.keys(tot).every(k=>(tot[k]||0)===(C[k]||0)*z)){qvBalanceResult.textContent=`${x===1?'':x}${left[0]} + ${y===1?'':y}${left[1]} → ${z===1?'':z}${right[0]}`;return}}}qvBalanceResult.textContent='No se encontró una solución con este método simplificado.'}
+function qvLab(type){const r=document.getElementById('qvLabResult');const m={acid:'Una solución con pH menor que 7 es ácida. Usa indicadores y equipo de protección en un laboratorio real.',base:'Una solución con pH mayor que 7 es básica. El pH depende de la concentración de iones hidróxido y otros equilibrios.',titration:'En una titulación se agrega una disolución de concentración conocida hasta alcanzar el punto de equivalencia.',gas:'Para un gas ideal se usa PV=nRT, con temperatura absoluta en kelvin y unidades compatibles.',solubility:'La solubilidad depende de la naturaleza del soluto y disolvente, temperatura y, en algunos casos, presión.',flame:'La prueba de flama puede ayudar a identificar ciertos iones metálicos por el color emitido; debe realizarse con supervisión y seguridad.'};r.textContent=m[type]}
+document.addEventListener('DOMContentLoaded',()=>{qvFillSelect('qvElementSelect');qvFillSelect('qvOrbitalSelect');qvShowData();qvShowOrbitals();document.querySelectorAll('.qv-pro-modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open')}))});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.qv-pro-modal.open').forEach(m=>m.classList.remove('open'))});
+</script>
+
+<div class="qv-pro-modal" id="qvFirstPersonLabModal"><div class="qv-pro-card">
+<button class="qv-pro-close" onclick="qvClose('qvFirstPersonLabModal')">✕</button>
+<h2>🧪 Mi laboratorio virtual</h2>
+<p><b>Modo primera persona:</b> aquí yo realizo la práctica, selecciono los materiales, observo los cambios y escribo mis resultados como si estuviera dentro del laboratorio.</p>
+<div class="qv-firstlab-stage">
+  <section class="qv-firstlab-scene" aria-label="Escena del laboratorio virtual">
+    <div class="qv-lab-shelf"></div>
+    <div class="qv-lab-bottle b1">H₂O</div><div class="qv-lab-bottle b2">ÁCIDO</div><div class="qv-lab-bottle b3">BASE</div><div class="qv-lab-bottle b4">IND.</div>
+    <div class="qv-lab-notebook"><b>Mi bitácora</b><br><span id="qvFirstLabNarration">Me pongo la bata, las gafas y preparo mi mesa de trabajo.</span></div>
+    <div class="qv-lab-counter"></div>
+  </section>
+  <section class="qv-firstlab-panel">
+    <h3>👨‍🔬 Mi estación de trabajo</h3>
+    <label for="qvFirstLabPractice">Selecciono mi práctica</label>
+    <select id="qvFirstLabPractice" onchange="qvFirstLabReset()">
+      <option value="ph">Identificación de pH</option>
+      <option value="titration">Titulación ácido-base</option>
+      <option value="density">Cálculo de densidad</option>
+      <option value="gas">Ley del gas ideal</option>
+      <option value="flame">Prueba de flama</option>
+    </select>
+    <label for="qvFirstLabSample">Selecciono mi muestra</label>
+    <select id="qvFirstLabSample"><option value="acid">Muestra ácida</option><option value="neutral">Muestra neutra</option><option value="base">Muestra básica</option></select>
+    <button class="qv-pro-btn" onclick="qvFirstLabPrepare()">1. Preparar material</button>
+    <button class="qv-pro-btn" onclick="qvFirstLabPerform()">2. Realizar experimento</button>
+    <button class="qv-pro-btn" onclick="qvFirstLabObserve()">3. Observar resultado</button>
+    <button class="qv-pro-btn" onclick="qvFirstLabWrite()">4. Registrar conclusión</button>
+  </section>
+</div>
+<div class="qv-firstlab-safety">⚠️ <b>Seguridad:</b> esta es una simulación educativa. En un laboratorio real utilizo bata, gafas, guantes cuando corresponda y sigo las instrucciones del docente.</div>
+<h3>📓 Mi bitácora de laboratorio</h3>
+<div id="qvFirstLabLog" class="qv-firstlab-log">Todavía no he iniciado mi práctica.</div>
+</div></div>
+
+<script id="qv-first-person-lab-js">
+let qvFirstLabStep=0;
+function qvFirstLabReset(){qvFirstLabStep=0;document.getElementById('qvFirstLabLog').textContent='He seleccionado una nueva práctica y estoy listo para comenzar.';document.getElementById('qvFirstLabNarration').textContent='Reviso mi material, me coloco el equipo de protección y preparo mi mesa.'}
+function qvFirstLabWriteLog(message){const log=document.getElementById('qvFirstLabLog');log.textContent += (log.textContent==='Todavía no he iniciado mi práctica.'?'':'\n\n')+message}
+function qvFirstLabPrepare(){qvFirstLabStep=1;const p=document.getElementById('qvFirstLabPractice').value;const names={ph:'pH',titration:'titulación ácido-base',density:'densidad',gas:'ley del gas ideal',flame:'prueba de flama'};document.getElementById('qvFirstLabNarration').textContent='Organizo el material, reviso el procedimiento y compruebo que mi estación esté limpia.';qvFirstLabWriteLog('Paso 1 — Preparación: He elegido la práctica de '+names[p]+'. Identifico el material y reviso las medidas de seguridad.')}
+function qvFirstLabPerform(){if(qvFirstLabStep<1)return alert('Primero debo preparar el material.');qvFirstLabStep=2;const p=document.getElementById('qvFirstLabPractice').value;document.getElementById('qvFirstLabNarration').textContent='Realizo el procedimiento con cuidado y registro mentalmente los cambios que observo.';const messages={ph:'Agrego el indicador a mi muestra y observo el cambio de color.',titration:'Agrego lentamente el titulante y agito la muestra hasta acercarme al punto final.',density:'Mido la masa y el volumen de mi muestra para obtener su densidad.',gas:'Registro presión, volumen y temperatura para relacionarlos mediante PV=nRT.',flame:'Observo el color de la flama de manera controlada y relaciono el resultado con el ion correspondiente.'};qvFirstLabWriteLog('Paso 2 — Procedimiento: '+messages[p])}
+function qvFirstLabObserve(){if(qvFirstLabStep<2)return alert('Primero debo preparar y realizar el experimento.');qvFirstLabStep=3;const p=document.getElementById('qvFirstLabPractice').value;const sample=document.getElementById('qvFirstLabSample').value;let result='';if(p==='ph'){result=sample==='acid'?'Observo un resultado ácido: el indicador se desplaza hacia colores asociados con pH menor que 7.':sample==='base'?'Observo un resultado básico: el indicador se desplaza hacia colores asociados con pH mayor que 7.':'Observo un resultado cercano a la neutralidad, alrededor de pH 7.'}else if(p==='titration')result='Observo el cambio de color del indicador y registro el volumen utilizado en el punto final.';else if(p==='density')result='Comparo la masa y el volumen; calculo la densidad mediante d = m/V.';else if(p==='gas')result='Observo que presión, volumen, cantidad de gas y temperatura están relacionados.';else result='Observo un color característico y recuerdo que la prueba de flama requiere supervisión y control de riesgos.';document.getElementById('qvFirstLabNarration').textContent='Observo el resultado y lo comparo con lo que esperaba obtener.';qvFirstLabWriteLog('Paso 3 — Observación: '+result)}
+function qvFirstLabWrite(){if(qvFirstLabStep<3)return alert('Primero debo realizar y observar el experimento.');qvFirstLabStep=4;document.getElementById('qvFirstLabNarration').textContent='Escribo mi conclusión en la bitácora y relaciono lo aprendido con la química.';qvFirstLabWriteLog('Paso 4 — Mi conclusión: Con esta simulación comprendí mejor el procedimiento, identifiqué las observaciones principales y relacioné el resultado con el concepto químico estudiado. En una práctica real, compararía mis datos con los valores de referencia y las indicaciones del docente.')}
+document.addEventListener('DOMContentLoaded',()=>{const tools=document.querySelector('.qv-pro-tools');if(tools&&!document.getElementById('qvFirstLabButton')){const b=document.createElement('button');b.id='qvFirstLabButton';b.className='qv-pro-btn';b.textContent='🧑‍🔬 Mi laboratorio';b.onclick=()=>qvOpen('qvFirstPersonLabModal');tools.appendChild(b)}})
+</script>
+
+<style id="qv-multifunctional-2-css">
+.qv2-modal{position:fixed;inset:0;background:rgba(3,8,18,.86);z-index:99999;display:none;align-items:center;justify-content:center;padding:18px;backdrop-filter:blur(8px)}
+.qv2-modal.open{display:flex}
+.qv2-panel{width:min(1240px,98vw);max-height:94vh;overflow:auto;background:linear-gradient(145deg,#101c32,#142742);color:#eaf4ff;border:1px solid #41678f;border-radius:24px;box-shadow:0 25px 90px #000b;padding:22px;font-family:inherit}
+.qv2-head{display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:15px}
+.qv2-head h2{margin:0;color:#8fe7ff;font-size:clamp(20px,3vw,32px)}
+.qv2-close{border:1px solid #54799d;background:#1c304b;color:#fff;border-radius:12px;padding:9px 13px;cursor:pointer}
+.qv2-grid{display:grid;grid-template-columns:270px minmax(0,1fr) 270px;gap:15px}
+.qv2-card{background:#0b1627cc;border:1px solid #2f4e6e;border-radius:17px;padding:15px}
+.qv2-card h3{margin:0 0 10px;color:#9cecff;font-size:16px}
+.qv2-card label{display:block;font-size:12px;color:#b5c9dd;margin:10px 0 4px}
+.qv2-card select,.qv2-card input,.qv2-card textarea{width:100%;box-sizing:border-box;background:#12243b;color:#eef8ff;border:1px solid #496b8e;border-radius:9px;padding:9px}
+.qv2-btn{border:1px solid #4f91b8;background:linear-gradient(135deg,#1c5979,#247e8c);color:#fff;border-radius:10px;padding:10px 12px;cursor:pointer;margin:4px 3px 4px 0;font-weight:600}
+.qv2-btn.alt{background:#24354c;border-color:#526b87}
+.qv2-btn.warn{background:#68442b;border-color:#bb8954}
+.qv2-scene{min-height:260px;position:relative;overflow:hidden;border-radius:16px;border:1px solid #456783;background:linear-gradient(#162c45 0 58%,#293f4c 58% 100%);padding:15px}
+.qv2-scene:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 49%,#ffffff0b 50%,transparent 51%),linear-gradient(0deg,transparent 49%,#ffffff0b 50%,transparent 51%);background-size:38px 38px;pointer-events:none}
+.qv2-shelf{position:absolute;left:14px;top:16px;width:115px;height:155px;border:7px solid #765b45;border-top-width:10px;border-bottom-width:10px;background:repeating-linear-gradient(#5b4436 0 35px,#ad8a61 36px 40px);border-radius:4px}
+.qv2-bottle{position:absolute;width:23px;height:34px;border-radius:5px 5px 9px 9px;background:#8ed5d8;border:2px solid #d8ffff;box-shadow:0 0 12px #7ce7ff66}
+.qv2-bottle:before{content:"";position:absolute;left:5px;top:-9px;width:10px;height:9px;background:#c9e2e7;border:1px solid #8aaab7}
+.qv2-b1{left:35px;top:39px}.qv2-b2{left:72px;top:48px;background:#f1c26e}.qv2-b3{left:43px;top:91px;background:#c89be8}.qv2-b4{left:81px;top:102px;background:#83d69a}
+.qv2-person{position:absolute;left:46%;bottom:24px;width:65px;height:100px;background:#d9e6ef;border-radius:28px 28px 10px 10px;box-shadow:0 0 0 7px #a8c3d0 inset}
+.qv2-person:before{content:"";position:absolute;left:17px;top:-34px;width:31px;height:35px;border-radius:50%;background:#e8b995;border:4px solid #e8f3fa}
+.qv2-counter{position:absolute;left:23%;right:7%;bottom:18px;height:47px;border-radius:8px;background:linear-gradient(#9b8069,#5f493b);border:3px solid #c1a083}
+.qv2-flask{position:absolute;right:22%;bottom:63px;width:48px;height:58px;border:3px solid #d4f7ff;border-top:0;border-radius:8px 8px 24px 24px;background:linear-gradient(0deg,#5b9db8 0 43%,transparent 44%);transform:rotate(-8deg)}
+.qv2-flask:before{content:"";position:absolute;left:15px;top:-30px;width:15px;height:31px;border:3px solid #d4f7ff;border-bottom:0}
+.qv2-flask:after{content:"";position:absolute;left:5px;right:5px;bottom:25px;height:2px;background:#b6f8ff;box-shadow:0 8px #b6f8ff,12px 2px #b6f8ff}
+.qv2-status{padding:10px;border-radius:10px;background:#10263b;border:1px solid #355b7b;font-size:13px;line-height:1.45;white-space:pre-line}
+.qv2-log{height:175px;overflow:auto;font-size:12px;line-height:1.5;background:#07101d;border:1px solid #304963;padding:10px;border-radius:10px}
+.qv2-metric{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.qv2-metric div{background:#102a3e;border:1px solid #345b76;border-radius:10px;padding:9px;text-align:center}
+.qv2-metric b{display:block;color:#a3efff;font-size:18px}
+.qv2-graph{width:100%;height:210px;background:#07111e;border:1px solid #36516c;border-radius:12px;margin-top:10px}
+.qv2-report{min-height:140px;resize:vertical}
+.qv2-check{display:flex!important;gap:8px;align-items:center;margin:8px 0!important}
+.qv2-check input{width:auto!important}
+.qv2-note{font-size:11px;color:#a9c1d7;line-height:1.4}
+@media(max-width:980px){.qv2-grid{grid-template-columns:1fr 1fr}.qv2-grid .qv2-main{grid-column:1/-1;grid-row:1}.qv2-grid .qv2-side{grid-column:1}.qv2-grid .qv2-right{grid-column:2}}
+@media(max-width:620px){.qv2-grid{grid-template-columns:1fr}.qv2-grid .qv2-main,.qv2-grid .qv2-side,.qv2-grid .qv2-right{grid-column:auto}.qv2-panel{padding:12px}.qv2-scene{min-height:230px}}
+</style>
+
+<div id="qv2LabModal" class="qv2-modal" aria-hidden="true">
+  <div class="qv2-panel">
+    <div class="qv2-head">
+      <div>
+        <h2>🧪 Quimiverse · Laboratorio Multifuncional 2.0</h2>
+        <div class="qv2-note">Simulación educativa: los resultados son calculados por el modelo y no sustituyen una práctica real.</div>
+      </div>
+      <button class="qv2-close" onclick="qv2Close()">✕ Cerrar</button>
+    </div>
+    <div class="qv2-grid">
+      <aside class="qv2-card qv2-side">
+        <h3>📋 Configuración</h3>
+        <label for="qv2Practice">Práctica</label>
+        <select id="qv2Practice" onchange="qv2LoadPractice()">
+          <option value="titration">Titulación ácido-base</option>
+          <option value="density">Densidad de un líquido</option>
+          <option value="gas">Ley del gas ideal</option>
+          <option value="ph">Medición de pH</option>
+          <option value="dilution">Preparación de una dilución</option>
+          <option value="heat">Transferencia de calor</option>
+          <option value="kinetics">Cinética química</option>
+          <option value="spectro">Espectrofotometría</option>
+          <option value="filtration">Filtración y separación</option>
+        </select>
+        <label for="qv2Student">Nombre del estudiante</label>
+        <input id="qv2Student" placeholder="Alexis Noria">
+        <label for="qv2Objective">Objetivo</label>
+        <textarea id="qv2Objective" rows="3"></textarea>
+        <label>Seguridad obligatoria</label>
+        <label class="qv2-check"><input type="checkbox" id="qv2Goggles"> Gafas de seguridad</label>
+        <label class="qv2-check"><input type="checkbox" id="qv2Gloves"> Guantes</label>
+        <label class="qv2-check"><input type="checkbox" id="qv2Coat"> Bata de laboratorio</label>
+        <button class="qv2-btn" onclick="qv2Prepare()">Preparar material</button>
+        <button class="qv2-btn alt" onclick="qv2Reset()">Reiniciar práctica</button>
+        <div class="qv2-note">La simulación bloquea el procedimiento si no se selecciona el equipo de protección.</div>
+      </aside>
+      <main class="qv2-card qv2-main">
+        <h3>👁️ Vista del laboratorio</h3>
+        <div class="qv2-scene">
+          <div class="qv2-shelf"><span class="qv2-bottle qv2-b1"></span><span class="qv2-bottle qv2-b2"></span><span class="qv2-bottle qv2-b3"></span><span class="qv2-bottle qv2-b4"></span></div>
+          <div class="qv2-counter"></div><div class="qv2-person"></div><div class="qv2-flask"></div>
+        </div>
+        <div class="qv2-metric">
+          <div><span>Etapa</span><b id="qv2Stage">1/4</b></div>
+          <div><span>Estado</span><b id="qv2State">Listo</b></div>
+          <div><span>Datos</span><b id="qv2DataCount">0</b></div>
+        </div>
+        <h3 style="margin-top:15px">🎛️ Instrumentos y variables</h3>
+        <div id="qv2Controls"></div>
+        <button class="qv2-btn" onclick="qv2Perform()">▶ Ejecutar experimento</button>
+        <button class="qv2-btn" onclick="qv2Observe()">🔎 Observar resultados</button>
+        <button class="qv2-btn" onclick="qv2Conclusion()">📝 Generar conclusión</button>
+        <svg id="qv2Graph" class="qv2-graph" viewBox="0 0 600 210" role="img" aria-label="Gráfica de resultados"></svg>
+        <div id="qv2Status" class="qv2-status">Selecciona una práctica y prepara el material.</div>
+      </main>
+      <aside class="qv2-card qv2-right">
+        <h3>📒 Bitácora</h3>
+        <div id="qv2Log" class="qv2-log">[Inicio] Laboratorio preparado para recibir una práctica.</div>
+        <h3 style="margin-top:15px">📄 Reporte automático</h3>
+        <textarea id="qv2Report" class="qv2-report" placeholder="Aquí aparecerá el reporte..."></textarea>
+        <button class="qv2-btn" onclick="qv2CopyReport()">Copiar reporte</button>
+        <button class="qv2-btn alt" onclick="qv2DownloadReport()">Descargar .txt</button>
+        <button class="qv2-btn warn" onclick="qv2Safety()">⚠ Revisar seguridad</button>
+        <div id="qv2Safety" class="qv2-status" style="margin-top:10px">Equipo de protección pendiente.</div>
+      </aside>
+    </div>
+  </div>
+</div>
+
+<script id="qv2-multifunctional-2-js">
+(function(){
+const $=id=>document.getElementById(id);
+let qv2={stage:1,prepared:false,performed:false,observed:false,data:[],logs:[],result:null};
+const practices={
+titration:{name:"Titulación ácido-base",objective:"Determinar la concentración aproximada de un ácido mediante una base de concentración conocida.",controls:[
+["baseM","Concentración de la base (M)",0.1,0.01,1,0.01],["acidV","Volumen de ácido (mL)",25,5,100,1],["baseV","Volumen de base utilizado (mL)",25,1,60,1]],unit:"mL"},
+density:{name:"Densidad de un líquido",objective:"Calcular la densidad de una muestra usando su masa y volumen.",controls:[
+["mass","Masa de la muestra (g)",45,1,200,1],["volume","Volumen de la muestra (mL)",50,5,200,1]],unit:"g/mL"},
+gas:{name:"Ley del gas ideal",objective:"Calcular la cantidad de sustancia usando la relación PV=nRT.",controls:[
+["pressure","Presión (atm)",1,0.1,10,0.1],["volume","Volumen (L)",2,0.1,20,0.1],["temperature","Temperatura (K)",298,250,500,1]],unit:"mol"},
+ph:{name:"Medición de pH",objective:"Estimar el pH de una solución y relacionarlo con su carácter ácido o básico.",controls:[
+["concentration","Concentración de H+ (mol/L)",0.001,0.0001,1,0.0001]],unit:"pH"},
+dilution:{name:"Preparación de una dilución",objective:"Calcular el volumen de solución concentrada necesario para preparar una dilución.",controls:[
+["c1","Concentración inicial (M)",1,0.1,10,0.1],["c2","Concentración final (M)",0.1,0.01,5,0.01],["v2","Volumen final (mL)",100,10,1000,10]],unit:"mL"},
+heat:{name:"Transferencia de calor",objective:"Estimar la energía transferida a una sustancia mediante q=mcΔT.",controls:[
+["mass","Masa (g)",100,10,1000,10],["specific","Calor específico (J/g·°C)",4.18,0.1,10,0.1],["delta","Cambio de temperatura (°C)",15,1,100,1]],unit:"J"},
+kinetics:{name:"Cinética química",objective:"Observar una disminución aproximada de concentración con el tiempo mediante un modelo de primer orden.",controls:[
+["initial","Concentración inicial (M)",1,0.1,5,0.1],["rate","Constante k (1/min)",0.08,0.01,0.5,0.01],["time","Tiempo final (min)",20,1,100,1]],unit:"M"},
+spectro:{name:"Espectrofotometría",objective:"Aplicar la ley de Beer-Lambert para relacionar absorbancia y concentración.",controls:[
+["epsilon","Absortividad molar",120,10,1000,10],["path","Longitud de celda (cm)",1,0.1,5,0.1],["conc","Concentración (M)",0.002,0.0001,0.1,0.0001]],unit:"A"},
+filtration:{name:"Filtración y separación",objective:"Reconocer la filtración como una operación física para separar un sólido insoluble de un líquido.",controls:[
+["solid","Masa de sólido (g)",5,1,100,1],["liquid","Volumen de mezcla (mL)",100,10,1000,10]],unit:"%"}
+};
+function log(msg){qv2.logs.push("["+new Date().toLocaleTimeString()+"] "+msg);$("qv2Log").textContent=qv2.logs.join("\n");$("qv2Log").scrollTop=$("qv2Log").scrollHeight}
+function val(id){return Number($(id).value)}
+function setStatus(msg){$("qv2Status").textContent=msg}
+function safetyOK(){return $("qv2Goggles").checked&&$("qv2Gloves").checked&&$("qv2Coat").checked}
+function controlsFor(p){
+$("qv2Controls").innerHTML=p.controls.map(c=>`<label for="qv2_${c[0]}">${c[1]}</label><input id="qv2_${c[0]}" type="number" value="${c[2]}" min="${c[3]}" max="${c[4]}" step="${c[5]}">`).join("");
+}
+window.qv2LoadPractice=function(){
+const key=$("qv2Practice").value,p=practices[key];
+$("qv2Objective").value=p.objective;controlsFor(p);qv2Reset(false);setStatus("Práctica seleccionada: "+p.name);log("Se seleccionó "+p.name);
+}
+window.qv2Open=function(){$("qv2LabModal").classList.add("open");$("qv2LabModal").setAttribute("aria-hidden","false");qv2LoadPractice()}
+window.qv2Close=function(){$("qv2LabModal").classList.remove("open");$("qv2LabModal").setAttribute("aria-hidden","true")}
+window.qv2Reset=function(clear=true){
+qv2={stage:1,prepared:false,performed:false,observed:false,data:[],logs:clear?[]:qv2.logs,result:null};
+$("qv2Stage").textContent="1/4";$("qv2State").textContent="Listo";$("qv2DataCount").textContent="0";
+$("qv2Graph").innerHTML="";$("qv2Report").value="";
+if(clear)log("La práctica fue reiniciada.");setStatus("Selecciona el equipo de protección y prepara el material.");
+}
+window.qv2Prepare=function(){
+if(!safetyOK()){setStatus("No se puede iniciar: selecciona gafas, guantes y bata.");$("qv2Safety").textContent="⚠ Faltan elementos de protección personal.";log("Intento bloqueado por falta de EPP.");return}
+qv2.prepared=true;qv2.stage=2;$("qv2Stage").textContent="2/4";$("qv2State").textContent="Preparado";$("qv2Safety").textContent="✓ EPP confirmado. Revisa las variables antes de ejecutar.";
+setStatus("Material preparado. Puedes ejecutar el experimento.");log("Material e instrumentos virtuales preparados con EPP confirmado.");
+}
+function graph(data,xLabel,yLabel){
+const svg=$("qv2Graph"),w=600,h=210,p=35;
+if(!data.length){svg.innerHTML="";return}
+const xs=data.map(d=>d.x),ys=data.map(d=>d.y),xmin=Math.min(...xs),xmax=Math.max(...xs)||1,ymin=Math.min(0,...ys),ymax=Math.max(...ys)||1;
+const X=x=>p+(x-xmin)/(xmax-xmin||1)*(w-2*p),Y=y=>h-p-(y-ymin)/(ymax-ymin||1)*(h-2*p);
+let path=data.map((d,i)=>(i?"L":"M")+X(d.x).toFixed(2)+","+Y(d.y).toFixed(2)).join(" ");
+svg.innerHTML=`<line x1="${p}" y1="${h-p}" x2="${w-p}" y2="${h-p}" stroke="#8aa7bf"/><line x1="${p}" y1="${p}" x2="${p}" y2="${h-p}" stroke="#8aa7bf"/><path d="${path}" fill="none" stroke="#72e4ff" stroke-width="3"/>`+
+data.map(d=>`<circle cx="${X(d.x)}" cy="${Y(d.y)}" r="3" fill="#ffd37b"/>`).join("")+
+`<text x="${w/2}" y="${h-7}" fill="#b9d5e9" text-anchor="middle" font-size="11">${xLabel}</text><text x="12" y="${h/2}" fill="#b9d5e9" font-size="11" transform="rotate(-90 12 ${h/2})">${yLabel}</text>`;
+}
+function calculate(){
+const key=$("qv2Practice").value,r={};
+if(key==="titration"){r.n=val("qv2_baseM")*val("qv2_baseV")/1000;r.conc=r.n/(val("qv2_acidV")/1000);r.text=`Concentración aproximada del ácido: ${r.conc.toFixed(4)} M`;qv2.data=Array.from({length:13},(_,i)=>{let v=i*val("qv2_baseV")/12;return{x:v,y:7-Math.abs(v-val("qv2_baseV"))*.12}});graph(qv2.data,"Volumen de base (mL)","pH simulado");}
+if(key==="density"){r.d=val("qv2_mass")/val("qv2_volume");r.text=`Densidad calculada: ${r.d.toFixed(4)} g/mL`;qv2.data=[{x:0,y:0},{x:val("qv2_volume"),y:val("qv2_mass")}];graph(qv2.data,"Volumen (mL)","Masa (g)");}
+if(key==="gas"){r.n=val("qv2_pressure")*val("qv2_volume")/(0.082057*val("qv2_temperature"));r.text=`Cantidad de sustancia: ${r.n.toFixed(4)} mol`;qv2.data=Array.from({length:10},(_,i)=>{let t=val("qv2_temperature")-30+i*6.67;return{x:t,y:val("qv2_pressure")*val("qv2_volume")/(.082057*t)}});graph(qv2.data,"Temperatura (K)","n (mol)");}
+if(key==="ph"){r.ph=-Math.log10(val("qv2_concentration"));r.text=`pH estimado: ${r.ph.toFixed(3)}. ${r.ph<7?"Medio ácido":r.ph>7?"Medio básico":"Medio neutro"}`;qv2.data=Array.from({length:10},(_,i)=>{let c=10**(-i/2);return{x:i,y:-Math.log10(c)}});graph(qv2.data,"Índice de concentración","pH");}
+if(key==="dilution"){r.v1=val("qv2_c2")*val("qv2_v2")/val("qv2_c1");r.text=`Volumen de solución inicial: ${r.v1.toFixed(3)} mL; completar hasta ${val("qv2_v2")} mL.`;qv2.data=[{x:0,y:val("qv2_c1")},{x:val("qv2_v2"),y:val("qv2_c2")}];graph(qv2.data,"Volumen final (mL)","Concentración (M)");}
+if(key==="heat"){r.q=val("qv2_mass")*val("qv2_specific")*val("qv2_delta");r.text=`Energía transferida estimada: ${r.q.toFixed(2)} J`;qv2.data=[{x:0,y:0},{x:val("qv2_delta"),y:r.q}];graph(qv2.data,"ΔT (°C)","Calor q (J)");}
+if(key==="kinetics"){let c0=val("qv2_initial"),k=val("qv2_rate"),t=val("qv2_time");r.final=c0*Math.exp(-k*t);r.text=`Concentración final estimada: ${r.final.toFixed(4)} M`;qv2.data=Array.from({length:21},(_,i)=>{let x=t*i/20;return{x:x,y:c0*Math.exp(-k*x)}});graph(qv2.data,"Tiempo (min)","Concentración (M)");}
+if(key==="spectro"){r.a=val("qv2_epsilon")*val("qv2_path")*val("qv2_conc");r.text=`Absorbancia estimada: ${r.a.toFixed(4)} UA`;qv2.data=[{x:0,y:0},{x:val("qv2_conc"),y:r.a}];graph(qv2.data,"Concentración (M)","Absorbancia");}
+if(key==="filtration"){r.recovery=97.5;r.text=`Separación conceptual completada. Recuperación estimada del sólido: ${r.recovery}%.`;qv2.data=[{x:0,y:0},{x:1,y:r.recovery}];graph(qv2.data,"Etapa","Recuperación (%)");}
+return r;
+}
+window.qv2Perform=function(){
+if(!qv2.prepared){setStatus("Primero prepara el material y confirma el EPP.");return}
+qv2.result=calculate();qv2.performed=true;qv2.stage=3;$("qv2Stage").textContent="3/4";$("qv2State").textContent="Ejecutado";$("qv2DataCount").textContent=String(qv2.data.length);
+setStatus(qv2.result.text);log("Experimento ejecutado. Se calcularon "+qv2.data.length+" puntos de datos.");
+}
+window.qv2Observe=function(){
+if(!qv2.performed){setStatus("Ejecuta primero el experimento.");return}
+qv2.observed=true;qv2.stage=4;$("qv2Stage").textContent="4/4";$("qv2State").textContent="Observado";
+setStatus("Observación: la gráfica muestra una tendencia calculada. Analiza unidades, variables y posibles fuentes de error.");
+log("Se observaron los resultados y la gráfica.");
+}
+window.qv2Conclusion=function(){
+if(!qv2.performed){setStatus("Ejecuta el experimento antes de generar la conclusión.");return}
+const p=practices[$("qv2Practice").value],name=$("qv2Student").value||"Estudiante";
+const report=`REPORTE DE LABORATORIO — QUIMIVERSE\n\nEstudiante: ${name}\nPráctica: ${p.name}\n\nOBJETIVO\n${$("qv2Objective").value}\n\nFUNDAMENTO\nLa práctica se representa mediante un modelo educativo con variables controladas y ecuaciones simplificadas.\n\nPROCEDIMIENTO\n1. Se seleccionó la práctica y se revisó el equipo de protección personal.\n2. Se prepararon los materiales virtuales.\n3. Se introdujeron las variables y se ejecutó el cálculo.\n4. Se revisó la gráfica y se interpretó la tendencia.\n\nRESULTADO\n${qv2.result?qv2.result.text:"Sin resultado"}\n\nOBSERVACIÓN\nLos valores corresponden a una simulación y pueden diferir de un experimento real por condiciones, instrumentos y supuestos del modelo.\n\nCONCLUSIÓN\nSe aplicó un principio de química mediante el uso de variables, unidades y cálculos. La simulación permitió relacionar el procedimiento con la interpretación de resultados y la importancia de la seguridad en el laboratorio.\n\nFUENTES DE ERROR Y SEGURIDAD\nPosibles errores de medición, redondeo, temperatura, calibración y simplificaciones del modelo. Utilizar siempre bata, guantes, gafas y supervisión docente en prácticas reales.`;
+$("qv2Report").value=report;log("Se generó el reporte automático.");setStatus("Reporte generado. Puedes copiarlo o descargarlo.");
+}
+window.qv2CopyReport=function(){const t=$("qv2Report").value;if(!t){setStatus("Genera primero el reporte.");return}navigator.clipboard?.writeText(t).then(()=>setStatus("Reporte copiado al portapapeles.")).catch(()=>setStatus("No fue posible copiar automáticamente; selecciona el texto y cópialo."))}
+window.qv2DownloadReport=function(){const t=$("qv2Report").value;if(!t){setStatus("Genera primero el reporte.");return}const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([t],{type:"text/plain;charset=utf-8"}));a.download="reporte_quimiverse.txt";a.click();URL.revokeObjectURL(a.href)}
+window.qv2Safety=function(){
+const missing=[];if(!$("qv2Goggles").checked)missing.push("gafas");if(!$("qv2Gloves").checked)missing.push("guantes");if(!$("qv2Coat").checked)missing.push("bata");
+$("qv2Safety").textContent=missing.length?"⚠ Falta: "+missing.join(", ")+".":"✓ Equipo de protección confirmado. En una práctica real también se deben revisar las hojas de seguridad y las instrucciones del docente.";
+}
+document.addEventListener("DOMContentLoaded",()=>{
+let host=document.querySelector(".qv-pro-tools")||document.querySelector(".pro-tools")||document.body;
+if(!document.getElementById("qv2OpenButton")){
+const b=document.createElement("button");b.id="qv2OpenButton";b.className="qv-btn qv2-btn";b.textContent="🧪 Laboratorio Multifuncional 2.0";b.onclick=qv2Open;host.appendChild(b);
+}
+});
+})();
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+  if(!document.getElementById("qv2OpenButton")){
+    const b=document.createElement("button");
+    b.id="qv2OpenButton";b.textContent="🧪 Laboratorio Multifuncional 2.0";
+    b.style.cssText="position:fixed;right:18px;bottom:18px;z-index:9998;padding:12px 15px;border-radius:12px;border:1px solid #5fa9c9;background:#164e6c;color:white;cursor:pointer;font-weight:700";
+    b.onclick=window.qv2Open;document.body.appendChild(b);
+  }
+});
+</script>
+
+
+<style id="qv-levels-language-css">
+.qv3-language-bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:10px 0;padding:10px;border:1px solid #42617e;border-radius:12px;background:#0b1a2c}
+.qv3-language-bar select,.qv3-language-bar button{background:#18314b;color:#edfaff;border:1px solid #4e7798;border-radius:9px;padding:8px;cursor:pointer}
+.qv3-levels{display:grid;grid-template-columns:repeat(6,minmax(80px,1fr));gap:7px;margin:10px 0}
+.qv3-level{background:#142c43;border:1px solid #456c8d;color:#dff7ff;border-radius:9px;padding:8px 4px;cursor:pointer;font-size:11px;font-weight:700}
+.qv3-level.active{background:linear-gradient(135deg,#287e91,#22517d);border-color:#a2efff;box-shadow:0 0 12px #5bdfff55}
+.qv3-random-card{margin-top:10px;border:1px solid #456d8d;border-radius:12px;background:#0a1728;padding:12px}
+.qv3-practice-title{font-size:18px;font-weight:800;color:#9defff;margin-bottom:5px}
+.qv3-tags{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.qv3-tag{font-size:10px;padding:4px 7px;border-radius:99px;background:#23445e;border:1px solid #4b7898;color:#c9efff}
+.qv3-lang-note{font-size:11px;color:#abc8df;line-height:1.4}
+@media(max-width:700px){.qv3-levels{grid-template-columns:repeat(3,minmax(80px,1fr))}}
+</style>
+
+<div id="qv3ConfigModal" class="qv2-modal" aria-hidden="true">
+ <div class="qv2-panel" style="max-width:850px">
+  <div class="qv2-head">
+   <div><h2 id="qv3ConfigTitle">🌐 Configuración global</h2><div class="qv3-lang-note" id="qv3ConfigSubtitle">Aplica el idioma y el nivel a los dos laboratorios.</div></div>
+   <button class="qv2-close" onclick="qv3CloseConfig()">✕</button>
+  </div>
+  <div class="qv3-language-bar">
+   <label id="qv3LangLabel" for="qv3Language">Idioma</label>
+   <select id="qv3Language" onchange="qv3SetLanguage(this.value)">
+    <option value="es">Español</option><option value="en">English</option>
+   </select>
+   <button onclick="qv3RandomPractice()" id="qv3RandomBtn">🎲 Práctica aleatoria</button>
+  </div>
+  <h3 id="qv3LevelTitle">Nivel de práctica</h3>
+  <div id="qv3Levels" class="qv3-levels"></div>
+  <div id="qv3RandomCard" class="qv3-random-card"></div>
+  <div class="qv3-lang-note" id="qv3GlobalNote">La configuración se comparte entre los dos laboratorios de Quimiverse.</div>
+  <button class="qv2-btn" onclick="qv3ApplyToLabs()" id="qv3ApplyBtn">Aplicar a los laboratorios</button>
+ </div>
+</div>
+
+<script id="qv3-levels-language-js">
+(function(){
+const $=id=>document.getElementById(id);
+const state={lang:localStorage.getItem("qv3Lang")||"es",level:localStorage.getItem("qv3Level")||"principiante",practice:null};
+const levels=["principiante","basico","intermedio","avanzado","experto","maestro"];
+const practices={
+principiante:[
+ {id:"p1",es:"Identificación de material de laboratorio",en:"Laboratory equipment identification",type:"Seguridad / Safety"},
+ {id:"p2",es:"Medición de volumen con probeta",en:"Measuring volume with a graduated cylinder",type:"Mediciones / Measurements"},
+ {id:"p3",es:"Densidad de un líquido",en:"Density of a liquid",type:"Propiedades / Properties"},
+ {id:"p4",es:"Separación de una mezcla simple",en:"Separation of a simple mixture",type:"Separación / Separation"},
+ {id:"p5",es:"Escala de pH y sustancias comunes",en:"pH scale and common substances",type:"Ácidos y bases / Acids and bases"}
+],
+basico:[
+ {id:"b1",es:"Preparación de una solución",en:"Solution preparation",type:"Soluciones / Solutions"},
+ {id:"b2",es:"Dilución C1V1=C2V2",en:"Dilution using C1V1=C2V2",type:"Cálculos / Calculations"},
+ {id:"b3",es:"Ley del gas ideal",en:"Ideal gas law",type:"Gases / Gases"},
+ {id:"b4",es:"Titulación ácido-base básica",en:"Basic acid-base titration",type:"Análisis / Analysis"},
+ {id:"b5",es:"Transferencia de calor",en:"Heat transfer",type:"Termodinámica / Thermodynamics"}
+],
+intermedio:[
+ {id:"i1",es:"Estequiometría de una reacción",en:"Reaction stoichiometry",type:"Reacciones / Reactions"},
+ {id:"i2",es:"Cinética química de primer orden",en:"First-order chemical kinetics",type:"Cinética / Kinetics"},
+ {id:"i3",es:"Espectrofotometría y Beer-Lambert",en:"Spectrophotometry and Beer-Lambert",type:"Análisis / Analysis"},
+ {id:"i4",es:"Calorimetría de una reacción",en:"Reaction calorimetry",type:"Energía / Energy"},
+ {id:"i5",es:"Cristalización y solubilidad",en:"Crystallization and solubility",type:"Separación / Separation"}
+],
+avanzado:[
+ {id:"a1",es:"Balance de materia sin reacción",en:"Material balance without reaction",type:"Ingeniería / Engineering"},
+ {id:"a2",es:"Balance de materia con reacción",en:"Material balance with reaction",type:"Ingenering / Engineering"},
+ {id:"a3",es:"Equilibrio químico",en:"Chemical equilibrium",type:"Equilibrium"},
+ {id:"a4",es:"Intercambiador de calor conceptual",en:"Conceptual heat exchanger",type:"Operaciones / Operations"},
+ {id:"a5",es:"Destilación fraccionada",en:"Fractional distillation",type:"Separación / Separation"}
+],
+experto:[
+ {id:"e1",es:"Diseño de una curva de titulación",en:"Designing a titration curve",type:"Análisis / Analysis"},
+ {id:"e2",es:"Modelo de reactor continuo",en:"Continuous reactor model",type:"Reactors"},
+ {id:"e3",es:"Transferencia de masa",en:"Mass transfer",type:"Transport phenomena"},
+ {id:"e4",es:"Control de variables de proceso",en:"Process variable control",type:"Control"},
+ {id:"e5",es:"Análisis de error e incertidumbre",en:"Error and uncertainty analysis",type:"Metrology"}
+],
+maestro:[
+ {id:"m1",es:"Diseño integral de un proceso químico",en:"Integrated chemical process design",type:"Diseño / Design"},
+ {id:"m2",es:"Optimización de rendimiento de reacción",en:"Reaction yield optimization",type:"Optimization"},
+ {id:"m3",es:"Evaluación de seguridad de un proceso",en:"Process safety assessment",type:"Safety"},
+ {id:"m4",es:"Simulación de una planta de separación",en:"Separation plant simulation",type:"Process simulation"},
+ {id:"m5",es:"Proyecto de innovación química",en:"Chemical innovation project",type:"Innovation"}
+]
+};
+const text={
+es:{title:"🌐 Configuración global",subtitle:"Aplica el idioma y el nivel a los dos laboratorios.",language:"Idioma",level:"Nivel de práctica",random:"🎲 Práctica aleatoria",apply:"Aplicar a los laboratorios",note:"La configuración se comparte entre los dos laboratorios de Quimiverse.",selected:"Práctica seleccionada",choose:"Selecciona un nivel para comenzar.",levelNames:["Principiante","Básico","Intermedio","Avanzado","Experto","Maestro"],description:"Las prácticas se organizan por dificultad. Los niveles superiores requieren más cálculos, interpretación y decisiones de ingeniería."},
+en:{title:"🌐 Global settings",subtitle:"Apply the language and level to both laboratories.",language:"Language",level:"Practice level",random:"🎲 Random practice",apply:"Apply to laboratories",note:"The settings are shared between both Quimiverse laboratories.",selected:"Selected practice",choose:"Select a level to begin.",levelNames:["Beginner","Basic","Intermediate","Advanced","Expert","Master"],description:"Practices are organized by difficulty. Higher levels require more calculations, interpretation and engineering decisions."}
+};
+function t(k){return text[state.lang][k]||k}
+function currentList(){return practices[state.level]||practices.principiante}
+function levelName(){return t("levelNames")[levels.indexOf(state.level)]}
+function renderLevels(){
+$("qv3Levels").innerHTML=levels.map((l,i)=>`<button class="qv3-level ${l===state.level?"active":""}" onclick="qv3ChooseLevel('${l}')">${t("levelNames")[i]}</button>`).join("");
+}
+function renderCard(){
+const p=state.practice;
+$("qv3RandomCard").innerHTML=p?`<div class="qv3-practice-title">${t("selected")}: ${state.lang==="es"?p.es:p.en}</div><div class="qv3-tags"><span class="qv3-tag">${levelName()}</span><span class="qv3-tag">${p.type}</span><span class="qv3-tag">${p.id.toUpperCase()}</span></div><div class="qv3-lang-note">${t("description")}</div>`:`<div class="qv3-lang-note">${t("choose")}</div>`;
+}
+function renderText(){
+$("qv3ConfigTitle").textContent=t("title");$("qv3ConfigSubtitle").textContent=t("subtitle");
+$("qv3LangLabel").textContent=t("language");$("qv3LevelTitle").textContent=t("level");
+$("qv3RandomBtn").textContent=t("random");$("qv3ApplyBtn").textContent=t("apply");$("qv3GlobalNote").textContent=t("note");
+renderLevels();renderCard();
+}
+window.qv3ChooseLevel=function(level){state.level=level;localStorage.setItem("qv3Level",level);state.practice=null;renderLevels();qv3RandomPractice();qv3ApplyToLabs(false)}
+window.qv3RandomPractice=function(){
+const list=currentList();state.practice=list[Math.floor(Math.random()*list.length)];renderCard();
+const p=state.practice;
+if(window.qv2LoadPractice){const map={p3:"density",b3:"gas",b4:"titration",b5:"heat",i2:"kinetics",i3:"spectro",b2:"dilution"};if(map[p.id]){$("qv2Practice").value=map[p.id];window.qv2LoadPractice();}}
+}
+window.qv3SetLanguage=function(lang){state.lang=lang;localStorage.setItem("qv3Lang",lang);renderText();qv3TranslatePage(lang)}
+function qv3TranslatePage(lang){
+document.documentElement.lang=lang;
+const dict=lang==="en"?{
+"🧪 Laboratorio Multifuncional 2.0":"🧪 Multifunctional Laboratory 2.0",
+"Preparar material":"Prepare materials","Ejecutar experimento":"Run experiment","Observar resultados":"Observe results","Generar conclusión":"Generate conclusion","Copiar reporte":"Copy report","Descargar .txt":"Download .txt","Revisar seguridad":"Review safety","Práctica":"Practice","Idioma":"Language"
+}:{
+"🧪 Multifunctional Laboratory 2.0":"🧪 Laboratorio Multifuncional 2.0","Prepare materials":"Preparar material","Run experiment":"Ejecutar experimento","Observe results":"Observar resultados","Generate conclusion":"Generar conclusión","Copy report":"Copiar reporte","Download .txt":"Descargar .txt","Review safety":"Revisar seguridad","Practice":"Práctica","Language":"Idioma"};
+document.querySelectorAll("button,label,h2,h3").forEach(el=>{const s=el.textContent.trim();if(dict[s])el.textContent=dict[s]});
+if($("qv2Practice")){const opts=$("qv2Practice").options;const names=lang==="en"?["Acid-base titration","Density of a liquid","Ideal gas law","pH measurement","Dilution preparation","Heat transfer","Chemical kinetics","Spectrophotometry","Filtration and separation"]:["Titulación ácido-base","Densidad de un líquido","Ley del gas ideal","Medición de pH","Preparación de una dilución","Transferencia de calor","Cinética química","Espectrofotometría","Filtración y separación"];for(let i=0;i<opts.length;i++)opts[i].textContent=names[i]||opts[i].textContent}
+}
+window.qv3ApplyToLabs=function(show=true){
+localStorage.setItem("qv3Lang",state.lang);localStorage.setItem("qv3Level",state.level);
+qv3TranslatePage(state.lang);
+if(show){$("qv3RandomCard").innerHTML+=`<div class="qv3-lang-note" style="margin-top:8px">✓ ${state.lang==="es"?"Configuración aplicada a los laboratorios.":"Settings applied to both laboratories."}</div>`}
+}
+window.qv3OpenConfig=function(){$("qv3ConfigModal").classList.add("open");$("qv3ConfigModal").setAttribute("aria-hidden","false");renderText();qv3RandomPractice()}
+window.qv3CloseConfig=function(){$("qv3ConfigModal").classList.remove("open");$("qv3ConfigModal").setAttribute("aria-hidden","true")}
+document.addEventListener("DOMContentLoaded",function(){
+const host=document.querySelector(".qv-pro-tools")||document.querySelector(".pro-tools")||document.body;
+if(!document.getElementById("qv3ConfigButton")){
+const b=document.createElement("button");b.id="qv3ConfigButton";b.className="qv-btn qv2-btn";b.textContent="🌐 Idioma y niveles";b.onclick=qv3OpenConfig;host.appendChild(b);
+}
+});
+})();
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+ if(!document.getElementById("qv3ConfigButton")){
+  const b=document.createElement("button");b.id="qv3ConfigButton";b.textContent="🌐 Idioma y niveles";
+  b.style.cssText="position:fixed;right:18px;bottom:70px;z-index:9998;padding:12px 15px;border-radius:12px;border:1px solid #5fa9c9;background:#244f70;color:white;cursor:pointer;font-weight:700";
+  b.onclick=window.qv3OpenConfig;document.body.appendChild(b);
+ }
+});
+</script>
+
+
+<script id="quimiverse-11-language-layer">
+(function(){
+  const QV11 = {
+    es:{table:"Tabla periódica interactiva",select:"Selecciona un elemento para consultar toda su información.",search:"Buscar nombre o símbolo…",compare:"Comparador de elementos",lab:"Laboratorio virtual",ach:"Logros y examen de práctica",explore:"Explorar tabla",random:"Elemento aleatorio ↗",all:"Todos",metals:"Metales",nonmetals:"No metales",noble:"Gases nobles",radio:"Radiactivos",mass:"Masa atómica",group:"Grupo",period:"Periodo",electro:"Electronegatividad",radius:"Radio atómico",block:"Bloque electrónico",bohr:"Modelo de Bohr ilustrativo",levels:"Niveles electrónicos",hazards:"Indicadores de peligrosidad",safety:"Seguridad: simulación teórica; no mezcles sustancias reales.",identified:"Elementos identificados",compounds:"Compuestos identificados",rank:"Nivel actual"},
+    en:{table:"Interactive periodic table",select:"Select an element to view all its information.",search:"Search by name or symbol…",compare:"Element comparator",lab:"Virtual laboratory",ach:"Achievements and practice quiz",explore:"Explore table",random:"Random element ↗",all:"All",metals:"Metals",nonmetals:"Nonmetals",noble:"Noble gases",radio:"Radioactive",mass:"Atomic mass",group:"Group",period:"Period",electro:"Electronegativity",radius:"Atomic radius",block:"Electron block",bohr:"Illustrative Bohr model",levels:"Electron shells",hazards:"Hazard indicators",safety:"Safety: theoretical simulation; do not mix real substances.",identified:"Elements identified",compounds:"Compounds identified",rank:"Current level"},
+    fr:{table:"Tableau périodique interactif",select:"Sélectionnez un élément pour consulter toutes ses informations.",search:"Rechercher un nom ou un symbole…",compare:"Comparateur d’éléments",lab:"Laboratoire virtuel",ach:"Succès et quiz pratique",explore:"Explorer le tableau",random:"Élément aléatoire ↗",all:"Tous",metals:"Métaux",nonmetals:"Non-métaux",noble:"Gaz nobles",radio:"Radioactifs",mass:"Masse atomique",group:"Groupe",period:"Période",electro:"Électronégativité",radius:"Rayon atomique",block:"Bloc électronique",bohr:"Modèle de Bohr illustratif",levels:"Couches électroniques",hazards:"Indicateurs de danger",safety:"Sécurité : simulation théorique ; ne mélangez pas de vraies substances.",identified:"Éléments identifiés",compounds:"Composés identifiés",rank:"Niveau actuel"},
+    de:{table:"Interaktives Periodensystem",select:"Wähle ein Element, um alle Informationen anzuzeigen.",search:"Nach Name oder Symbol suchen…",compare:"Elementvergleich",lab:"Virtuelles Labor",ach:"Erfolge und Übungstest",explore:"Tabelle erkunden",random:"Zufälliges Element ↗",all:"Alle",metals:"Metalle",nonmetals:"Nichtmetalle",noble:"Edelgase",radio:"Radioaktive Elemente",mass:"Atommasse",group:"Gruppe",period:"Periode",electro:"Elektronegativität",radius:"Atomradius",block:"Elektronenblock",bohr:"Veranschaulichendes Bohr-Modell",levels:"Elektronenschalen",hazards:"Gefahrenanzeigen",safety:"Sicherheit: theoretische Simulation; keine realen Stoffe mischen.",identified:"Identifizierte Elemente",compounds:"Identifizierte Verbindungen",rank:"Aktuelles Niveau"},
+    it:{table:"Tavola periodica interattiva",select:"Seleziona un elemento per visualizzare tutte le informazioni.",search:"Cerca per nome o simbolo…",compare:"Confronto degli elementi",lab:"Laboratorio virtuale",ach:"Obiettivi e quiz pratico",explore:"Esplora la tavola",random:"Elemento casuale ↗",all:"Tutti",metals:"Metalli",nonmetals:"Non metalli",noble:"Gas nobili",radio:"Radioattivi",mass:"Massa atomica",group:"Gruppo",period:"Periodo",electro:"Elettronegatività",radius:"Raggio atomico",block:"Blocco elettronico",bohr:"Modello di Bohr illustrativo",levels:"Livelli elettronici",hazards:"Indicatori di pericolo",safety:"Sicurezza: simulazione teorica; non mescolare sostanze reali.",identified:"Elementi identificati",compounds:"Composti identificati",rank:"Livello attuale"},
+    pt:{table:"Tabela periódica interativa",select:"Selecione um elemento para consultar todas as informações.",search:"Pesquisar por nome ou símbolo…",compare:"Comparador de elementos",lab:"Laboratório virtual",ach:"Conquistas e teste prático",explore:"Explorar tabela",random:"Elemento aleatório ↗",all:"Todos",metals:"Metais",nonmetals:"Não metais",noble:"Gases nobres",radio:"Radioativos",mass:"Massa atômica",group:"Grupo",period:"Período",electro:"Eletronegatividade",radius:"Raio atômico",block:"Bloco eletrônico",bohr:"Modelo de Bohr ilustrativo",levels:"Camadas eletrônicas",hazards:"Indicadores de perigo",safety:"Segurança: simulação teórica; não misture substâncias reais.",identified:"Elementos identificados",compounds:"Compostos identificados",rank:"Nível atual"},
+    ru:{table:"Интерактивная периодическая таблица",select:"Выберите элемент, чтобы увидеть всю информацию.",search:"Поиск по названию или символу…",compare:"Сравнение элементов",lab:"Виртуальная лаборатория",ach:"Достижения и практический тест",explore:"Открыть таблицу",random:"Случайный элемент ↗",all:"Все",metals:"Металлы",nonmetals:"Неметаллы",noble:"Благородные газы",radio:"Радиоактивные элементы",mass:"Атомная масса",group:"Группа",period:"Период",electro:"Электроотрицательность",radius:"Атомный радиус",block:"Электронный блок",bohr:"Иллюстративная модель Бора",levels:"Электронные оболочки",hazards:"Показатели опасности",safety:"Безопасность: теоретическая симуляция; не смешивайте реальные вещества.",identified:"Идентифицированные элементы",compounds:"Идентифицированные соединения",rank:"Текущий уровень"},
+    zh:{table:"交互式元素周期表",select:"选择一种元素以查看全部信息。",search:"按名称或符号搜索…",compare:"元素比较器",lab:"虚拟实验室",ach:"成就与练习测试",explore:"探索周期表",random:"随机元素 ↗",all:"全部",metals:"金属",nonmetals:"非金属",noble:"稀有气体",radio:"放射性元素",mass:"原子质量",group:"族",period:"周期",electro:"电负性",radius:"原子半径",block:"电子区块",bohr:"玻尔模型（示意）",levels:"电子层",hazards:"危险指标",safety:"安全提示：这是理论模拟，请勿混合真实物质。",identified:"已识别元素",compounds:"已识别化合物",rank:"当前等级"},
+    ja:{table:"インタラクティブ周期表",select:"元素を選択するとすべての情報を表示できます。",search:"名前または記号で検索…",compare:"元素比較",lab:"バーチャル実験室",ach:"実績と練習テスト",explore:"周期表を見る",random:"ランダムな元素 ↗",all:"すべて",metals:"金属",nonmetals:"非金属",noble:"希ガス",radio:"放射性元素",mass:"原子量",group:"族",period:"周期",electro:"電気陰性度",radius:"原子半径",block:"電子ブロック",bohr:"ボーア模型（説明用）",levels:"電子殻",hazards:"危険指標",safety:"安全: 理論シミュレーションです。実物質を混ぜないでください。",identified:"確認した元素",compounds:"確認した化合物",rank:"現在のレベル"},
+    ko:{table:"대화형 주기율표",select:"원소를 선택하면 전체 정보를 볼 수 있습니다.",search:"이름 또는 기호로 검색…",compare:"원소 비교",lab:"가상 실험실",ach:"업적 및 연습 시험",explore:"주기율표 탐색",random:"무작위 원소 ↗",all:"전체",metals:"금속",nonmetals:"비금속",noble:"비활성 기체",radio:"방사성 원소",mass:"원자량",group:"족",period:"주기",electro:"전기 음성도",radius:"원자 반지름",block:"전자 블록",bohr:"보어 모형(설명용)",levels:"전자 껍질",hazards:"위험 지표",safety:"안전: 이론적 시뮬레이션입니다. 실제 물질을 섞지 마세요.",identified:"확인한 원소",compounds:"확인한 화합물",rank:"현재 단계"},
+    ar:{table:"الجدول الدوري التفاعلي",select:"اختر عنصرًا لعرض جميع معلوماته.",search:"ابحث بالاسم أو الرمز…",compare:"مقارنة العناصر",lab:"المختبر الافتراضي",ach:"الإنجازات والاختبار التدريبي",explore:"استكشاف الجدول",random:"عنصر عشوائي ↗",all:"الكل",metals:"المعادن",nonmetals:"اللافلزات",noble:"الغازات النبيلة",radio:"العناصر المشعة",mass:"الكتلة الذرية",group:"المجموعة",period:"الدورة",electro:"السالبية الكهربائية",radius:"نصف القطر الذري",block:"الكتلة الإلكترونية",bohr:"نموذج بور التوضيحي",levels:"مستويات الإلكترونات",hazards:"مؤشرات الخطر",safety:"السلامة: هذه محاكاة نظرية؛ لا تخلط مواد حقيقية.",identified:"العناصر التي تم التعرف عليها",compounds:"المركبات التي تم التعرف عليها",rank:"المستوى الحالي"}
+  };
+
+  // The open dataset supplies 118 localized element names. It contains English,
+  // French, German, Italian, Portuguese, Russian, Japanese and Korean among
+  // other locales; Chinese is mapped from Zh-hans. Arabic is supplied by a
+  // dedicated fallback table for the element names.
+  const ELEMENT_SOURCE="https://raw.githubusercontent.com/AlexGustafsson/molecular-data/master/json/elementsLocale.json";
+  let elementLocales={};
+  let arabicNames=["الهيدروجين","الهيليوم","الليثيوم","البيريليوم","البورون","الكربون","النيتروجين","الأكسجين","الفلور","النيون","الصوديوم","المغنيسيوم","الألومنيوم","السيليكون","الفوسفور","الكبريت","الكلور","الأرجون","البوتاسيوم","الكالسيوم","السكانديوم","التيتانيوم","الفاناديوم","الكروم","المنغنيز","الحديد","الكوبالت","النيكل","النحاس","الزنك","الغاليوم","الجرمانيوم","الزرنيخ","السيلينيوم","البروم","الكريبتون","الروبيديوم","السترونشيوم","الإيتريوم","الزركونيوم","النيوبيوم","الموليبدينوم","التكنيشيوم","الروثينيوم","الروديوم","البلاديوم","الفضة","الكادميوم","الإنديوم","القصدير","الأنتيمون","التيلوريوم","اليود","الزينون","السيزيوم","الباريوم","اللانثانوم","السيريوم","البراسيوديميوم","النيوديميوم","البروميثيوم","الساماريوم","اليوروبيوم","الغادولينيوم","التربيوم","الديسبروسيوم","الهولميوم","الإربيوم","الثوليوم","الإيتربيوم","اللوتيتيوم","الهافنيوم","التانتالوم","التنغستن","الرينيوم","الأوزميوم","الإيريديوم","البلاتين","الذهب","الزئبق","الثاليوم","الرصاص","البزموت","البولونيوم","الأستاتين","الرادون","الفرانسيوم","الراديوم","الأكتينيوم","الثوريوم","البروتكتينيوم","اليورانيوم","النبتونيوم","البلوتونيوم","الأمريسيوم","الكوريوم","البركيليوم","الكاليفورنيوم","الأينشتاينيوم","الفرميوم","المندليفيوم","النوبليوم","اللورنسيوم","الرذرفورديوم","الدوبنيوم","السيبورغيوم","البوهريوم","الهاسيوم","الميتنريوم","الدارمشتاتيوم","الرونتغينيوم","الكوبرنيسيوم","النيهونيوم","الفليروفيوم","الموسكوفيوم","الليفرموريوم","التينيسين","الأوغانيسون"];
+
+  function t(){ return QV11[currentLanguage] || QV11.es; }
+  function localized(e){
+    const key=(e && e.name)||"";
+    if(currentLanguage==="es") return e.name;
+    if(currentLanguage==="ar") return arabicNames[e.z-1] || e.name;
+    const locale = currentLanguage==="zh" ? (elementLocales["Zh-hans"]||elementLocales["zh"]) : elementLocales[currentLanguage];
+    return (locale && (locale[key] || locale[key.replace("Aluminum","Aluminium")] || locale[key.replace("Cesium","Caesium")])) || e.name;
+  }
+
+  // Keep the selector labels in Spanish, as requested.
+  function normalizeLanguageSelector(){
+    const s=document.getElementById("language");
+    if(!s) return;
+    const labels={es:"Español",en:"Inglés",fr:"Francés",de:"Alemán",it:"Italiano",pt:"Portugués",ru:"Ruso",zh:"Chino",ja:"Japonés",ko:"Coreano",ar:"Árabe"};
+    [...s.options].forEach(o=>{ if(labels[o.value]) o.textContent=labels[o.value]; });
+    s.innerHTML=["es","en","fr","de","it","pt","ru","zh","ja","ko","ar"].map(k=>`<option value="${k}">${labels[k]}</option>`).join("");
+    s.value=currentLanguage;
+  }
+
+  function staticTranslate(){
+    const x=t(), set=(sel,v)=>{const n=document.querySelector(sel); if(n)n.textContent=v;};
+    set("#tabla h2",x.table); set("#tabla p",x.select);
+    const q=document.getElementById("search"); if(q)q.placeholder=x.search;
+    set("#comparador h2",x.compare); set("#laboratorio h2","🧪 "+x.lab); set("#logros h2","🏆 "+x.ach);
+    const f=document.querySelectorAll("#tabla .filters button");
+    [x.all,x.metals,x.nonmetals,x.noble,x.radio].forEach((v,i)=>{if(f[i])f[i].textContent=v});
+    const a=document.querySelector(".actions .primary"), r=document.querySelector(".actions button:not(.primary)");
+    if(a)a.textContent=x.explore; if(r)r.textContent=x.random;
+    document.documentElement.lang=currentLanguage;
+  }
+
+  // Replace the element-name renderer with the 11-language renderer.
+  window.localizedName=localized;
+  window.refreshStatic=staticTranslate;
+
+  // Wrap the existing functions so all tables/selects use localized names.
+  const oldRender=window.renderTable;
+  window.renderTable=function(){
+    const q=(document.getElementById("search").value||"").toLowerCase(), box=document.getElementById("periodic");
+    if(!box)return;
+    box.innerHTML="";
+    elements.forEach((e,i)=>{
+      if(activeFilter!=="all"&&e.category!==activeFilter)return;
+      const n=localized(e);
+      if(q&&!(`${n} ${e.name} ${e.symbol}`.toLowerCase().includes(q)))return;
+      const d=document.createElement("button"); d.className="el "+e.type;
+      d.style.gridColumn=((i%18)+1); d.style.gridRow=(Math.floor(i/18)+1);
+      d.innerHTML=`<div class="num">${e.z}</div><div class="sym">${e.symbol}</div><div class="name">${n}</div>`;
+      d.onclick=()=>openElement(e); box.appendChild(d);
+    });
+  };
+
+  const oldFill=window.fillSelects;
+  window.fillSelects=function(){
+    ["compareA","compareB"].forEach(id=>{
+      const s=document.getElementById(id); if(!s)return;
+      s.innerHTML=elements.map(e=>`<option value="${e.z}">${e.z} · ${localized(e)} (${e.symbol})</option>`).join("");
+    });
+  };
+
+  // Override the element detail card so the selected element name and all labels
+  // change together with the language.
+  window.openElement=function(e){
+    let shells=[], n=e.z; [2,8,18,32,32,18,8].forEach(cap=>{if(n>0){shells.push(Math.min(n,cap));n-=cap}});
+    const x=t();
+    document.getElementById("details").innerHTML=`<h2>${e.z}. ${localized(e)} (${e.symbol})</h2>
+    <div class="layout"><div><div class="bohr"><div class="shell"></div><div class="shell"></div><div class="shell"></div><div class="shell"></div><div class="bohr-core">${e.z}</div></div>
+    <p style="text-align:center">${x.bohr} · ${x.levels}: ${shells.join(" · ")}</p></div>
+    <div><div class="cards">
+    <div class="stat"><b>${e.mass}</b><br>${x.mass}</div><div class="stat"><b>${e.group}</b><br>${x.group}</div>
+    <div class="stat"><b>${e.period}</b><br>${x.period}</div><div class="stat"><b>${e.en}</b><br>${x.electro}</div>
+    <div class="stat"><b>${e.radius} pm</b><br>${x.radius}</div><div class="stat"><b>${e.type.toUpperCase()}</b><br>${x.block}</div></div>
+    <h3>${x.hazards}</h3><div class="danger"><span class="risk">${e.radio?x.radio:"✓"}</span><span class="risk">${e.category==="metal"?x.metals:x.nonmetals}</span></div>
+    <p>${x.safety}</p><button class="primary" onclick="addIdentified()">✓</button></div></div>`;
+    document.getElementById("modal").classList.add("show");
+  };
+
+  const oldChange=window.changeLanguage;
+  window.changeLanguage=async function(lang){
+    currentLanguage=lang; localStorage.setItem("qvLanguage11",lang); normalizeLanguageSelector(); staticTranslate();
+    window.renderTable(); window.fillSelects(); if(window.drawChart)window.drawChart();
+    // Refresh an open element card in the new language.
+    const modal=document.getElementById("modal");
+    if(modal && modal.classList.contains("show")){
+      const title=document.querySelector("#details h2");
+      if(title){ const z=parseInt(title.textContent)||1; openElement(elements[z-1]); }
+    }
+    if(lang==="zh" && !elementLocales["Zh-hans"]){ /* wait for dataset */ }
+  };
+
+  async function loadLocales(){
+    try{
+      const res=await fetch(ELEMENT_SOURCE,{cache:"force-cache"});
+      if(res.ok) elementLocales=await res.json();
+    }catch(e){ console.warn("No se pudo cargar la base de nombres multilingües; se usarán nombres de respaldo.",e); }
+    window.renderTable(); window.fillSelects(); staticTranslate();
+  }
+
+  currentLanguage=localStorage.getItem("qvLanguage11")||"es";
+  normalizeLanguageSelector();
+  loadLocales();
+
+  // Translate the most common fixed controls inside the existing labs/tools.
+  // This keeps the original layout and functionality while making the main
+  // laboratory controls follow the selected language.
+  const labUI={
+    es:{calc:"Calculadora científica",molar:"Calculadora de masa molar",convert:"Conversor de unidades",learn:"Modo aprendizaje",data:"Datos verificados de los elementos",chem:"Calculadora química avanzada",orb:"Configuración electrónica y orbitales",exam:"Modo aprendizaje y examen",trend:"Tendencias periódicas",balance:"Balanceador de ecuaciones",prolab:"Laboratorio virtual"},
+    en:{calc:"Scientific calculator",molar:"Molar mass calculator",convert:"Unit converter",learn:"Learning mode",data:"Verified element data",chem:"Advanced chemistry calculator",orb:"Electron configuration and orbitals",exam:"Learning and exam mode",trend:"Periodic trends",balance:"Equation balancer",prolab:"Virtual laboratory"},
+    fr:{calc:"Calculatrice scientifique",molar:"Calculateur de masse molaire",convert:"Convertisseur d’unités",learn:"Mode apprentissage",data:"Données vérifiées des éléments",chem:"Calculatrice chimique avancée",orb:"Configuration électronique et orbitales",exam:"Mode apprentissage et examen",trend:"Tendances périodiques",balance:"Équilibreur d’équations",prolab:"Laboratoire virtuel"},
+    de:{calc:"Wissenschaftlicher Rechner",molar:"Molmassenrechner",convert:"Einheitenumrechner",learn:"Lernmodus",data:"Verifizierte Elementdaten",chem:"Erweiterter Chemie-Rechner",orb:"Elektronenkonfiguration und Orbitale",exam:"Lern- und Prüfungsmodus",trend:"Periodische Trends",balance:"Gleichungsbalancer",prolab:"Virtuelles Labor"},
+    it:{calc:"Calcolatrice scientifica",molar:"Calcolatore della massa molare",convert:"Convertitore di unità",learn:"Modalità apprendimento",data:"Dati verificati degli elementi",chem:"Calcolatore chimico avanzato",orb:"Configurazione elettronica e orbitali",exam:"Modalità apprendimento ed esame",trend:"Tendenze periodiche",balance:"Bilanciatore di equazioni",prolab:"Laboratorio virtuale"},
+    pt:{calc:"Calculadora científica",molar:"Calculadora de massa molar",convert:"Conversor de unidades",learn:"Modo de aprendizagem",data:"Dados verificados dos elementos",chem:"Calculadora química avançada",orb:"Configuração eletrônica e orbitais",exam:"Modo de aprendizagem e exame",trend:"Tendências periódicas",balance:"Balanceador de equações",prolab:"Laboratório virtual"},
+    ru:{calc:"Научный калькулятор",molar:"Калькулятор молярной массы",convert:"Конвертер единиц",learn:"Режим обучения",data:"Проверенные данные элементов",chem:"Расширенный химический калькулятор",orb:"Электронная конфигурация и орбитали",exam:"Режим обучения и экзамена",trend:"Периодические тенденции",balance:"Балансировщик уравнений",prolab:"Виртуальная лаборатория"},
+    zh:{calc:"科学计算器",molar:"摩尔质量计算器",convert:"单位换算器",learn:"学习模式",data:"已验证的元素数据",chem:"高级化学计算器",orb:"电子构型与轨道",exam:"学习与考试模式",trend:"周期性趋势",balance:"方程式配平器",prolab:"虚拟实验室"},
+    ja:{calc:"科学計算機",molar:"モル質量計算機",convert:"単位変換",learn:"学習モード",data:"確認済み元素データ",chem:"高度な化学計算機",orb:"電子配置と軌道",exam:"学習・試験モード",trend:"周期的傾向",balance:"化学反応式の係数調整",prolab:"バーチャル実験室"},
+    ko:{calc:"과학 계산기",molar:"몰 질량 계산기",convert:"단위 변환기",learn:"학습 모드",data:"검증된 원소 데이터",chem:"고급 화학 계산기",orb:"전자 배치와 오비탈",exam:"학습 및 시험 모드",trend:"주기적 경향",balance:"방정식 계수 맞추기",prolab:"가상 실험실"},
+    ar:{calc:"الحاسبة العلمية",molar:"حاسبة الكتلة المولية",convert:"محول الوحدات",learn:"وضع التعلم",data:"بيانات العناصر الموثقة",chem:"الحاسبة الكيميائية المتقدمة",orb:"التوزيع الإلكتروني والمدارات",exam:"وضع التعلم والاختبار",trend:"الاتجاهات الدورية",balance:"موازنة المعادلات",prolab:"المختبر الافتراضي"}
+  };
+
+  function translateToolHeadings(){
+    const d=labUI[currentLanguage]||labUI.es;
+    const map={"🧮 Calculadora científica":d.calc,"⚗️ Calculadora de masa molar":d.molar,"📏 Conversor de unidades":d.convert,"📚 Modo aprendizaje":d.learn,
+      "🧬 Datos verificados de los elementos":d.data,"⚗️ Calculadora química avanzada":d.chem,"🔬 Configuración electrónica y orbitales":d.orb,
+      "🎓 Modo aprendizaje y examen":d.exam,"📈 Tendencias periódicas":d.trend,"⚖️ Balanceador de ecuaciones":d.balance,"🧪 Laboratorio virtual":d.prolab};
+    document.querySelectorAll("h2").forEach(n=>{const k=n.textContent.trim(); if(map[k])n.textContent=map[k]});
+  }
+  const oldStatic=staticTranslate;
+  staticTranslate=function(){oldStatic();translateToolHeadings();};
+
+})();
+</script>
+
+
+<script id="qv-balance-3d-js">
+(function(){
+  function qvAtoms(target, formulas){
+    const box=document.getElementById(target); if(!box)return;
+    box.innerHTML='';
+    (formulas||[]).slice(0,4).forEach(f=>{
+      const m=f.match(/[A-Z][a-z]?/g)||[];
+      const a=document.createElement('div'); a.className='qv-atom3d'; a.textContent=m[0]||'•'; box.appendChild(a);
+    });
+  }
+  function qvBalance3DStart(left,right){
+    const box=document.getElementById('qvBalance3D'), status=document.getElementById('qvBalanceStatus');
+    if(!box)return;
+    box.classList.remove('correct','bad'); box.classList.add('working');
+    status.className='qv-balance-status work'; status.textContent='⚙️ Ajustando los coeficientes… la balanza está buscando el equilibrio.';
+    qvAtoms('qvBalanceLeftAtoms',left); qvAtoms('qvBalanceRightAtoms',right);
+  }
+  function qvBalance3DEnd(ok,left,right){
+    const box=document.getElementById('qvBalance3D'), status=document.getElementById('qvBalanceStatus');
+    if(!box)return;
+    box.classList.remove('working','correct','bad'); box.classList.add(ok?'correct':'bad');
+    status.className='qv-balance-status '+(ok?'ok':'bad');
+    status.textContent=ok?'✅ ¡Balance correcto! La balanza quedó completamente equilibrada.':'⚠️ No se encontró un balance con el método disponible.';
+    qvAtoms('qvBalanceLeftAtoms',left); qvAtoms('qvBalanceRightAtoms',right);
+  }
+  const original=window.qvBalance;
+  window.qvBalance=function(){
+    const input=document.getElementById('qvEquation');
+    const raw=(input?.value||'').replace(/→|=/,'>').split('>');
+    if(raw.length===2){
+      qvBalance3DStart(raw[0].split('+').map(x=>x.trim()),raw[1].split('+').map(x=>x.trim()));
+    }
+    const result=document.getElementById('qvBalanceResult');
+    const before=result?.textContent||'';
+    try{ original(); }catch(e){ if(result) result.textContent='Error al balancear: '+e.message; }
+    setTimeout(()=>{
+      const txt=result?.textContent||'';
+      const ok=!!txt && !/No se encontró|Usa el formato|Esta versión|Error/i.test(txt);
+      qvBalance3DEnd(ok,raw[0]?.split('+').map(x=>x.trim())||[],raw[1]?.split('+').map(x=>x.trim())||[]);
+    },850);
+  };
+})();
+</script>
+</body></html>
+<style id="qv-orbital-4d-style">
+.qv-atom4d{display:grid;grid-template-columns:minmax(300px,1.1fr) minmax(280px,.9fr);gap:18px;margin-top:16px}
+.qv-space4d{position:relative;min-height:460px;border-radius:22px;overflow:hidden;background:radial-gradient(circle at 50% 45%,#163b55 0,#08131e 48%,#03070c 100%);perspective:900px;border:1px solid rgba(130,210,255,.22)}
+.qv-space4d .star{position:absolute;width:3px;height:3px;border-radius:50%;background:#dff7ff;opacity:.7;box-shadow:0 0 8px #8be7ff}
+.qv-nucleus4d{position:absolute;left:50%;top:50%;width:74px;height:74px;margin:-37px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;background:radial-gradient(circle at 35% 30%,#ffb85c,#d34b3b 55%,#6e1720);box-shadow:0 0 35px rgba(255,112,62,.55),inset -12px -14px 20px rgba(40,0,0,.35);z-index:10}
+.qv-orb4d{position:absolute;left:50%;top:50%;border:1px solid rgba(110,210,255,.35);transform-style:preserve-3d;border-radius:50%;box-shadow:0 0 16px rgba(80,190,255,.12) inset}
+.qv-orb4d.s{width:150px;height:150px;margin:-75px;transform:rotateX(70deg)}
+.qv-orb4d.px{width:250px;height:120px;margin:-60px -125px;transform:rotateY(18deg) rotateX(8deg)}
+.qv-orb4d.py{width:250px;height:120px;margin:-60px -125px;transform:rotateY(72deg) rotateX(8deg)}
+.qv-orb4d.pz{width:250px;height:120px;margin:-60px -125px;transform:rotateX(82deg)}
+.qv-orb4d.d1{width:330px;height:150px;margin:-75px -165px;transform:rotateZ(45deg) rotateX(18deg)}
+.qv-orb4d.d2{width:330px;height:150px;margin:-75px -165px;transform:rotateZ(-45deg) rotateY(35deg)}
+.qv-orb4d.d3{width:290px;height:125px;margin:-62px -145px;transform:rotateY(70deg) rotateX(18deg)}
+.qv-electron4d{position:absolute;left:50%;top:50%;width:12px;height:12px;margin:-6px;border-radius:50%;background:#fff;box-shadow:0 0 7px 2px #72dcff,0 0 18px 5px rgba(61,190,255,.45);z-index:20;transform-style:preserve-3d}
+.qv-electron4d::after{content:'';position:absolute;inset:3px;border-radius:50%;background:#fff}
+.qv-legend4d{position:absolute;left:14px;bottom:12px;padding:8px 10px;border-radius:10px;background:rgba(0,0,0,.45);color:#dff7ff;font-size:12px;backdrop-filter:blur(5px)}
+.qv-panel4d{padding:16px;border-radius:18px;background:rgba(245,250,252,.96);border:1px solid #d6e4e9}
+.qv-panel4d h3{margin-top:0}.qv-config4d{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;padding:12px;border-radius:12px;background:#0a1520;color:#dff7ff;line-height:1.8;word-break:break-word}
+.qv-orbital-row4d{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #e4ecef}.qv-orbital-row4d:last-child{border-bottom:0}.qv-orbital-name4d{width:42px;font-weight:800}.qv-box4d{width:42px;height:30px;border:1px solid #9bb6c1;border-radius:7px;display:grid;place-items:center;font-size:18px;background:#fff}.qv-box4d.filled{background:#e9f7ff}
+.qv-controls4d{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.qv-controls4d button{border:0;border-radius:10px;padding:9px 12px;cursor:pointer;background:#dfecef}.qv-controls4d button.active{background:#176a8a;color:white}.qv-small4d{font-size:12px;color:#607782;line-height:1.5}
+body.dark-mode .qv-panel4d{background:#111d25;color:#e9f6fa;border-color:#2b414b}.dark-mode .qv-box4d{background:#14242d;color:#fff;border-color:#3a5a67}.dark-mode .qv-orbital-row4d{border-color:#29414b}.dark-mode .qv-small4d{color:#a7c0ca}
+@media(max-width:850px){.qv-atom4d{grid-template-columns:1fr}.qv-space4d{min-height:390px}}
+@media(prefers-reduced-motion:reduce){.qv-electron4d{animation:none!important}.qv-orb4d{transition:none!important}}
+</style>
+<script id="qv-orbital-4d-js">
+(function(){
+  const order=[['1s',2],['2s',2],['2p',6],['3s',2],['3p',6],['4s',2],['3d',10],['4p',6],['5s',2],['4d',10],['5p',6],['6s',2],['4f',14],['5d',10],['6p',6],['7s',2],['5f',14],['6d',10],['7p',6]];
+  const exceptions={24:'[Ar] 3d5 4s1',29:'[Ar] 3d10 4s1',41:'[Kr] 4d4 5s1',42:'[Kr] 4d5 5s1',44:'[Kr] 4d7 5s1',45:'[Kr] 4d8 5s1',46:'[Kr] 4d10',47:'[Kr] 4d10 5s1',57:'[Xe] 5d1 6s2',58:'[Xe] 4f1 5d1 6s2',64:'[Xe] 4f7 5d1 6s2',78:'[Xe] 4f14 5d9 6s1',79:'[Xe] 4f14 5d10 6s1',89:'[Rn] 6d1 7s2',90:'[Rn] 6d2 7s2',91:'[Rn] 5f2 6d1 7s2',92:'[Rn] 5f3 6d1 7s2',93:'[Rn] 5f4 6d1 7s2',96:'[Rn] 5f7 6d1 7s2',103:'[Rn] 5f14 7s2 7p1'};
+  function cfg(z){if(exceptions[z])return exceptions[z];let r=z,a=[];for(const [o,c] of order){if(!r)break;const n=Math.min(c,r);a.push(o+n);r-=n}return a.join(' ')}
+  function parse(c){const m={};(c.match(/\d+[spdf]\d+/g)||[]).forEach(x=>{const q=x.match(/(\d+)([spdf])(\d+)/);if(q)m[q[1]+q[2]]=+q[3]});return m}
+  function orbitalShape(key){const sub=key.slice(-1),n=+key[0]; if(sub==='s')return ['s']; if(sub==='p')return ['px','py','pz']; if(sub==='d')return ['d1','d2','d3','d4','d5']; return ['d1','d2','d3','d4','d5','d6','d7'];}
+  function makeScene(e){
+    const c=cfg(e.z), occ=parse(c), root=document.getElementById('qvAtom4DScene'); if(!root)return;
+    root.innerHTML='<div class="qv-nucleus4d">'+e.symbol+'</div><div class="qv-legend4d">Vista orbital 3D/4D didáctica · electrones animados</div>';
+    let idx=0;
+    const active=[];
+    Object.entries(occ).forEach(([key,count])=>{
+      const shapes=orbitalShape(key); const sub=key.slice(-1); const shell=+key[0];
+      if(!count)return;
+      shapes.slice(0, sub==='s'?1:shapes.length).forEach((shape,si)=>{
+        const div=document.createElement('div'); div.className='qv-orb4d '+shape; div.dataset.orb=key; root.appendChild(div);
+      });
+      for(let i=0;i<count;i++){
+        const el=document.createElement('span'); el.className='qv-electron4d'; el.dataset.orb=key; el.dataset.i=i; el.dataset.shell=shell; root.appendChild(el); active.push(el);
+      }
+    });
+    function animate(t){
+      const speed=(window.qv4dSpeed||1); active.forEach((el,i)=>{
+        const key=el.dataset.orb, sub=key.slice(-1), shell=+el.dataset.shell, k=i+1;
+        const a=t*.001*speed*(.45+shell*.055)+k*1.37;
+        const radius=46+shell*24;
+        let x=Math.cos(a)*radius,y=Math.sin(a)*radius*.72,z=Math.sin(a*.73+k)*22;
+        if(sub==='p'){x*=1.55;y*=.55;}
+        if(sub==='d'){x*=1.9;y*=.8;z*=1.7;}
+        if(sub==='f'){x*=2.2;y*=.85;z*=2.2;}
+        el.style.transform=`translate3d(${x}px,${y}px,${z}px)`;
+      });
+      if(window.qv4dRunning) window.qv4dFrame=requestAnimationFrame(animate);
+    }
+    cancelAnimationFrame(window.qv4dFrame); window.qv4dRunning=true; window.qv4dFrame=requestAnimationFrame(animate);
+  }
+  function renderRows(e){
+    const c=cfg(e.z),occ=parse(c), rows=[];
+    Object.entries(occ).forEach(([key,n])=>{const cap=key.endsWith('s')?2:key.endsWith('p')?6:key.endsWith('d')?10:14;let boxes=Math.ceil(cap/2),b='';for(let i=0;i<boxes;i++){const a=Math.max(0,Math.min(2,n-i*2));b+=`<span class="qv-box4d ${a?'filled':''}">${a===2?'↑↓':a===1?'↑':''}</span>`}rows.push(`<div class="qv-orbital-row4d"><span class="qv-orbital-name4d">${key}</span>${b}<span>${n} e⁻</span></div>`)});return rows.join('')||'<span>—</span>';
+  }
+  function open4d(e){
+    const details=document.getElementById('details'); if(!details)return;
+    const old=details.innerHTML;
+    // Preserve all existing information, then add the advanced orbital visualization.
+    const panel=`<section class="qv-panel4d" style="margin-top:16px">
+      <h3>🌀 Modelo electrónico 3D/4D interactivo</h3>
+      <p class="qv-small4d">Aquí puedes observar una representación animada de la distribución electrónica. Los electrones se muestran moviéndose alrededor del núcleo y los orbitales ocupados se diferencian espacialmente. Es una visualización didáctica: los electrones reales no siguen órbitas planetarias clásicas.</p>
+      <div class="qv-atom4d"><div class="qv-space4d" id="qvAtom4DScene"></div><div>
+        <div class="qv-config4d">${e.name} · ${e.symbol} · Z = ${e.z}<br>Configuración: ${cfg(e.z)}</div>
+        <h4>Ocupación de orbitales</h4><div>${renderRows(e)}</div>
+        <div class="qv-controls4d"><button type="button" id="qv4dToggle">⏸ Pausar</button><button type="button" id="qv4dSpeedDown">− Velocidad</button><button type="button" id="qv4dSpeedUp">+ Velocidad</button></div>
+        <p class="qv-small4d">s: 1 orbital · p: 3 orbitales · d: 5 orbitales · f: 7 orbitales. Cada orbital admite como máximo 2 electrones con espines opuestos.</p>
+      </div></div></section>`;
+    details.insertAdjacentHTML('beforeend',panel);
+    makeScene(e);
+    document.getElementById('qv4dToggle').onclick=function(){window.qv4dRunning=!window.qv4dRunning;this.textContent=window.qv4dRunning?'⏸ Pausar':'▶ Reanudar';if(window.qv4dRunning)makeScene(e)};
+    document.getElementById('qv4dSpeedDown').onclick=function(){window.qv4dSpeed=Math.max(.25,(window.qv4dSpeed||1)-.25)};
+    document.getElementById('qv4dSpeedUp').onclick=function(){window.qv4dSpeed=Math.min(3,(window.qv4dSpeed||1)+.25)};
+  }
+  window.qv4dSpeed=1; window.qv4dRunning=true;
+  const previous=window.openElement;
+  window.openElement=function(e){previous(e);setTimeout(()=>open4d(e),30)};
+})();
+</script>
+
+<!-- ============================================================
+     QUIMIVERSE: CENTRO DE ÁTOMO CUÁNTICO 4D + INGENIERÍA + IA
+     APÉNDICE AUTÓNOMO: no reemplaza ni modifica los módulos anteriores.
+     ============================================================ -->
+<style id="qv-quantum-center-css">
+.qv-qcenter{margin:28px auto;max-width:1500px;padding:22px;border-radius:28px;background:linear-gradient(135deg,#07152d,#102b48 55%,#13223b);color:#eef6ff;box-shadow:0 18px 60px rgba(0,0,0,.28);font-family:inherit}
+.qv-qcenter *{box-sizing:border-box}.qv-qhero{display:grid;grid-template-columns:1.6fr 1fr;gap:20px;align-items:center}.qv-qhero h2{font-size:clamp(26px,4vw,46px);margin:4px 0 10px}.qv-qhero p{color:#c9d9ed;line-height:1.65}.qv-qbadge{display:inline-block;padding:7px 12px;border-radius:999px;background:#1c4268;color:#9ee8ff;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.qv-qorbital-art{height:230px;position:relative;display:grid;place-items:center;perspective:700px}.qv-qnucleus{width:74px;height:74px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#67dfff 25%,#2870a5 62%,#081b33);box-shadow:0 0 38px #3edcff66}.qv-qring{position:absolute;border:1px solid #68dfff55;border-radius:50%;transform-style:preserve-3d;animation:qvSpin 8s linear infinite}.qv-qring.r1{width:180px;height:70px;transform:rotateX(68deg)}.qv-qring.r2{width:210px;height:90px;transform:rotateY(62deg)}.qv-qring.r3{width:155px;height:155px;transform:rotateX(70deg) rotateY(25deg)}.qv-qelectron{position:absolute;width:10px;height:10px;border-radius:50%;background:#baf7ff;box-shadow:0 0 14px #61eaff;animation:qvOrbit 3.2s linear infinite}.qv-qelectron.e1{transform:translate(88px,-35px)}.qv-qelectron.e2{transform:translate(-82px,44px);animation-duration:4.5s}.qv-qelectron.e3{transform:translate(0,-90px);animation-duration:5.4s}@keyframes qvSpin{to{transform:rotateX(68deg) rotateZ(360deg)}}@keyframes qvOrbit{to{rotate:360deg}}
+.qv-qtabs{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0}.qv-qtab{border:1px solid #355779;background:#0b2038;color:#dceeff;padding:10px 13px;border-radius:12px;cursor:pointer;font-weight:700}.qv-qtab.active,.qv-qtab:hover{background:#1a5f86;border-color:#58d9ff}.qv-qpanel{display:none}.qv-qpanel.active{display:block}.qv-qgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}.qv-qcard{background:#0a1c31;border:1px solid #284968;border-radius:18px;padding:17px;box-shadow:0 8px 25px #0002}.qv-qcard h3{margin:0 0 8px}.qv-qmuted{color:#9eb5cc;line-height:1.55}.qv-qselect,.qv-qinput,.qv-qtextarea{width:100%;padding:11px;border-radius:10px;border:1px solid #3a5e7f;background:#061525;color:#eff8ff}.qv-qtextarea{min-height:100px;resize:vertical}.qv-qbtn{border:0;border-radius:10px;padding:10px 14px;background:#2b9dcc;color:white;font-weight:800;cursor:pointer}.qv-qbtn.secondary{background:#284866}.qv-qchips{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}.qv-qchip{padding:6px 9px;border-radius:999px;background:#123653;color:#aeeaff;font-size:12px}.qv-qconfig{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;line-height:1.9;background:#06111e;border-radius:12px;padding:13px;overflow:auto}.qv-orbital-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:12px}.qv-orbital-box{min-height:100px;border:1px solid #2d5472;border-radius:13px;padding:9px;text-align:center;background:#081a2c}.qv-orbital-box b{color:#80e7ff}.qv-arrows{font-size:25px;letter-spacing:5px;margin-top:15px}.qv-spectrum{height:210px;position:relative;margin-top:15px;border-radius:14px;background:linear-gradient(#061525,#071b2c);border:1px solid #284968;overflow:hidden}.qv-spectrum .line{position:absolute;bottom:18px;width:3px;border-radius:3px 3px 0 0;background:#d7fbff;box-shadow:0 0 12px #6defff}.qv-spectrum .axis{position:absolute;bottom:17px;left:0;right:0;height:1px;background:#66849d}.qv-spectrum-label{font-size:12px;color:#8fa9c0;display:flex;justify-content:space-between;padding:0 8px}.qv-state{font-size:24px;font-weight:900}.qv-state small{display:block;font-size:12px;color:#9fb4c9;font-weight:500;margin-top:4px}.qv-use-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}.qv-use{padding:12px;border-radius:12px;background:#0d2943;border-left:4px solid #54d8ff}.qv-table{width:100%;border-collapse:collapse}.qv-table th,.qv-table td{padding:8px;border-bottom:1px solid #294963;text-align:left}.qv-mini{font-size:12px;color:#9eb5cc}.qv-ia-msg{max-height:330px;overflow:auto;padding:12px;background:#061525;border-radius:13px}.qv-msg{margin:8px 0;padding:10px;border-radius:12px;line-height:1.5}.qv-msg.user{background:#174664;margin-left:15%}.qv-msg.bot{background:#102c45;margin-right:15%}.qv-eco{position:relative;height:18px;border-radius:999px;background:#10263b;overflow:hidden}.qv-eco i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#3dbad7,#76e0a0);width:var(--w)}.qv-timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}.qv-step{padding:13px;border-radius:13px;background:#0b2137}.qv-step strong{color:#8ceaff}.qv-qfoot{margin-top:18px;padding-top:14px;border-top:1px solid #294963;color:#8ea7bf;font-size:12px;line-height:1.6}@media(max-width:800px){.qv-qhero{grid-template-columns:1fr}.qv-qcenter{padding:15px}.qv-qtab{flex:1 1 130px}}
+
+.qv-qelementbar{display:grid;grid-template-columns:minmax(220px,.7fr) minmax(260px,1.3fr) auto;gap:10px;align-items:center;margin-bottom:14px;padding:13px 15px;border:1px solid #315878;border-radius:15px;background:linear-gradient(135deg,#0c2741,#0a1b2f);box-shadow:0 7px 20px #0002}.qv-qelementbar label{font-weight:800;color:#a9ecff}.qv-qmini{font-size:12px;color:#91abc2}.qv-global-element{min-width:0}@media(max-width:800px){.qv-qelementbar{grid-template-columns:1fr}.qv-qmini{font-size:11px}}
+</style>
+
+<section class="qv-qcenter" id="qvQuantumCenter">
+  <div class="qv-qhero">
+    <div><span class="qv-qbadge">Quimiverse · nuevo centro avanzado</span><h2>⚛️ Átomo Cuántico 4D</h2><p>Un espacio interactivo para explorar la configuración electrónica de los <b>118 elementos</b>, orbitales, espectros, estados de la materia, aplicaciones de ingeniería química, sostenibilidad y un tutor de química integrado.</p><div class="qv-qchips"><span class="qv-qchip">118 elementos</span><span class="qv-qchip">s · p · d · f</span><span class="qv-qchip">3D + tiempo (4D didáctico)</span><span class="qv-qchip">Tutor local</span></div></div>
+    <div class="qv-qorbital-art"><div class="qv-qring r1"></div><div class="qv-qring r2"></div><div class="qv-qring r3"></div><div class="qv-qnucleus"></div><i class="qv-qelectron e1"></i><i class="qv-qelectron e2"></i><i class="qv-qelectron e3"></i></div>
+  </div>
+  <div class="qv-qtabs" role="tablist">
+    <button class="qv-qtab active" data-qtab="atom">⚛️ Átomo cuántico</button><button class="qv-qtab" data-qtab="config">🧬 Configuración 118</button><button class="qv-qtab" data-qtab="orbitals">🌀 Orbitales 4D</button><button class="qv-qtab" data-qtab="spectra">🌈 Espectros</button><button class="qv-qtab" data-qtab="states">🌡️ Estados</button><button class="qv-qtab" data-qtab="engineering">🏭 Ingeniería química</button><button class="qv-qtab" data-qtab="sustain">🌱 Sostenibilidad</button><button class="qv-qtab" data-qtab="tutor">🤖 Tutor IA</button><button class="qv-qtab" data-qtab="extras">🚀 Más herramientas</button>
+  </div>
+
+  <div class="qv-qpanel active" id="qvtab-atom"><div class="qv-qelementbar"><label>⚛️ Elemento a observar</label><select class="qv-qselect qv-global-element" data-sync-group="element" id="qvQCAtomSelect"></select><span class="qv-qmini">Puedes elegir cualquiera de los 118 elementos.</span></div><div class="qv-qgrid"><div class="qv-qcard"><h3>Selecciona un elemento</h3><p id="qvQCAtomInfo" class="qv-qmuted"></p></div><div class="qv-qcard"><h3>Modelo cuántico</h3><p class="qv-qmuted">La animación representa orbitales y distribución electrónica de forma didáctica. En mecánica cuántica, un electrón no se describe como una bolita siguiendo una órbita clásica.</p><div class="qv-qchips"><span class="qv-qchip">Núcleo</span><span class="qv-qchip">Niveles n</span><span class="qv-qchip">Orbitales</span><span class="qv-qchip">Espín ↑↓</span></div></div></div></div>
+
+  <div class="qv-qpanel" id="qvtab-config"><div class="qv-qelementbar"><label>🧬 Elemento para la configuración</label><select class="qv-qselect qv-global-element" data-sync-group="element" id="qvQCConfigSelect"></select><span class="qv-qmini">Selecciona del 1 al 118 o usa la búsqueda.</span></div><div class="qv-qcard"><h3>🧬 Configuración electrónica de los 118 elementos</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><input class="qv-qinput" id="qvQCConfigSearch" placeholder="Buscar por nombre, símbolo o Z..."></div><div id="qvQCConfigResult" style="margin-top:14px"></div></div></div>
+
+  <div class="qv-qpanel" id="qvtab-orbitals"><div class="qv-qelementbar"><label>🌀 Elemento para observar sus orbitales</label><select class="qv-qselect qv-global-element" data-sync-group="element" id="qvQCOrbSelect"></select><span class="qv-qmini">Los orbitales se actualizarán automáticamente.</span></div><div class="qv-qgrid"><div class="qv-qcard"><h3>🌀 Explorador de orbitales</h3><div id="qvQCOrbResult"></div></div><div class="qv-qcard"><h3>¿Qué estás observando?</h3><p class="qv-qmuted"><b>s:</b> distribución aproximadamente esférica. <b>p:</b> tres orientaciones. <b>d:</b> cinco orbitales. <b>f:</b> siete orbitales.</p><p class="qv-qmuted">La dimensión temporal se usa aquí como una cuarta dimensión visual: puedes pausar, cambiar velocidad y observar la evolución de la representación.</p></div></div></div>
+
+  <div class="qv-qpanel" id="qvtab-spectra"><div class="qv-qelementbar"><label>🌈 Elemento para su espectro</label><select class="qv-qselect qv-global-element" data-sync-group="element" id="qvQCSpectrumSelect"></select><span class="qv-qmini">Explora el espectro educativo de cualquiera de los 118.</span></div><div class="qv-qgrid"><div class="qv-qcard"><h3>🌈 Laboratorio de espectros</h3><div id="qvQCSpectrumInfo"></div><div class="qv-spectrum" id="qvQCSpectrum"></div><div class="qv-spectrum-label"><span>UV</span><span>Visible</span><span>IR</span></div><p class="qv-mini">Las líneas mostradas son una visualización educativa. Un espectro real depende del estado, temperatura, presión, fuente y resolución instrumental.</p></div><div class="qv-qcard"><h3>🔬 ¿Para qué sirven?</h3><p class="qv-qmuted">Los espectros permiten identificar sustancias y estudiar transiciones electrónicas, composición de muestras, plasmas, estrellas, lámparas y procesos industriales.</p><div class="qv-use-list"><div class="qv-use">Identificación elemental</div><div class="qv-use">Control de procesos</div><div class="qv-use">Astronomía</div><div class="qv-use">Análisis instrumental</div></div></div></div></div>
+
+  <div class="qv-qpanel" id="qvtab-states"><div class="qv-qelementbar"><label>🌡️ Elemento y estado de la materia</label><select class="qv-qselect qv-global-element" data-sync-group="element" id="qvQCStateSelect"></select><span class="qv-qmini">Consulta el estado de cualquiera de los 118 elementos.</span></div><div class="qv-qcard"><h3>🌡️ Estados y comportamiento de los elementos</h3><div id="qvQCStateResult" style="margin-top:14px"></div></div></div>
+
+  <div class="qv-qpanel" id="qvtab-engineering"><div class="qv-qelementbar"><label>🏭 Elemento para ingeniería química</label><select class="qv-qselect qv-global-element" data-sync-group="element" id="qvQCEngineeringSelect"></select><span class="qv-qmini">Muestra usos y aplicaciones relacionados con el elemento.</span></div><div class="qv-qgrid"><div class="qv-qcard"><h3>🏭 Ingeniería química</h3><div id="qvQCEngineeringInfo"></div><p class="qv-qmuted">Conecta la química con diseño, operación, seguridad y optimización de procesos.</p><div class="qv-timeline"><div class="qv-step"><strong>1 · Materias primas</strong><br>Caracterización y preparación.</div><div class="qv-step"><strong>2 · Reacción</strong><br>Cinética, equilibrio y catalizadores.</div><div class="qv-step"><strong>3 · Separación</strong><br>Destilación, absorción, extracción, membranas.</div><div class="qv-step"><strong>4 · Control</strong><br>Sensores, balances y automatización.</div><div class="qv-step"><strong>5 · Seguridad</strong><br>Riesgo, HAZOP y prevención.</div><div class="qv-step"><strong>6 · Optimización</strong><br>Energía, rendimiento y costos.</div></div></div><div class="qv-qcard"><h3>⚙️ Aplicaciones</h3><div class="qv-use-list"><div class="qv-use">Petroquímica y combustibles</div><div class="qv-use">Polímeros y materiales</div><div class="qv-use">Farmacéutica</div><div class="qv-use">Alimentos</div><div class="qv-use">Tratamiento de agua</div><div class="qv-use">Energía y baterías</div><div class="qv-use">Semiconductores</div><div class="qv-use">Bioprocesos</div><div class="qv-use">Minería y metalurgia</div><div class="qv-use">Control ambiental</div></div></div></div></div>
+
+  <div class="qv-qpanel" id="qvtab-sustain"><div class="qv-qelementbar"><label>🌱 Elemento y sostenibilidad</label><select class="qv-qselect qv-global-element" data-sync-group="element" id="qvQCSustainSelect"></select><span class="qv-qmini">Analiza usos, recuperación y oportunidades de sostenibilidad.</span></div><div class="qv-qgrid"><div class="qv-qcard"><h3>🌱 Sostenibilidad y progreso</h3><div id="qvQCSustainInfo"></div><p class="qv-qmuted">Explora cómo la química puede reducir impactos mediante eficiencia, prevención de residuos, electrificación, reciclaje y diseño de procesos más seguros.</p><h4>Indicadores de aprendizaje</h4><p class="qv-mini">Eficiencia de materia</p><div class="qv-eco"><i style="--w:82%"></i></div><p class="qv-mini">Eficiencia energética</p><div class="qv-eco"><i style="--w:71%"></i></div><p class="qv-mini">Recuperación y reciclaje</p><div class="qv-eco"><i style="--w:64%"></i></div></div><div class="qv-qcard"><h3>♻️ Rutas de progreso</h3><div class="qv-use-list"><div class="qv-use">Economía circular</div><div class="qv-use">Química verde</div><div class="qv-use">Captura y aprovechamiento de CO₂</div><div class="qv-use">Hidrógeno y electrificación</div><div class="qv-use">Catalizadores más selectivos</div><div class="qv-use">Materiales durables y reciclables</div><div class="qv-use">Tratamiento y reúso de agua</div><div class="qv-use">Prevención de residuos</div></div></div></div></div>
+
+  <div class="qv-qpanel" id="qvtab-tutor"><div class="qv-qelementbar"><label>🤖 Elemento de referencia para el tutor</label><select class="qv-qselect qv-global-element" data-sync-group="element" id="qvQCTutorElementSelect"></select><span class="qv-qmini">El tutor usará este elemento como contexto.</span></div><div class="qv-qgrid"><div class="qv-qcard"><h3>🤖 Tutor IA de química</h3><div id="qvQCTutorContext" class="qv-qchips"></div><div class="qv-ia-msg" id="qvQCTutorMsgs"><div class="qv-msg bot">¡Hola! Soy el tutor de Quimiverse. Puedes preguntarme sobre átomos, orbitales, configuración electrónica, espectros, estados, balances, ingeniería química o sostenibilidad.</div></div><div style="display:flex;gap:8px;margin-top:10px"><input class="qv-qinput" id="qvQCTutorInput" placeholder="Ej.: ¿qué es un orbital p?" style="flex:1"><button class="qv-qbtn" id="qvQCTutorSend">Preguntar</button></div><div class="qv-qchips"><button class="qv-qtab" data-qprompt="Explícame la configuración electrónica">Configuración</button><button class="qv-qtab" data-qprompt="¿Qué son los orbitales?">Orbitales</button><button class="qv-qtab" data-qprompt="Explícame la espectroscopia">Espectros</button><button class="qv-qtab" data-qprompt="¿Qué hace un ingeniero químico?">Ingeniería</button></div></div><div class="qv-qcard"><h3>🧠 Modo de estudio</h3><p class="qv-qmuted">Este tutor funciona integrado en el HTML, sin enviar tus preguntas a un servidor. Responde con una base temática local y puede explicar, dar ejemplos y proponer ejercicios.</p><button class="qv-qbtn secondary" id="qvQCTutorClear">Limpiar conversación</button></div></div></div>
+
+  <div class="qv-qpanel" id="qvtab-extras"><div class="qv-qelementbar"><label>🚀 Elemento para herramientas</label><select class="qv-qselect qv-global-element" data-sync-group="element" id="qvQCExtrasSelect"></select><span class="qv-qmini">Mantén un elemento seleccionado mientras exploras el centro.</span></div><div class="qv-qgrid"><div class="qv-qcard"><h3>🚀 Centro de herramientas</h3><div class="qv-use-list"><div class="qv-use">🔎 Buscador inteligente de elementos</div><div class="qv-use">🧪 Generador de preguntas de práctica</div><div class="qv-use">📊 Comparador de propiedades</div><div class="qv-use">🧮 Cálculos de masa molar</div><div class="qv-use">⚖️ Balanceador con balanza 3D</div><div class="qv-use">🌐 Modo multilingüe</div><div class="qv-use">🌙 Modo oscuro</div><div class="qv-use">🏆 Logros de aprendizaje</div></div></div><div class="qv-qcard"><h3>💡 Proyecto y progreso</h3><p class="qv-qmuted">Usa este apartado como un mini laboratorio digital: elige un elemento, estudia su configuración, revisa orbitales y espectro, analiza aplicaciones y termina con una pregunta al tutor.</p><div class="qv-qchips"><span class="qv-qchip">Explorar</span><span class="qv-qchip">Comprender</span><span class="qv-qchip">Experimentar</span><span class="qv-qchip">Aplicar</span><span class="qv-qchip">Diseñar</span></div></div></div></div>
+  <div class="qv-qfoot">Nota científica: “4D” en este módulo significa una visualización 3D animada con el tiempo como dimensión visual. No representa una cuarta dimensión espacial ni trayectorias clásicas reales de electrones. Las configuraciones se generan con el orden de llenado y las excepciones contempladas por el sistema existente de Quimiverse.</div>
+</section>
+
+<script id="qv-quantum-center-js">
+(function(){
+  const D=window.qvData||[]; if(!D.length)return;
+  const byZ=z=>D.find(e=>e.z==Number(z))||D[0];
+  const cfg=z=>window.qvConfig?window.qvConfig(Number(z)):'';
+  const full=z=>window.qvFullConfig?window.qvFullConfig(Number(z)):cfg(z);
+  const shells=z=>window.qvShells?window.qvShells(Number(z)):'';
+  const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+  const elementIds=['qvQCAtomSelect','qvQCConfigSelect','qvQCOrbSelect','qvQCSpectrumSelect','qvQCStateSelect','qvQCEngineeringSelect','qvQCSustainSelect','qvQCTutorElementSelect','qvQCExtrasSelect'];
+  const fill=(id)=>{const el=document.getElementById(id);if(!el)return;el.innerHTML=D.map(e=>`<option value="${e.z}">${e.z} · ${e.s} · ${e.n}</option>`).join('')};
+  elementIds.forEach(fill);
+  function syncElement(z,source){elementIds.forEach(id=>{const el=document.getElementById(id);if(el && el!==source && [...el.options].some(o=>o.value==z))el.value=String(z)});updateContext(z);}
+  function updateContext(z){const e=byZ(z);const eng=document.getElementById('qvQCEngineeringInfo'),sus=document.getElementById('qvQCSustainInfo'),t=document.getElementById('qvQCTutorContext');if(eng)eng.innerHTML=engineeringInfo(e);if(sus)sus.innerHTML=sustainInfo(e);if(t)t.innerHTML=`<span class="qv-qchip">Elemento seleccionado: <b>${esc(e.n)} (${e.s})</b> · Z=${e.z}</span>`;}
+  elementIds.forEach(id=>{const el=document.getElementById(id);if(el)el.addEventListener('change',function(){syncElement(this.value,this);if(id==='qvQCAtomSelect')atomInfo();if(id==='qvQCConfigSelect')configInfo();if(id==='qvQCOrbSelect')orbInfo();if(id==='qvQCSpectrumSelect')spectrum();if(id==='qvQCStateSelect')state();});});
+
+  function atomInfo(){const e=byZ(document.getElementById('qvQCAtomSelect').value);document.getElementById('qvQCAtomInfo').innerHTML=`<b>${esc(e.n)} (${e.s})</b><br>Número atómico: ${e.z}<br>Masa aproximada: ${e.m} u<br>Capas: ${esc(shells(e.z))}<br>Configuración: <code>${esc(cfg(e.z))}</code>`}
+  document.getElementById('qvQCAtomSelect').onchange=atomInfo;atomInfo();
+
+  function configInfo(){const e=byZ(document.getElementById('qvQCConfigSelect').value);document.getElementById('qvQCConfigResult').innerHTML=`<div class="qv-qgrid"><div><h3>${esc(e.n)} · ${e.s}</h3><p class="qv-qmuted">Z = ${e.z} · masa ≈ ${e.m} u · capas: ${esc(shells(e.z))}</p><div class="qv-qconfig">Abreviada / modelo del sistema:<br>${esc(cfg(e.z))}<br><br>Completa por orden de llenado:<br>${esc(full(e.z))}</div></div><div><h3>Distribución por orbitales</h3><div class="qv-orbital-grid">${renderOrbBoxes(e.z)}</div></div></div>`}
+  function renderOrbBoxes(z){const text=full(z);const re=/([1-7][spdf])(\d+)/g;let m,out=[];while((m=re.exec(text)))out.push(`<div class="qv-orbital-box"><b>${m[1]}</b><div class="qv-arrows">${'↑'.repeat(Math.ceil(Number(m[2])/2))}${'↓'.repeat(Math.floor(Number(m[2])/2))}</div><span class="qv-mini">${m[2]} e⁻</span></div>`);return out.join('')}
+  document.getElementById('qvQCConfigSelect').onchange=configInfo;configInfo();
+  document.getElementById('qvQCConfigSearch').oninput=function(){const s=this.value.toLowerCase();const el=document.getElementById('qvQCConfigSelect');el.innerHTML=D.filter(e=>(`${e.z} ${e.s} ${e.n}`).toLowerCase().includes(s)).map(e=>`<option value="${e.z}">${e.z} · ${e.s} · ${e.n}</option>`).join('');if(el.options.length)configInfo()};
+
+  function orbInfo(){const e=byZ(document.getElementById('qvQCOrbSelect').value);document.getElementById('qvQCOrbResult').innerHTML=`<div class="qv-qconfig" style="margin-top:12px"><b>${esc(e.n)} (${e.s})</b><br>${esc(cfg(e.z))}</div><div class="qv-orbital-grid">${renderOrbBoxes(e.z)}</div><p class="qv-qmuted">Puedes relacionar esta distribución con el modelo 3D/4D que aparece al abrir el elemento desde la tabla periódica. Las flechas muestran ocupación y espines de forma didáctica.</p>`}
+  document.getElementById('qvQCOrbSelect').onchange=orbInfo;orbInfo();
+
+  const spectralBase={H:[410,434,486,656],He:[447,471,492,588,668],Na:[497,568,589,615],K:[404,766,770],Ca:[423,430,443,527],Li:[413,497,610,671],Ne:[540,585,588,594,603,640],Hg:[404,436,546,578],Ar:[415,419,425,696,706,738],Fe:[372,382,404,438,495,527,532]};
+  function spectrum(){const e=byZ(document.getElementById('qvQCSpectrumSelect').value), lines=spectralBase[e.s]||Array.from({length:6},(_,i)=>390+((e.z*37+i*53)%390));document.getElementById('qvQCSpectrumInfo').innerHTML=`<p class="qv-qmuted"><b>${esc(e.n)} (${e.s})</b>: ${lines.length} líneas educativas representadas. Longitudes de onda orientativas para algunos elementos; para otros se usa una señal esquemática para mostrar el concepto.</p>`;const box=document.getElementById('qvQCSpectrum');box.innerHTML='<div class="axis"></div>'+lines.map((nm,i)=>{const x=((nm-380)/410)*100;const h=55+((i*31+e.z)%120);return `<i class="line" style="left:${Math.max(2,Math.min(98,x))}%;height:${h}px" title="${nm} nm"></i>`}).join('')}
+  document.getElementById('qvQCSpectrumSelect').onchange=spectrum;spectrum();
+
+  const gas=new Set([1,2,7,8,9,10,17,18,36,54,86,118]), liquid=new Set([35,80]);
+  const statesInfo=e=>{let st=gas.has(e.z)?'Gas':liquid.has(e.z)?'Líquido':(e.z>=84?'Sólido (a condiciones ordinarias, con excepciones radiactivas y datos limitados)':'Sólido');let temp=gas.has(e.z)?'Gaseoso a temperatura ambiente':liquid.has(e.z)?'Líquido a temperatura ambiente':'Sólido a temperatura ambiente';return `<div class="qv-state">${st}<small>${temp}</small></div><p class="qv-qmuted">${stateDescription(e,st)}</p>`};
+  function stateDescription(e,st){if(st==='Gas')return 'Su estado gaseoso se relaciona con fuerzas intermoleculares y condiciones de temperatura/presión. Los gases nobles son monoatómicos y varios no metales forman moléculas diatómicas.';if(st==='Líquido')return 'En condiciones ordinarias este elemento se encuentra como líquido. Su comportamiento depende de temperatura, presión y pureza.';return 'Se presenta como sólido en condiciones ordinarias. Sus propiedades dependen de la estructura atómica, enlaces y red cristalina o estructura metálica.'}
+  function state(){const e=byZ(document.getElementById('qvQCStateSelect').value);document.getElementById('qvQCStateResult').innerHTML=statesInfo(e)}document.getElementById('qvQCStateSelect').onchange=state;state();
+
+  function engineeringInfo(e){return `<div class="qv-qchips"><span class="qv-qchip">${esc(e.n)} (${e.s})</span><span class="qv-qchip">Z = ${e.z}</span><span class="qv-qchip">Masa ≈ ${e.m} u</span></div><p class="qv-qmuted"><b>Aplicaciones y procesos:</b> ${engineeringByElement(e)}</p>`}
+  function engineeringByElement(e){const metals=new Set([3,4,11,12,13,19,20,21,22,23,24,25,26,27,28,29,30,31,37,38,39,40,41,42,43,44,45,46,47,48,49,50,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,87,88,89,90,91,92]);if(e.z===8)return'Oxidación, tratamiento de agua, combustión, producción de óxidos y procesos de control ambiental.';if(e.z===1)return'Producción de hidrógeno, celdas de combustible, síntesis química y almacenamiento energético.';if(e.z===6)return'Carbono, polímeros, materiales compuestos, adsorbentes y procesos de transformación de hidrocarburos.';if(e.z===17)return'Desinfección, síntesis de compuestos clorados, tratamiento de agua y procesos industriales controlados.';if(e.z===26)return'Acero, metalurgia, catalizadores, estructuras, maquinaria y procesos de fabricación.';if(metals.has(e.z))return'Metalurgia, aleaciones, materiales, catalizadores, transferencia de calor, fabricación y recuperación/reciclaje del elemento.';return'Análisis de propiedades, selección de materiales, control de procesos, seguridad y tratamiento de corrientes que contienen este elemento.'}
+  function sustainInfo(e){return `<div class="qv-qchips"><span class="qv-qchip">${esc(e.n)} (${e.s})</span><span class="qv-qchip">Recuperación y reciclaje</span><span class="qv-qchip">Uso eficiente</span></div><p class="qv-qmuted"><b>Enfoque de sostenibilidad:</b> ${sustainByElement(e)}</p>`}
+  function sustainByElement(e){if([3,11,19,37,55,87].includes(e.z))return'Verificar consumo y recuperación de materiales, minimizar residuos y optimizar procesos de extracción y uso.';if([6,14,32].includes(e.z))return'Diseño de materiales durables, reutilización, reciclaje y reducción del consumo energético durante fabricación y transformación.';if([8,16,17].includes(e.z))return'Optimizar su uso en tratamiento, síntesis y procesos industriales, controlando emisiones y corrientes residuales.';if([26,28,29,30,47,79].includes(e.z))return'Priorizar recuperación, reciclaje y eficiencia de materiales para disminuir la necesidad de extracción de recursos.';return'Analizar ciclo de vida, eficiencia de materia y energía, prevención de residuos, recuperación y sustitución cuando exista una alternativa más segura.'}
+  const initial= D[0].z; updateContext(initial);
+  document.querySelectorAll('.qv-qtab[data-qtab]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.qv-qtab[data-qtab]').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.qv-qpanel').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('qvtab-'+b.dataset.qtab).classList.add('active')}));
+
+  const tutor={orbital:'Un orbital es una región del espacio donde existe una probabilidad alta de encontrar un electrón. Los orbitales se agrupan en subniveles s, p, d y f.',configuracion:'La configuración electrónica distribuye los electrones en niveles y subniveles siguiendo reglas como Aufbau, exclusión de Pauli y la regla de Hund. En Quimiverse puedes seleccionar cualquiera de los 118 elementos.',espectro:'Un espectro muestra radiación emitida, absorbida o transmitida. Las líneas pueden asociarse a transiciones entre estados energéticos y sirven para identificar sustancias.',ingenieria:'La ingeniería química aplica balances de materia y energía, termodinámica, transferencia de calor y masa, reacción, separación, control y seguridad para diseñar y operar procesos.',sostenibilidad:'La sostenibilidad química busca prevenir residuos, reducir energía y sustancias peligrosas, mejorar eficiencia, recuperar materiales y diseñar productos y procesos con menor impacto.',estado:'El estado de un elemento depende de temperatura y presión. En condiciones ordinarias, la mayoría de los elementos son sólidos; bromo y mercurio son líquidos y varios no metales y gases nobles son gases.',atomo:'Un átomo tiene un núcleo con protones y neutrones y una nube electrónica descrita mediante estados cuánticos. El número atómico Z determina el elemento.',balance:'Balancear una ecuación significa conservar el número de átomos de cada elemento en reactivos y productos. Los coeficientes se ajustan sin cambiar las fórmulas químicas.'};
+  function answer(q){q=q.toLowerCase();let key=Object.keys(tutor).find(k=>q.includes(k));if(!key){if(/hola|buenas|hey/.test(q))return'¡Hola! Pregúntame por un elemento, orbitales, configuración, espectros, estados, ingeniería química o sostenibilidad.';if(/electron/.test(q))return tutor.configuracion+' También puedo mostrarte la ocupación de orbitales en la pestaña correspondiente.';if(/quim|química|quimica/.test(q))return'La química estudia la materia, su estructura, propiedades y transformaciones. Si me dices el tema, puedo explicarlo paso a paso.';return'Puedo ayudarte con átomos, orbitales s/p/d/f, configuración electrónica, espectros, estados, ingeniería química, balances y sostenibilidad. Prueba con una pregunta más concreta, por ejemplo: “¿qué es un orbital d?”'}return tutor[key]}
+  function answerWithElement(q){const e=byZ(document.getElementById('qvQCTutorElementSelect')?.value||1);const base=answer(q);if(/elemento|átomo|config|orbital|espectro|estado|aplicacion|aplicación|sosten/i.test(q.toLowerCase()))return base+`
+
+Elemento seleccionado: ${e.n} (${e.s}), Z=${e.z}. Configuración: ${cfg(e.z)}.`;return base+`
+
+Contexto actual: ${e.n} (${e.s}), Z=${e.z}. Puedes preguntarme específicamente por este elemento.`}
+  function sendTutor(){const inp=document.getElementById('qvQCTutorInput'),q=inp.value.trim();if(!q)return;const box=document.getElementById('qvQCTutorMsgs');box.insertAdjacentHTML('beforeend',`<div class="qv-msg user">${esc(q)}</div><div class="qv-msg bot">${esc(answerWithElement(q))}</div>`);box.scrollTop=box.scrollHeight;inp.value=''}
+  document.getElementById('qvQCTutorSend').onclick=sendTutor;document.getElementById('qvQCTutorInput').onkeydown=e=>{if(e.key==='Enter')sendTutor()};document.querySelectorAll('[data-qprompt]').forEach(b=>b.onclick=()=>{document.getElementById('qvQCTutorInput').value=b.dataset.qprompt;sendTutor()});document.getElementById('qvQCTutorClear').onclick=()=>{document.getElementById('qvQCTutorMsgs').innerHTML='<div class="qv-msg bot">Conversación limpia. ¿Qué tema de química quieres estudiar?</div>'};
+})();
+</script>
